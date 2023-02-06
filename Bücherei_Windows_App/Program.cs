@@ -12,7 +12,7 @@ namespace Bücherei_Windows_App
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Forms.Login_Form());
-            Application.Run(new Forms.Dashboard_Form());
+            Application.Run(new Forms.Login_Form());
         }
     }
 }

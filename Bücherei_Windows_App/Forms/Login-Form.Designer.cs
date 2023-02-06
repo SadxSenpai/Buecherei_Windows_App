@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_close = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.login = new System.Windows.Forms.Button();
+            this.login_button = new System.Windows.Forms.Button();
             this.password_label = new System.Windows.Forms.Label();
             this.password_input = new System.Windows.Forms.TextBox();
             this.email_label = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.panel1.Controls.Add(this.label_close);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.login);
+            this.panel1.Controls.Add(this.login_button);
             this.panel1.Controls.Add(this.password_label);
             this.panel1.Controls.Add(this.password_input);
             this.panel1.Controls.Add(this.email_label);
@@ -85,16 +85,16 @@
             this.label1.Text = "User Login";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // login
+            // login_button
             // 
-            this.login.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.login.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.login.Location = new System.Drawing.Point(48, 375);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(350, 50);
-            this.login.TabIndex = 8;
-            this.login.Text = "Login";
-            this.login.UseVisualStyleBackColor = true;
+            this.login_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.login_button.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.login_button.Location = new System.Drawing.Point(48, 375);
+            this.login_button.Name = "login_button";
+            this.login_button.Size = new System.Drawing.Size(350, 50);
+            this.login_button.TabIndex = 8;
+            this.login_button.Text = "Login";
+            this.login_button.UseVisualStyleBackColor = true;
             // 
             // password_label
             // 
@@ -176,6 +176,6 @@
         private TextBox password_input;
         private Label email_label;
         private TextBox email_input;
-        private Button login;
+        private Button login_button;
     }
 }

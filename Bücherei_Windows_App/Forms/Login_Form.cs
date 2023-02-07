@@ -61,16 +61,6 @@ namespace Bücherei_Windows_App.Forms
             MySqlConnection con = new MySqlConnection();
             con.ConnectionString = connstring;
 
-
-            //The_Database.DB db = new The_Database.DB();
-
-            //string email = email_input.Text;
-            //string password = password_input.Text;
-
-            //DataTable table = new DataTable();
-            //MySqlDataAdapter adapter = new MySqlDataAdapter();
-            //MySqlCommand command = new MySqlCommand("SELECT * FROM `app_users` WHERE 'email' LIKE email AND 'password' LIKE pass");
-
             string connectionString = "server=localhost;uid=root;pwd=;database=lms_db";
             string select = "SELECT email, password FROM app_users " +
                             "WHERE email = @email";

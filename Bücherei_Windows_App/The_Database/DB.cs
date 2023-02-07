@@ -12,7 +12,7 @@ namespace Bücherei_Windows_App.The_Database
     internal class DB
     {
         // Connection
-        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=lms_db");
+        public MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=lms_db");
 
         //function to open connection
         public void openConnection()

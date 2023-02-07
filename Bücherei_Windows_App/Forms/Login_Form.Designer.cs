@@ -38,6 +38,7 @@
             this.email_label = new System.Windows.Forms.Label();
             this.email_input = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.testSQL = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.panel1.Controls.Add(this.testSQL);
             this.panel1.Controls.Add(this.label_close);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.login_button);
@@ -149,6 +151,16 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // testSQL
+            // 
+            this.testSQL.Location = new System.Drawing.Point(3, 3);
+            this.testSQL.Name = "testSQL";
+            this.testSQL.Size = new System.Drawing.Size(125, 25);
+            this.testSQL.TabIndex = 9;
+            this.testSQL.Text = "Test SqlConnection";
+            this.testSQL.UseVisualStyleBackColor = true;
+            this.testSQL.Click += new System.EventHandler(this.testSQL_Click);
+            // 
             // Login_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -179,5 +191,6 @@
         private Label email_label;
         private TextBox email_input;
         private Button login_button;
+        private Button testSQL;
     }
 }

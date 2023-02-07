@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using MySql.Data.MySqlClient;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Bücherei_Windows_App.Forms
 {
@@ -64,48 +57,79 @@ namespace Bücherei_Windows_App.Forms
 
         private void login_button_Click(object sender, EventArgs e)
         {
+            string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+            MySqlConnection con = new MySqlConnection();
+            con.ConnectionString = connstring;
 
-            The_Database.DB db = new The_Database.DB();
 
-            string email = email_input.Text;
-            string password = password_input.Text;
+            //The_Database.DB db = new The_Database.DB();
 
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `app_users` WHERE `email`=@email AND `password`=@pass", db.GetConnection());
+            //string email = email_input.Text;
+            //string password = password_input.Text;
 
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
+            //DataTable table = new DataTable();
+            //MySqlDataAdapter adapter = new MySqlDataAdapter();
+            //MySqlCommand command = new MySqlCommand("SELECT * FROM `app_users` WHERE 'email' LIKE email AND 'password' LIKE pass");
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
+            string connectionString = "server=localhost;uid=root;pwd=;database=lms_db";
+            string select = "SELECT email, password FROM app_users " +
+                            "WHERE email = @email";
 
-            // check if user exists
-            if (table.Rows.Count > 0)//if exists
+            using (MySqlConnection Conn = new MySqlConnection(connectionString))
             {
-                dashF.Enabled = true;
-                this.Close();
+                using (MySqlCommand cmd = new MySqlCommand(select, Conn))
+                {
+                    cmd.Parameters.AddWithValue("@email", email_input.Text);
+
+                    Conn.Open();
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string email = reader.GetString(0);
+                            string password = reader.GetString(1);
+                            if (password == password_input.Text)
+                            {
+                                dashF.Enabled = true;
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Login Error", "Incorrect username or password.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login Error", "Incorrect username or password.");
+                        }
+                    }
+
+                    Conn.Close();
+                }
             }
-            else // if not
+        }
+        public void testSQL_Click(object sender, EventArgs e)
+        {
+            try
             {
-                // check if email is empty
-                if (email.Trim().Equals(""))
-                {
-                    MessageBox.Show("Keine Email eingabe gefunden!", "404", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+                MySqlConnection con = new MySqlConnection();
+                con.ConnectionString = connstring;
+                con.Open();
 
-                // check if (password is empty
-                else if (password.Trim().Equals(""))
-                {
-                    MessageBox.Show("Keine Passwort eingabe gefunden!", "404", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //if this data dosent exist
-                else
-                {
-                    MessageBox.Show("Falsche Email oder Passwort eingabe!", "404", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string sql = "select * from lms_db.app_users";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
+                while (reader.Read())
+                {
+                    MessageBox.Show("Name " + reader["email"] + "Password " + reader["password"]);
                 }
-
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

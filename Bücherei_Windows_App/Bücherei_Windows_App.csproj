@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Classes\" />
-    <Folder Include="The-Database\" />
+    <Folder Include="xMisc\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +23,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MySqlConnector" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>xMisc\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

@@ -17,24 +17,22 @@ namespace Bücherei_Windows_App.Forms
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Dashboard_Form_Load(object sender, EventArgs e)
         {
-
+            //  Side Panel Bilder
+            //ausleih_button.Image = Image.FromFile("../../Images/xxx.png");
+            //rueckgabe_button.Image = Image.FromFile("../../Images/xxx.png");
+            //books_list.Image = Image.FromFile("../../Images/xxx.png");
+            //user_list.Image = Image.FromFile("../../Images/xxx.png");
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void Dashboard_Form_Shown(object sender, EventArgs e)
         {
+            this.Enabled= false;
 
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void books_free_Click(object sender, EventArgs e)
-        {
-
+            // showing Login Form
+            Login_Form lfg = new Login_Form(this);
+            lfg.Show();
         }
     }
 }

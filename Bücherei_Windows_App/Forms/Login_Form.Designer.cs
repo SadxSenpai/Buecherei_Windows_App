@@ -95,6 +95,7 @@
             this.login_button.TabIndex = 8;
             this.login_button.Text = "Login";
             this.login_button.UseVisualStyleBackColor = true;
+            this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
             // password_label
             // 
@@ -112,6 +113,7 @@
             // 
             this.password_input.Location = new System.Drawing.Point(118, 316);
             this.password_input.Name = "password_input";
+            this.password_input.PasswordChar = '*';
             this.password_input.Size = new System.Drawing.Size(319, 23);
             this.password_input.TabIndex = 6;
             // 
@@ -133,6 +135,7 @@
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(319, 23);
             this.email_input.TabIndex = 3;
+            this.email_input.Validating += new System.ComponentModel.CancelEventHandler(this.email_input_Validating);
             // 
             // pictureBox1
             // 
@@ -158,7 +161,6 @@
             this.Name = "Login_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login_Form";
-            this.Load += new System.EventHandler(this.Login_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

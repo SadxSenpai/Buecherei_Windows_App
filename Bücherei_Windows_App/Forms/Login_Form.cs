@@ -122,5 +122,15 @@ namespace Bücherei_Windows_App.Forms
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void cattobox_MouseEnter(object sender, EventArgs e)
+        {
+            cattobox.Image = Image.FromFile("C:\\Users\\Hauser.M\\source\\repos\\Bücherei_Windows_App\\Bücherei_Windows_App\\Images\\BongoCat.gif");
+        }
+
+        private void cattobox_MouseLeave(object sender, EventArgs e)
+        {
+            cattobox.Image = Image.FromFile("C:\\Users\\Hauser.M\\source\\repos\\Bücherei_Windows_App\\Bücherei_Windows_App\\Images\\Transparent.png");
+        }
     }
 }

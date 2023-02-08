@@ -8,8 +8,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Classes\" />
+    <Folder Include="UserControl\" />
     <Folder Include="xMisc\" />
   </ItemGroup>
 

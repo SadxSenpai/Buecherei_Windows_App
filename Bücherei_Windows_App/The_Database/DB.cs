@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,35 @@ namespace Bücherei_Windows_App.The_Database
         public MySqlConnection GetConnection()
         {
             return connection;
+        }
+
+        // Funktion für "Return Table Data"
+        // parameters = the parameters of the query
+        public DataTable getData(string query, MySqlParameter[] parameters)
+        {
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
+
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(table);
+            return table;
+        }
+
+        // Funktion um Daten festzulegen und des ausführen der Query
+        public void setData(string query, MySqlParameter[] parameters)
+        {
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
+
+            cmd.ExecuteNonQuery();
         }
 
     }

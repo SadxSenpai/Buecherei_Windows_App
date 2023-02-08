@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_Form));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cattobox = new System.Windows.Forms.PictureBox();
+            this.testSQL = new System.Windows.Forms.Button();
             this.label_close = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
@@ -38,14 +41,16 @@
             this.email_label = new System.Windows.Forms.Label();
             this.email_input = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.testSQL = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cattobox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.cattobox);
             this.panel1.Controls.Add(this.testSQL);
             this.panel1.Controls.Add(this.label_close);
             this.panel1.Controls.Add(this.label1);
@@ -59,6 +64,35 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 450);
             this.panel1.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 250);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(113, 16);
+            this.flowLayoutPanel1.TabIndex = 11;
+            // 
+            // cattobox
+            // 
+            this.cattobox.BackColor = System.Drawing.Color.White;
+            this.cattobox.Location = new System.Drawing.Point(26, 216);
+            this.cattobox.Name = "cattobox";
+            this.cattobox.Size = new System.Drawing.Size(50, 50);
+            this.cattobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cattobox.TabIndex = 10;
+            this.cattobox.TabStop = false;
+            this.cattobox.MouseEnter += new System.EventHandler(this.cattobox_MouseEnter);
+            this.cattobox.MouseLeave += new System.EventHandler(this.cattobox_MouseLeave);
+            // 
+            // testSQL
+            // 
+            this.testSQL.Location = new System.Drawing.Point(3, 3);
+            this.testSQL.Name = "testSQL";
+            this.testSQL.Size = new System.Drawing.Size(125, 25);
+            this.testSQL.TabIndex = 9;
+            this.testSQL.Text = "Test SqlConnection";
+            this.testSQL.UseVisualStyleBackColor = true;
+            this.testSQL.Click += new System.EventHandler(this.testSQL_Click);
             // 
             // label_close
             // 
@@ -143,23 +177,13 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::Bücherei_Windows_App.Properties.Resources.CDB_137;
+            this.pictureBox1.Image = global::Bücherei_Windows_App.Properties.Resources.BBW_137_137;
             this.pictureBox1.Location = new System.Drawing.Point(0, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(450, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // testSQL
-            // 
-            this.testSQL.Location = new System.Drawing.Point(3, 3);
-            this.testSQL.Name = "testSQL";
-            this.testSQL.Size = new System.Drawing.Size(125, 25);
-            this.testSQL.TabIndex = 9;
-            this.testSQL.Text = "Test SqlConnection";
-            this.testSQL.UseVisualStyleBackColor = true;
-            this.testSQL.Click += new System.EventHandler(this.testSQL_Click);
             // 
             // Login_Form
             // 
@@ -175,6 +199,7 @@
             this.Text = "Login_Form";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cattobox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -192,5 +217,7 @@
         private TextBox email_input;
         private Button login_button;
         private Button testSQL;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private PictureBox cattobox;
     }
 }

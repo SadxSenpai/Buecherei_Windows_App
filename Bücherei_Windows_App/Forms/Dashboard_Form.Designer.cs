@@ -55,6 +55,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.books_count = new System.Windows.Forms.Label();
+            this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_books)).BeginInit();
             this.panel3.SuspendLayout();
@@ -96,6 +97,7 @@
             this.books_list.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.books_list.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.books_list.UseVisualStyleBackColor = false;
+            this.books_list.Click += new System.EventHandler(this.books_list_Click);
             // 
             // user_list
             // 
@@ -184,6 +186,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.booklist_uc1);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel6);
@@ -368,6 +371,14 @@
             this.books_count.Text = "999";
             this.books_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // booklist_uc1
+            // 
+            this.booklist_uc1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.booklist_uc1.Location = new System.Drawing.Point(-3, -1);
+            this.booklist_uc1.Name = "booklist_uc1";
+            this.booklist_uc1.Size = new System.Drawing.Size(990, 660);
+            this.booklist_uc1.TabIndex = 5;
+            // 
             // Dashboard_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -381,9 +392,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Dashboard_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Form_Load);
             this.Shown += new System.EventHandler(this.Dashboard_Form_Shown);
+            this.Click += new System.EventHandler(this.Dashboard_Form_Click);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_books)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -423,5 +436,6 @@
         private Panel panel11;
         private Panel panel10;
         private Panel panel9;
+        private Booklist_UC booklist_uc1;
     }
 }

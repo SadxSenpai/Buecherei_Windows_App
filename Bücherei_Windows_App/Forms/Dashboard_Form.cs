@@ -19,6 +19,9 @@ namespace Bücherei_Windows_App.Forms
 
         private void Dashboard_Form_Load(object sender, EventArgs e)
         {
+            //Hide UserControls
+            booklist_uc1.Hide();
+
             //  Side Panel Bilder
             //ausleih_button.Image = Image.FromFile("../../Images/xxx.png");
             //rueckgabe_button.Image = Image.FromFile("../../Images/xxx.png");
@@ -31,8 +34,18 @@ namespace Bücherei_Windows_App.Forms
             this.Enabled= false;
 
             // showing Login Form
-            Login_Form lfg = new Login_Form(this);
-            lfg.Show();
+            Login_Form logf = new Login_Form(this);
+            logf.TopMost = true;
+            logf.Show();
+        }
+
+        private void Dashboard_Form_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void books_list_Click(object sender, EventArgs e)
+        {
+        booklist_uc1.Show();
         }
     }
 }

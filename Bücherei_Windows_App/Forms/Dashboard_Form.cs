@@ -12,6 +12,7 @@
             //Hide UserControls
             booklist_uc1.Hide();
             book_Out_uc1.Hide();
+            userlist_uc1.Hide();
 
             //  Side Panel Bilder
             //ausleih_button.Image = Image.FromFile("../../Images/xxx.png");
@@ -37,11 +38,22 @@
         private void books_list_Click(object sender, EventArgs e)
         {
             booklist_uc1.Show();
+            book_Out_uc1.Hide();
+            userlist_uc1.Hide();
         }
 
         private void ausleih_button_Click(object sender, EventArgs e)
         {
             book_Out_uc1.Show();
+            booklist_uc1.Hide();
+            userlist_uc1.Hide();
+        }
+
+        private void user_list_Click(object sender, EventArgs e)
+        {
+            userlist_uc1.Show();
+            booklist_uc1.Hide();
+            book_Out_uc1.Hide();
         }
     }
 }

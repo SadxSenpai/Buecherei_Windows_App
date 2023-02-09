@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox_books = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -56,6 +55,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.books_count = new System.Windows.Forms.Label();
+            this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
+            this.userlist_uc1 = new Bücherei_Windows_App.Userlist_UC();
             this.book_Out_uc1 = new Bücherei_Windows_App.Book_Out_UC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_books)).BeginInit();
@@ -92,7 +93,7 @@
             this.books_list.Location = new System.Drawing.Point(6, 563);
             this.books_list.Name = "books_list";
             this.books_list.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.books_list.Size = new System.Drawing.Size(254, 50);
+            this.books_list.Size = new System.Drawing.Size(251, 50);
             this.books_list.TabIndex = 6;
             this.books_list.Text = "Buchliste";
             this.books_list.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -110,12 +111,13 @@
             this.user_list.Location = new System.Drawing.Point(6, 619);
             this.user_list.Name = "user_list";
             this.user_list.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.user_list.Size = new System.Drawing.Size(254, 50);
+            this.user_list.Size = new System.Drawing.Size(251, 50);
             this.user_list.TabIndex = 5;
             this.user_list.Text = "User Management";
             this.user_list.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.user_list.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.user_list.UseVisualStyleBackColor = false;
+            this.user_list.Click += new System.EventHandler(this.user_list_Click);
             // 
             // rueckgabe_button
             // 
@@ -159,7 +161,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.panel2.Location = new System.Drawing.Point(0, 129);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 10);
+            this.panel2.Size = new System.Drawing.Size(257, 10);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -188,8 +190,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.book_Out_uc1);
-            this.panel3.Controls.Add(this.booklist_uc1);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel6);
@@ -199,14 +199,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(986, 657);
             this.panel3.TabIndex = 1;
-            // 
-            // booklist_uc1
-            // 
-            this.booklist_uc1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.booklist_uc1.Location = new System.Drawing.Point(-3, -1);
-            this.booklist_uc1.Name = "booklist_uc1";
-            this.booklist_uc1.Size = new System.Drawing.Size(990, 660);
-            this.booklist_uc1.TabIndex = 5;
             // 
             // panel8
             // 
@@ -382,12 +374,29 @@
             this.books_count.Text = "999";
             this.books_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // booklist_uc1
+            // 
+            this.booklist_uc1.BackColor = System.Drawing.Color.White;
+            this.booklist_uc1.Location = new System.Drawing.Point(266, 9);
+            this.booklist_uc1.Name = "booklist_uc1";
+            this.booklist_uc1.Size = new System.Drawing.Size(990, 660);
+            this.booklist_uc1.TabIndex = 3;
+            // 
+            // userlist_uc1
+            // 
+            this.userlist_uc1.BackColor = System.Drawing.Color.White;
+            this.userlist_uc1.Location = new System.Drawing.Point(266, 9);
+            this.userlist_uc1.Name = "userlist_uc1";
+            this.userlist_uc1.Size = new System.Drawing.Size(990, 660);
+            this.userlist_uc1.TabIndex = 4;
+            // 
             // book_Out_uc1
             // 
-            this.book_Out_uc1.Location = new System.Drawing.Point(-3, 0);
+            this.book_Out_uc1.BackColor = System.Drawing.Color.White;
+            this.book_Out_uc1.Location = new System.Drawing.Point(267, 10);
             this.book_Out_uc1.Name = "book_Out_uc1";
             this.book_Out_uc1.Size = new System.Drawing.Size(404, 657);
-            this.book_Out_uc1.TabIndex = 6;
+            this.book_Out_uc1.TabIndex = 5;
             // 
             // Dashboard_Form
             // 
@@ -396,6 +405,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.book_Out_uc1);
+            this.Controls.Add(this.userlist_uc1);
+            this.Controls.Add(this.booklist_uc1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -447,6 +459,7 @@
         private Panel panel10;
         private Panel panel9;
         private Booklist_UC booklist_uc1;
+        private Userlist_UC userlist_uc1;
         private Book_Out_UC book_Out_uc1;
     }
 }

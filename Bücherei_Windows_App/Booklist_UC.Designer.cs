@@ -34,7 +34,7 @@
             this.exit_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.book_list_datagrid = new System.Windows.Forms.DataGridView();
-            this.SQL_Insert = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.book_list_datagrid)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +43,7 @@
             // 
             this.exit_label.AutoSize = true;
             this.exit_label.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exit_label.Location = new System.Drawing.Point(960, 0);
+            this.exit_label.Location = new System.Drawing.Point(944, 0);
             this.exit_label.Name = "exit_label";
             this.exit_label.Size = new System.Drawing.Size(30, 32);
             this.exit_label.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.book_list_datagrid);
             this.panel1.Location = new System.Drawing.Point(3, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 622);
+            this.panel1.Size = new System.Drawing.Size(968, 608);
             this.panel1.TabIndex = 1;
             // 
             // book_list_datagrid
@@ -90,33 +90,33 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.book_list_datagrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.book_list_datagrid.GridColor = System.Drawing.Color.Black;
-            this.book_list_datagrid.Location = new System.Drawing.Point(3, 0);
+            this.book_list_datagrid.Location = new System.Drawing.Point(3, 3);
             this.book_list_datagrid.Name = "book_list_datagrid";
             this.book_list_datagrid.ReadOnly = true;
             this.book_list_datagrid.RowHeadersWidth = 25;
             this.book_list_datagrid.RowTemplate.Height = 25;
-            this.book_list_datagrid.Size = new System.Drawing.Size(978, 619);
+            this.book_list_datagrid.Size = new System.Drawing.Size(962, 602);
             this.book_list_datagrid.TabIndex = 0;
             // 
-            // SQL_Insert
+            // label1
             // 
-            this.SQL_Insert.Location = new System.Drawing.Point(6, 6);
-            this.SQL_Insert.Name = "SQL_Insert";
-            this.SQL_Insert.Size = new System.Drawing.Size(75, 23);
-            this.SQL_Insert.TabIndex = 1;
-            this.SQL_Insert.Text = "Insert Data";
-            this.SQL_Insert.UseVisualStyleBackColor = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 35);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Bücherliste";
             // 
             // Booklist_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.SQL_Insert);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.exit_label);
             this.Name = "Booklist_UC";
-            this.Size = new System.Drawing.Size(990, 660);
+            this.Size = new System.Drawing.Size(974, 646);
             this.Load += new System.EventHandler(this.Booklist_UC_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.book_list_datagrid)).EndInit();
@@ -130,6 +130,6 @@
         private Label exit_label;
         private Panel panel1;
         private DataGridView book_list_datagrid;
-        private Button SQL_Insert;
+        private Label label1;
     }
 }

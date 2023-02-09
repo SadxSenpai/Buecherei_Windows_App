@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2023 at 03:59 PM
+-- Generation Time: Feb 09, 2023 at 04:37 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -58,8 +58,19 @@ CREATE TABLE `books` (
   `book_out_with` varchar(100) NOT NULL,
   `book_out_since` varchar(100) NOT NULL,
   `book_back_when` varchar(100) NOT NULL,
-  `book_out` tinyint(1) NOT NULL
+  `book_out` tinyint(1) NOT NULL,
+  `book_note` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `book_name`, `book_author`, `book_type`, `book_out_with`, `book_out_since`, `book_back_when`, `book_out`, `book_note`) VALUES
+(1, 'Buch1', 'Bob', 'booktype', 'bookuser', 'dateout', 'dateback', 1, 'bookinfo'),
+(2, 'Eindingsbums', 'Bobby', 'booktype', 'bookuser', 'dateout', 'dateback', 1, 'bookinfo'),
+(3, 'PC Gaymes', 'Krampus', 'booktype', 'bookuser', 'dateout', 'dateback', 1, 'bookinfo'),
+(4, 'not PC Gaymes', 'Krampus 2.0', 'booktype', 'bookuser', 'dateout', 'dateback', 1, 'bookinfo');
 
 --
 -- Indexes for dumped tables
@@ -91,7 +102,7 @@ ALTER TABLE `app_users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

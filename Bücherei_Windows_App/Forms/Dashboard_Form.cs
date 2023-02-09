@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Bücherei_Windows_App.Forms
+﻿namespace Bücherei_Windows_App.Forms
 {
     public partial class Dashboard_Form : Form
     {
@@ -21,6 +11,7 @@ namespace Bücherei_Windows_App.Forms
         {
             //Hide UserControls
             booklist_uc1.Hide();
+            book_Out_uc1.Hide();
 
             //  Side Panel Bilder
             //ausleih_button.Image = Image.FromFile("../../Images/xxx.png");
@@ -31,7 +22,7 @@ namespace Bücherei_Windows_App.Forms
 
         private void Dashboard_Form_Shown(object sender, EventArgs e)
         {
-            this.Enabled= false;
+            this.Enabled = false;
 
             // showing Login Form
             Login_Form logf = new Login_Form(this);
@@ -45,7 +36,12 @@ namespace Bücherei_Windows_App.Forms
 
         private void books_list_Click(object sender, EventArgs e)
         {
-        booklist_uc1.Show();
+            booklist_uc1.Show();
+        }
+
+        private void ausleih_button_Click(object sender, EventArgs e)
+        {
+            book_Out_uc1.Show();
         }
     }
 }

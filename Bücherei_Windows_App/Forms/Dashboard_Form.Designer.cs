@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox_books = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -55,7 +56,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.books_count = new System.Windows.Forms.Label();
-            this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
+            this.book_Out_uc1 = new Bücherei_Windows_App.Book_Out_UC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_books)).BeginInit();
             this.panel3.SuspendLayout();
@@ -151,6 +152,7 @@
             this.ausleih_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ausleih_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ausleih_button.UseVisualStyleBackColor = false;
+            this.ausleih_button.Click += new System.EventHandler(this.ausleih_button_Click);
             // 
             // panel2
             // 
@@ -186,6 +188,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.book_Out_uc1);
             this.panel3.Controls.Add(this.booklist_uc1);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel7);
@@ -196,6 +199,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(986, 657);
             this.panel3.TabIndex = 1;
+            // 
+            // booklist_uc1
+            // 
+            this.booklist_uc1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.booklist_uc1.Location = new System.Drawing.Point(-3, -1);
+            this.booklist_uc1.Name = "booklist_uc1";
+            this.booklist_uc1.Size = new System.Drawing.Size(990, 660);
+            this.booklist_uc1.TabIndex = 5;
             // 
             // panel8
             // 
@@ -371,13 +382,12 @@
             this.books_count.Text = "999";
             this.books_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // booklist_uc1
+            // book_Out_uc1
             // 
-            this.booklist_uc1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.booklist_uc1.Location = new System.Drawing.Point(-3, -1);
-            this.booklist_uc1.Name = "booklist_uc1";
-            this.booklist_uc1.Size = new System.Drawing.Size(990, 660);
-            this.booklist_uc1.TabIndex = 5;
+            this.book_Out_uc1.Location = new System.Drawing.Point(-3, 0);
+            this.book_Out_uc1.Name = "book_Out_uc1";
+            this.book_Out_uc1.Size = new System.Drawing.Size(404, 657);
+            this.book_Out_uc1.TabIndex = 6;
             // 
             // Dashboard_Form
             // 
@@ -437,5 +447,6 @@
         private Panel panel10;
         private Panel panel9;
         private Booklist_UC booklist_uc1;
+        private Book_Out_UC book_Out_uc1;
     }
 }

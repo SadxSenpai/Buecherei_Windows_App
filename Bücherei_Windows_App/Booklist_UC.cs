@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
 {
@@ -36,6 +28,19 @@ namespace Bücherei_Windows_App
         private void Booklist_UC_Load(object sender, EventArgs e)
         {
             book_list_datagrid.DataSource = GetBooksDB();
+
+            book_list_datagrid.Columns[0].HeaderText = "Nr.";
+            book_list_datagrid.Columns[1].HeaderText = "Name";
+            book_list_datagrid.Columns[2].HeaderText = "Author";
+            book_list_datagrid.Columns[3].HeaderText = "Art";
+            book_list_datagrid.Columns[4].HeaderText = "Bei:";
+            book_list_datagrid.Columns[5].HeaderText = "Seit:";
+            book_list_datagrid.Columns[6].HeaderText = "Bis:";
+            book_list_datagrid.Columns[7].HeaderText = "Status";
+
+
+
+            book_list_datagrid.AutoResizeColumns();
         }
 
         private DataTable GetBooksDB()

@@ -1,8 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System.ComponentModel;
-using System.Data;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Bücherei_Windows_App.Forms
 {
@@ -100,8 +97,7 @@ namespace Bücherei_Windows_App.Forms
             try
             {
                 string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
-                MySqlConnection con = new MySqlConnection();
-                con.ConnectionString = connstring;
+                MySqlConnection con = new MySqlConnection(connstring);
                 con.Open();
 
                 string sql = "select * from lms_db.app_users";

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.exit_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.book_list_datagrid = new System.Windows.Forms.DataGridView();
@@ -60,13 +63,39 @@
             // 
             // book_list_datagrid
             // 
+            this.book_list_datagrid.AllowUserToAddRows = false;
+            this.book_list_datagrid.AllowUserToDeleteRows = false;
+            this.book_list_datagrid.AllowUserToResizeColumns = false;
+            this.book_list_datagrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.book_list_datagrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.book_list_datagrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.book_list_datagrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.book_list_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.book_list_datagrid.Location = new System.Drawing.Point(3, 3);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.book_list_datagrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.book_list_datagrid.GridColor = System.Drawing.Color.Black;
+            this.book_list_datagrid.Location = new System.Drawing.Point(3, 0);
             this.book_list_datagrid.Name = "book_list_datagrid";
+            this.book_list_datagrid.ReadOnly = true;
             this.book_list_datagrid.RowHeadersWidth = 25;
             this.book_list_datagrid.RowTemplate.Height = 25;
-            this.book_list_datagrid.Size = new System.Drawing.Size(978, 616);
+            this.book_list_datagrid.Size = new System.Drawing.Size(978, 619);
             this.book_list_datagrid.TabIndex = 0;
             // 
             // SQL_Insert

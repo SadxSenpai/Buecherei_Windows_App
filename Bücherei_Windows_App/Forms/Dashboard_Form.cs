@@ -31,10 +31,6 @@
             logf.Show();
         }
 
-        private void Dashboard_Form_Click(object sender, EventArgs e)
-        {
-        }
-
         private void books_list_Click(object sender, EventArgs e)
         {
             booklist_uc1.Show();

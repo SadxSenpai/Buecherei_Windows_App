@@ -65,7 +65,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(398, 608);
+            this.panel1.Size = new System.Drawing.Size(398, 643);
             this.panel1.TabIndex = 0;
             // 
             // seven_days_label
@@ -138,9 +138,9 @@
             // 
             // book_out_finish_btn
             // 
-            this.book_out_finish_btn.Location = new System.Drawing.Point(62, 558);
+            this.book_out_finish_btn.Location = new System.Drawing.Point(67, 582);
             this.book_out_finish_btn.Name = "book_out_finish_btn";
-            this.book_out_finish_btn.Size = new System.Drawing.Size(250, 24);
+            this.book_out_finish_btn.Size = new System.Drawing.Size(250, 42);
             this.book_out_finish_btn.TabIndex = 7;
             this.book_out_finish_btn.Text = "Ausgabe";
             this.book_out_finish_btn.UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@
             this.Controls.Add(this.exit_label);
             this.Controls.Add(this.panel1);
             this.Name = "Book_Out_UC";
-            this.Size = new System.Drawing.Size(404, 646);
+            this.Size = new System.Drawing.Size(404, 681);
             this.Load += new System.EventHandler(this.Book_Out_UC_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

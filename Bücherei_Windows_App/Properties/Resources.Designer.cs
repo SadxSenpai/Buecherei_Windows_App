@@ -123,6 +123,16 @@ namespace Bücherei_Windows_App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dash_BG {
+            get {
+                object obj = ResourceManager.GetObject("Dash_BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Transparent {
             get {
                 object obj = ResourceManager.GetObject("Transparent", resourceCulture);

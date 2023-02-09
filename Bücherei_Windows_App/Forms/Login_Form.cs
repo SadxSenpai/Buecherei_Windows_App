@@ -57,10 +57,6 @@ namespace Bücherei_Windows_App.Forms
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
-            MySqlConnection con = new MySqlConnection();
-            con.ConnectionString = connstring;
-
             string connectionString = "server=localhost;uid=root;pwd=;database=lms_db";
             string select = "SELECT email, password FROM app_users " +
                             "WHERE email = @email";

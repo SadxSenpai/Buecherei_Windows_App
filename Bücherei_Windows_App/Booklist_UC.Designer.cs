@@ -31,13 +31,7 @@
             this.exit_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.book_list_datagrid = new System.Windows.Forms.DataGridView();
-            this.book_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.book_author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.book_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.book_out_with = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.book_out_since = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.book_back_when = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.book_out = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SQL_Insert = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.book_list_datagrid)).BeginInit();
             this.SuspendLayout();
@@ -68,73 +62,33 @@
             // 
             this.book_list_datagrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.book_list_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.book_list_datagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.book_name,
-            this.book_author,
-            this.book_type,
-            this.book_out_with,
-            this.book_out_since,
-            this.book_back_when,
-            this.book_out});
             this.book_list_datagrid.Location = new System.Drawing.Point(3, 3);
             this.book_list_datagrid.Name = "book_list_datagrid";
             this.book_list_datagrid.RowHeadersWidth = 25;
             this.book_list_datagrid.RowTemplate.Height = 25;
             this.book_list_datagrid.Size = new System.Drawing.Size(978, 616);
             this.book_list_datagrid.TabIndex = 0;
-            this.book_list_datagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // book_name
+            // SQL_Insert
             // 
-            this.book_name.HeaderText = "Name";
-            this.book_name.Name = "book_name";
-            this.book_name.Width = 138;
-            // 
-            // book_author
-            // 
-            this.book_author.HeaderText = "Author";
-            this.book_author.Name = "book_author";
-            this.book_author.Width = 138;
-            // 
-            // book_type
-            // 
-            this.book_type.HeaderText = "Art";
-            this.book_type.Name = "book_type";
-            this.book_type.Width = 138;
-            // 
-            // book_out_with
-            // 
-            this.book_out_with.HeaderText = "Ausgeliehen von";
-            this.book_out_with.Name = "book_out_with";
-            this.book_out_with.Width = 138;
-            // 
-            // book_out_since
-            // 
-            this.book_out_since.HeaderText = "Ausgeliehen seit";
-            this.book_out_since.Name = "book_out_since";
-            this.book_out_since.Width = 138;
-            // 
-            // book_back_when
-            // 
-            this.book_back_when.HeaderText = "Rückgabe am";
-            this.book_back_when.Name = "book_back_when";
-            this.book_back_when.Width = 138;
-            // 
-            // book_out
-            // 
-            this.book_out.HeaderText = "Status";
-            this.book_out.Name = "book_out";
-            this.book_out.Width = 120;
+            this.SQL_Insert.Location = new System.Drawing.Point(6, 6);
+            this.SQL_Insert.Name = "SQL_Insert";
+            this.SQL_Insert.Size = new System.Drawing.Size(75, 23);
+            this.SQL_Insert.TabIndex = 1;
+            this.SQL_Insert.Text = "Insert Data";
+            this.SQL_Insert.UseVisualStyleBackColor = true;
             // 
             // Booklist_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.SQL_Insert);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.exit_label);
             this.Name = "Booklist_UC";
             this.Size = new System.Drawing.Size(990, 660);
+            this.Load += new System.EventHandler(this.Booklist_UC_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.book_list_datagrid)).EndInit();
             this.ResumeLayout(false);
@@ -147,12 +101,6 @@
         private Label exit_label;
         private Panel panel1;
         private DataGridView book_list_datagrid;
-        private DataGridViewTextBoxColumn book_name;
-        private DataGridViewTextBoxColumn book_author;
-        private DataGridViewTextBoxColumn book_type;
-        private DataGridViewTextBoxColumn book_out_with;
-        private DataGridViewTextBoxColumn book_out_since;
-        private DataGridViewTextBoxColumn book_back_when;
-        private DataGridViewTextBoxColumn book_out;
+        private Button SQL_Insert;
     }
 }

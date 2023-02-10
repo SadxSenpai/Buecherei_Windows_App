@@ -30,11 +30,6 @@ namespace Bücherei_Windows_App
             this.Location = new Point(260, 0);
         }
 
-        private void OnDispose(object sender, EventArgs e)
-        {
-            Disposed += OnDispose;
-        }
-
         private void book_type_cb_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

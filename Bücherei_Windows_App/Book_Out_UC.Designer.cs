@@ -73,7 +73,7 @@
             this.book_type_tb.BackColor = System.Drawing.Color.White;
             this.book_type_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.book_type_tb.ForeColor = System.Drawing.Color.Black;
-            this.book_type_tb.Location = new System.Drawing.Point(176, 119);
+            this.book_type_tb.Location = new System.Drawing.Point(176, 124);
             this.book_type_tb.Name = "book_type_tb";
             this.book_type_tb.Size = new System.Drawing.Size(207, 23);
             this.book_type_tb.TabIndex = 17;
@@ -95,7 +95,7 @@
             this.today_date_label.BackColor = System.Drawing.Color.White;
             this.today_date_label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.today_date_label.ForeColor = System.Drawing.Color.Black;
-            this.today_date_label.Location = new System.Drawing.Point(176, 251);
+            this.today_date_label.Location = new System.Drawing.Point(176, 256);
             this.today_date_label.Name = "today_date_label";
             this.today_date_label.Size = new System.Drawing.Size(207, 23);
             this.today_date_label.TabIndex = 15;
@@ -135,7 +135,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 251);
+            this.label5.Location = new System.Drawing.Point(3, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 23);
             this.label5.TabIndex = 9;
@@ -175,7 +175,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 119);
+            this.label2.Location = new System.Drawing.Point(3, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 23);
             this.label2.TabIndex = 2;

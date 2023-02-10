@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.new_user = new System.Windows.Forms.Button();
             this.book_add_new = new System.Windows.Forms.Button();
             this.books_list = new System.Windows.Forms.Button();
             this.user_list = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.book_add_uc1 = new Bücherei_Windows_App.Book_add_UC();
             this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
             this.userlist_uc1 = new Bücherei_Windows_App.Userlist_UC();
+            this.user_Add_uc1 = new Bücherei_Windows_App.User_Add_UC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_books)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.new_user);
             this.panel1.Controls.Add(this.book_add_new);
             this.panel1.Controls.Add(this.books_list);
             this.panel1.Controls.Add(this.user_list);
@@ -63,6 +66,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 681);
             this.panel1.TabIndex = 0;
+            // 
+            // new_user
+            // 
+            this.new_user.BackColor = System.Drawing.Color.LavenderBlush;
+            this.new_user.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.new_user.FlatAppearance.BorderSize = 0;
+            this.new_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.new_user.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.new_user.Location = new System.Drawing.Point(3, 507);
+            this.new_user.Name = "new_user";
+            this.new_user.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.new_user.Size = new System.Drawing.Size(254, 50);
+            this.new_user.TabIndex = 8;
+            this.new_user.Text = "Neuer Benutzer";
+            this.new_user.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.new_user.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.new_user.UseVisualStyleBackColor = false;
+            this.new_user.Click += new System.EventHandler(this.new_user_Click);
             // 
             // book_add_new
             // 
@@ -90,10 +111,10 @@
             this.books_list.FlatAppearance.BorderSize = 0;
             this.books_list.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.books_list.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.books_list.Location = new System.Drawing.Point(6, 563);
+            this.books_list.Location = new System.Drawing.Point(3, 563);
             this.books_list.Name = "books_list";
             this.books_list.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.books_list.Size = new System.Drawing.Size(251, 50);
+            this.books_list.Size = new System.Drawing.Size(254, 50);
             this.books_list.TabIndex = 6;
             this.books_list.Text = "Buchliste";
             this.books_list.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,10 +129,10 @@
             this.user_list.FlatAppearance.BorderSize = 0;
             this.user_list.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.user_list.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.user_list.Location = new System.Drawing.Point(6, 619);
+            this.user_list.Location = new System.Drawing.Point(3, 619);
             this.user_list.Name = "user_list";
             this.user_list.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.user_list.Size = new System.Drawing.Size(251, 50);
+            this.user_list.Size = new System.Drawing.Size(254, 50);
             this.user_list.TabIndex = 5;
             this.user_list.Text = "User Management";
             this.user_list.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -228,6 +249,14 @@
             this.userlist_uc1.Size = new System.Drawing.Size(974, 646);
             this.userlist_uc1.TabIndex = 5;
             // 
+            // user_Add_uc1
+            // 
+            this.user_Add_uc1.BackColor = System.Drawing.Color.White;
+            this.user_Add_uc1.Location = new System.Drawing.Point(260, 0);
+            this.user_Add_uc1.Name = "user_Add_uc1";
+            this.user_Add_uc1.Size = new System.Drawing.Size(404, 681);
+            this.user_Add_uc1.TabIndex = 6;
+            // 
             // Dashboard_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -236,6 +265,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.BackgroundImage = global::Bücherei_Windows_App.Properties.Resources.Dash_BG;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.user_Add_uc1);
             this.Controls.Add(this.userlist_uc1);
             this.Controls.Add(this.booklist_uc1);
             this.Controls.Add(this.book_add_uc1);
@@ -272,6 +302,7 @@
         private Book_Out_UC book_Out_uc1;
         private Book_In_UC book_In_uc1;
         private Book_add_UC book_add_uc1;
-
+        private Button new_user;
+        private User_Add_UC user_Add_uc1;
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.book_author_tb = new System.Windows.Forms.TextBox();
+            this.book_name_tb = new System.Windows.Forms.TextBox();
             this.book_info_tb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,8 +40,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.exit_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.book_name_tb = new System.Windows.Forms.TextBox();
-            this.book_author_tb = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(398, 643);
             this.panel1.TabIndex = 0;
+            // 
+            // book_author_tb
+            // 
+            this.book_author_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.book_author_tb.Location = new System.Drawing.Point(176, 115);
+            this.book_author_tb.Name = "book_author_tb";
+            this.book_author_tb.Size = new System.Drawing.Size(207, 33);
+            this.book_author_tb.TabIndex = 20;
+            // 
+            // book_name_tb
+            // 
+            this.book_name_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.book_name_tb.Location = new System.Drawing.Point(176, 49);
+            this.book_name_tb.Name = "book_name_tb";
+            this.book_name_tb.Size = new System.Drawing.Size(207, 33);
+            this.book_name_tb.TabIndex = 19;
             // 
             // book_info_tb
             // 
@@ -156,25 +172,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 32);
+            this.label4.Size = new System.Drawing.Size(148, 32);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Buch Rückgabe";
-            // 
-            // book_name_tb
-            // 
-            this.book_name_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_name_tb.Location = new System.Drawing.Point(176, 49);
-            this.book_name_tb.Name = "book_name_tb";
-            this.book_name_tb.Size = new System.Drawing.Size(207, 33);
-            this.book_name_tb.TabIndex = 19;
-            // 
-            // book_author_tb
-            // 
-            this.book_author_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_author_tb.Location = new System.Drawing.Point(176, 115);
-            this.book_author_tb.Name = "book_author_tb";
-            this.book_author_tb.Size = new System.Drawing.Size(207, 33);
-            this.book_author_tb.TabIndex = 20;
+            this.label4.Text = "Neues Buch";
             // 
             // Book_add_UC
             // 

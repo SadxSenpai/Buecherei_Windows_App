@@ -3,6 +3,9 @@ using System.ComponentModel;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Reflection.Metadata.BlobBuilder;
 using System.Windows.Forms;
+using System.Security.Cryptography;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Text;
 
 namespace Bücherei_Windows_App.Forms
 {
@@ -62,14 +65,14 @@ namespace Bücherei_Windows_App.Forms
         private void login_button_Click(object sender, EventArgs e)
         {
             string connectionString = "server=localhost;uid=root;pwd=;database=lms_db";
-            string select = "SELECT email, password FROM app_users " +
-                            "WHERE email = @email";
+            string query = "SELECT email, password FROM app_users WHERE email = @email";
 
             using (MySqlConnection Conn = new MySqlConnection(connectionString))
             {
-                using (MySqlCommand cmd = new MySqlCommand(select, Conn))
+                using (MySqlCommand cmd = new MySqlCommand(query, Conn))
                 {
                     cmd.Parameters.AddWithValue("@email", email_input.Text);
+                    cmd.Parameters.AddWithValue("@password", HashSHA256(password_input.Text));
 
                     Conn.Open();
 
@@ -99,6 +102,21 @@ namespace Bücherei_Windows_App.Forms
                 }
             }
         }
+
+        private static string HashSHA256(string input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
         public void testSQL_Click(object sender, EventArgs e)
         {
             try

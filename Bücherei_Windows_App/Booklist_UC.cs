@@ -8,11 +8,13 @@ namespace Bücherei_Windows_App
         public Booklist_UC()
         {
             InitializeComponent();
+            this.Location = new Point(260, 0);
         }
 
         private void exit_label_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Parent.Controls.Remove(this);
+            this.Dispose();
         }
 
         private void exit_label_MouseEnter(object sender, EventArgs e)

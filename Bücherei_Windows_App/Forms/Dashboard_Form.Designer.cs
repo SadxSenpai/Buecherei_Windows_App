@@ -204,6 +204,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.BackgroundImage = global::Bücherei_Windows_App.Properties.Resources.Dash_BG;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.book_In_uc1);
             this.Controls.Add(this.userlist_uc1);

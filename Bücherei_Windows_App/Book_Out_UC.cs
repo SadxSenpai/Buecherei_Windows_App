@@ -9,10 +9,13 @@ namespace Bücherei_Windows_App
         public Book_Out_UC()
         {
             InitializeComponent();
+            this.Location = new Point(260, 0);
         }
+
         private void exit_label_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Parent.Controls.Remove(this);
+            this.Dispose();
         }
 
         private void exit_label_MouseEnter(object sender, EventArgs e)
@@ -71,7 +74,7 @@ namespace Bücherei_Windows_App
             while (reader.Read())
             {
                 book_info_tb.Text = reader["book_note"].ToString();
-                book_type_cb.Text = reader["book_type"].ToString();
+                book_type_tb.Text = reader["book_type"].ToString();
             }
         }
 
@@ -84,7 +87,7 @@ namespace Bücherei_Windows_App
                 // Retrieving the selected item from the ComboBox
                 string selected_book = book_name_cb.SelectedItem.ToString();
 
-                string booktype = book_type_cb.Text;
+                string booktype = book_type_tb.Text;
                 string bookuser = book_user_tb.Text;
                 string dateout = today_date_label.Text;
                 string dateback = seven_days_label.Text;

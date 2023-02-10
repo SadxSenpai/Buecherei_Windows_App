@@ -38,18 +38,19 @@
             this.book_user_tb = new System.Windows.Forms.TextBox();
             this.book_out_finish_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.book_type_cb = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.book_name_cb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.exit_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.book_type_tb = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.book_type_tb);
             this.panel1.Controls.Add(this.seven_days_label);
             this.panel1.Controls.Add(this.today_date_label);
             this.panel1.Controls.Add(this.book_info_tb);
@@ -59,7 +60,6 @@
             this.panel1.Controls.Add(this.book_user_tb);
             this.panel1.Controls.Add(this.book_out_finish_btn);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.book_type_cb);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.book_name_cb);
             this.panel1.Controls.Add(this.label1);
@@ -70,8 +70,9 @@
             // 
             // seven_days_label
             // 
+            this.seven_days_label.BackColor = System.Drawing.Color.White;
             this.seven_days_label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.seven_days_label.ForeColor = System.Drawing.Color.White;
+            this.seven_days_label.ForeColor = System.Drawing.Color.Black;
             this.seven_days_label.Location = new System.Drawing.Point(176, 317);
             this.seven_days_label.Name = "seven_days_label";
             this.seven_days_label.Size = new System.Drawing.Size(207, 23);
@@ -80,8 +81,9 @@
             // 
             // today_date_label
             // 
+            this.today_date_label.BackColor = System.Drawing.Color.White;
             this.today_date_label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.today_date_label.ForeColor = System.Drawing.Color.White;
+            this.today_date_label.ForeColor = System.Drawing.Color.Black;
             this.today_date_label.Location = new System.Drawing.Point(176, 251);
             this.today_date_label.Name = "today_date_label";
             this.today_date_label.Size = new System.Drawing.Size(207, 23);
@@ -157,19 +159,6 @@
             this.label3.Text = "An";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // book_type_cb
-            // 
-            this.book_type_cb.FormattingEnabled = true;
-            this.book_type_cb.Items.AddRange(new object[] {
-            "Buch",
-            "Buch + CD",
-            "Heft",
-            "Heft + CD"});
-            this.book_type_cb.Location = new System.Drawing.Point(176, 119);
-            this.book_type_cb.Name = "book_type_cb";
-            this.book_type_cb.Size = new System.Drawing.Size(207, 23);
-            this.book_type_cb.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -224,6 +213,17 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Buch Ausgabe";
             // 
+            // book_type_tb
+            // 
+            this.book_type_tb.BackColor = System.Drawing.Color.White;
+            this.book_type_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.book_type_tb.ForeColor = System.Drawing.Color.Black;
+            this.book_type_tb.Location = new System.Drawing.Point(176, 119);
+            this.book_type_tb.Name = "book_type_tb";
+            this.book_type_tb.Size = new System.Drawing.Size(207, 23);
+            this.book_type_tb.TabIndex = 17;
+            this.book_type_tb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Book_Out_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -253,12 +253,12 @@
         private TextBox book_user_tb;
         private Button book_out_finish_btn;
         private Label label3;
-        private ComboBox book_type_cb;
         private Label label2;
         private Label label4;
         private TextBox book_info_tb;
         private Label label7;
         private Label today_date_label;
         private Label seven_days_label;
+        private Label book_type_tb;
     }
 }

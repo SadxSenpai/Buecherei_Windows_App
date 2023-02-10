@@ -8,7 +8,6 @@ namespace Bücherei_Windows_App
         public Booklist_UC()
         {
             InitializeComponent();
-            this.Location = new Point(260, 0);
         }
 
         private void exit_label_Click(object sender, EventArgs e)
@@ -29,6 +28,8 @@ namespace Bücherei_Windows_App
 
         private void Booklist_UC_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(260, 0);
+
             book_list_datagrid.DataSource = GetBooksDB();
 
             book_list_datagrid.Columns[0].HeaderText = "Nr.";
@@ -43,6 +44,11 @@ namespace Bücherei_Windows_App
 
 
             book_list_datagrid.AutoResizeColumns();
+        }
+
+        private void OnDispose(object sender, EventArgs e)
+        {
+            Disposed += OnDispose;
         }
 
         private DataTable GetBooksDB()

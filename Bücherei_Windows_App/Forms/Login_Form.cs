@@ -1,5 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System.ComponentModel;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using static System.Reflection.Metadata.BlobBuilder;
+using System.Windows.Forms;
 
 namespace Bücherei_Windows_App.Forms
 {
@@ -8,6 +11,10 @@ namespace Bücherei_Windows_App.Forms
         public Login_Form()
         {
             InitializeComponent();
+        }
+        public void Login_Form_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void label_close_MouseEnter(object sender, EventArgs e)
@@ -100,7 +107,7 @@ namespace Bücherei_Windows_App.Forms
                 MySqlConnection con = new MySqlConnection(connstring);
                 con.Open();
 
-                MySqlCommand cmd = new MySqlCommand();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `books`");
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -116,12 +123,13 @@ namespace Bücherei_Windows_App.Forms
 
         private void cattobox_MouseEnter(object sender, EventArgs e)
         {
-            cattobox.Image = Image.FromFile("C:\\Users\\Hauser.M\\source\\repos\\Bücherei_Windows_App\\Bücherei_Windows_App\\Images\\BongoCat.gif");
+            cattobox.Image = Properties.Resources.BongoCat;
+
         }
 
         private void cattobox_MouseLeave(object sender, EventArgs e)
         {
-            cattobox.Image = Image.FromFile("C:\\Users\\Hauser.M\\source\\repos\\Bücherei_Windows_App\\Bücherei_Windows_App\\Images\\Transparent.png");
+            cattobox.Image = Properties.Resources.Transparent;
         }
     }
 }

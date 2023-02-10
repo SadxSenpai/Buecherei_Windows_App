@@ -16,7 +16,6 @@ namespace Bücherei_Windows_App
         public Userlist_UC()
         {
             InitializeComponent();
-            this.Location = new Point(260, 0);
         }
 
         private void exit_label_Click(object sender, EventArgs e)
@@ -36,6 +35,8 @@ namespace Bücherei_Windows_App
         }
         private void Userlist_UC_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(260, 0);
+
             user_list_datagrid.DataSource = GetUsersDB();
 
             user_list_datagrid.Columns[0].HeaderText = "Nr.";
@@ -44,6 +45,11 @@ namespace Bücherei_Windows_App
             user_list_datagrid.Columns[3].HeaderText = "Email";
 
             user_list_datagrid.AutoResizeColumns();
+        }
+
+        private void OnDispose(object sender, EventArgs e)
+        {
+            Disposed += OnDispose;
         }
         private DataTable GetUsersDB()
         {

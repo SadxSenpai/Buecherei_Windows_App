@@ -135,10 +135,11 @@
             // 
             // book_name_cb
             // 
+            this.book_name_cb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.book_name_cb.FormattingEnabled = true;
             this.book_name_cb.Location = new System.Drawing.Point(176, 53);
             this.book_name_cb.Name = "book_name_cb";
-            this.book_name_cb.Size = new System.Drawing.Size(207, 23);
+            this.book_name_cb.Size = new System.Drawing.Size(207, 33);
             this.book_name_cb.TabIndex = 1;
             this.book_name_cb.SelectedIndexChanged += new System.EventHandler(this.book_name_cb_SelectedIndexChanged);
             // 

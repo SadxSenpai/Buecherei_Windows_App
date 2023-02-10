@@ -16,7 +16,6 @@ namespace Bücherei_Windows_App
         public Book_In_UC()
         {
             InitializeComponent();
-            this.Location = new Point(260, 0);
         }
 
         private void exit_label_Click(object sender, EventArgs e)
@@ -37,6 +36,8 @@ namespace Bücherei_Windows_App
 
         private void Book_In_UC_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(260, 0);
+
             // Get the current date and time
             DateTime today = DateTime.Now;
 
@@ -61,6 +62,11 @@ namespace Bücherei_Windows_App
                 string name = reader.GetString("book_name");
                 book_name_cb.Items.Add(name);
             }
+        }
+
+        private void OnDispose(object sender, EventArgs e)
+        {
+            Disposed += OnDispose;
         }
 
         private void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,11 +124,11 @@ namespace Bücherei_Windows_App
 
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("DATA WAS UPDATETD", "Buch erfolgreich verliehen");
+                        MessageBox.Show("Buch erfolgreich abgegeben", "DATA WAS UPDATETD");
                     }
                     else
                     {
-                        MessageBox.Show("DATA NOT UPDATED", "Das Buch ist bereits verliehen!");
+                        MessageBox.Show("Das Buch ist bereits abgegeben!", "DATA NOT UPDATED");
                     }
                 }
                 catch (Exception ex)

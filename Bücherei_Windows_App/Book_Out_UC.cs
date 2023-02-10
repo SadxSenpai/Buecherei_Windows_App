@@ -57,6 +57,12 @@ namespace Bücherei_Windows_App
                 book_name_cb.Items.Add(name);
             }
         }
+
+        private void OnDispose(object sender, EventArgs e)
+        {
+            Disposed += OnDispose;
+        }
+
         private void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
             string connString = "server=localhost;uid=root;pwd=;database=lms_db";
@@ -113,11 +119,11 @@ namespace Bücherei_Windows_App
 
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("DATA WAS UPDATETD", "Buch erfolgreich verliehen");
+                        MessageBox.Show("Buch erfolgreich verliehen", "DATA WAS UPDATETD");
                     }
                     else
                     {
-                        MessageBox.Show("DATA NOT UPDATED", "Das Buch ist bereits verliehen!");
+                        MessageBox.Show("Das Buch ist bereits verliehen!", "DATA NOT UPDATED");
                     }
                 }
                 catch (Exception ex)

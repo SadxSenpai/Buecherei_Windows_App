@@ -100,13 +100,12 @@ namespace Bücherei_Windows_App.Forms
                 MySqlConnection con = new MySqlConnection(connstring);
                 con.Open();
 
-                string sql = "select * from lms_db.app_users";
-                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlCommand cmd = new MySqlCommand();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    MessageBox.Show("Name " + reader["email"] + "Password " + reader["password"]);
+                    MessageBox.Show("SQL verbindung Erfolgreich");
                 }
             }
             catch (MySqlException ex)

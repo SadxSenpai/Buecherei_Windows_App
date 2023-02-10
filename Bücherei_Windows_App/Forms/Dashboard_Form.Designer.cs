@@ -40,6 +40,7 @@
             this.book_Out_uc1 = new Bücherei_Windows_App.Book_Out_UC();
             this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
             this.userlist_uc1 = new Bücherei_Windows_App.Userlist_UC();
+            this.book_In_uc1 = new Bücherei_Windows_App.Book_In_UC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_books)).BeginInit();
             this.SuspendLayout();
@@ -113,6 +114,7 @@
             this.rueckgabe_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rueckgabe_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rueckgabe_button.UseVisualStyleBackColor = false;
+            this.rueckgabe_button.Click += new System.EventHandler(this.rueckgabe_button_Click);
             // 
             // ausleih_button
             // 
@@ -164,29 +166,37 @@
             this.pictureBox_books.TabIndex = 1;
             this.pictureBox_books.TabStop = false;
             // 
-            // book_Out_uc2
+            // book_Out_uc1
             // 
             this.book_Out_uc1.BackColor = System.Drawing.Color.White;
             this.book_Out_uc1.Location = new System.Drawing.Point(260, 0);
-            this.book_Out_uc1.Name = "book_Out_uc2";
+            this.book_Out_uc1.Name = "book_Out_uc1";
             this.book_Out_uc1.Size = new System.Drawing.Size(404, 681);
             this.book_Out_uc1.TabIndex = 1;
             // 
-            // booklist_uc2
+            // booklist_uc1
             // 
             this.booklist_uc1.BackColor = System.Drawing.Color.White;
             this.booklist_uc1.Location = new System.Drawing.Point(260, 0);
-            this.booklist_uc1.Name = "booklist_uc2";
+            this.booklist_uc1.Name = "booklist_uc1";
             this.booklist_uc1.Size = new System.Drawing.Size(974, 681);
             this.booklist_uc1.TabIndex = 2;
             // 
-            // userlist_uc2
+            // userlist_uc1
             // 
             this.userlist_uc1.BackColor = System.Drawing.Color.White;
             this.userlist_uc1.Location = new System.Drawing.Point(260, 0);
-            this.userlist_uc1.Name = "userlist_uc2";
+            this.userlist_uc1.Name = "userlist_uc1";
             this.userlist_uc1.Size = new System.Drawing.Size(974, 646);
             this.userlist_uc1.TabIndex = 3;
+            // 
+            // book_In_uc1
+            // 
+            this.book_In_uc1.BackColor = System.Drawing.Color.White;
+            this.book_In_uc1.Location = new System.Drawing.Point(260, 0);
+            this.book_In_uc1.Name = "book_In_uc1";
+            this.book_In_uc1.Size = new System.Drawing.Size(404, 681);
+            this.book_In_uc1.TabIndex = 4;
             // 
             // Dashboard_Form
             // 
@@ -195,6 +205,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.book_In_uc1);
             this.Controls.Add(this.userlist_uc1);
             this.Controls.Add(this.booklist_uc1);
             this.Controls.Add(this.book_Out_uc1);
@@ -226,5 +237,6 @@
         private Booklist_UC booklist_uc1;
         private Userlist_UC userlist_uc1;
         private Book_Out_UC book_Out_uc1;
+        private Book_In_UC book_In_uc1;
     }
 }

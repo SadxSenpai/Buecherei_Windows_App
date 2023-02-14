@@ -58,6 +58,10 @@ namespace Bücherei_Windows_App.Forms
             user_Add_uc1.Dispose();
             user_Add_uc1 = null;
 
+            this.Controls.Remove(book_Del_uc1);
+            book_Del_uc1.Dispose();
+            book_Del_uc1 = null;
+
 
             //  Side Panel Bilder
             //ausleih_button.Image = Image.FromFile("../../Images/xxx.png");

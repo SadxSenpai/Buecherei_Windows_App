@@ -87,7 +87,6 @@ namespace Bücherei_Windows_App
             // Checking if an item is selected in the ComboBox
             if (book_name_cb.SelectedIndex != -1)
             {
-                // Retrieving the selected item from the ComboBox
                 string selectedValue = book_name_cb.SelectedItem.ToString();
 
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -100,17 +99,44 @@ namespace Bücherei_Windows_App
 
                         con.Open();
 
-                        string insertcmd = "DELETE * FROM lms_db.books WHERE book_name = '" + selectedValue +"' OUTPUT DELETED.* INTO deleted_books  --or temp table WHERE";
+                        string insertcmd = "INSERT INTO deleted_books (book_name, book_author, book_type) SELECT book_name, book_author, book_type FROM books WHERE book_name = '" + selectedValue + "'";
                         using (MySqlCommand incmd = new MySqlCommand(insertcmd, con))
                         {
                             if (incmd.ExecuteNonQuery() == 1)
                             {
-                              MessageBox.Show("Data copied and deleted!");
+                                string insertcmd2 = "INSERT INTO deleted_books del_when =@delwhen, del_why =@delwhy WHERE book_name = '" + selectedValue + "'";
+                                using (MySqlCommand incmd2 = new MySqlCommand(insertcmd, con))
+                                {
+                                    incmd2.Parameters.AddWithValue("@delwhen", today_date_label.Text);
+                                    incmd2.Parameters.AddWithValue("@delwhy", book_del_why_tb.Text);
+
+                                    if (incmd2.ExecuteNonQuery() == 1)
+                                    {
+                                        string deletecmd = "DELETE FROM books WHERE book_name = '" + selectedValue + "'";
+                                        using (MySqlCommand delcmd = new MySqlCommand(deletecmd, con))
+                                        {
+
+                                            if (delcmd.ExecuteNonQuery() == 1)
+                                            {
+                                                MessageBox.Show("Data copied & deleted");
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Data NOT copied and deleted!");
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Data mid insert Error!");
+                                    }
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Data NOT copied and deleted!");
+                                MessageBox.Show("Data NOT copied!");
                             }
+
                         }
                     }
                 }

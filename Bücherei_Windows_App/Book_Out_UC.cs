@@ -138,5 +138,5 @@ namespace Bücherei_Windows_App
                 MessageBox.Show("Please select an item from the ComboBox.");
             }
         }
+        }
     }
-}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,12 @@ using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Book_In_UC : UserControl
+    public partial class Book_Del_UC : UserControl
     {
-        public Book_In_UC()
+        public Book_Del_UC()
         {
             InitializeComponent();
         }
-
         private void exit_label_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Remove(this);
@@ -51,7 +51,7 @@ namespace Bücherei_Windows_App
             MySqlConnection con = new MySqlConnection(connstring);
             con.Open();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT book_name FROM books WHERE book_out = '1'", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT book_name FROM books WHERE book_out = '0'", con);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -59,11 +59,6 @@ namespace Bücherei_Windows_App
                 string name = reader.GetString("book_name");
                 book_name_cb.Items.Add(name);
             }
-        }
-
-        private void OnDispose(object sender, EventArgs e)
-        {
-            Disposed += OnDispose;
         }
 
         private void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,69 +70,54 @@ namespace Bücherei_Windows_App
             string selectedValue = book_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected item
-            string query = "SELECT book_note, book_type FROM books WHERE book_name = '" + selectedValue + "'";
+            string query = "SELECT book_note, book_type, book_author FROM books WHERE book_name = '" + selectedValue + "'";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             // Read and display the data from the selected row
             while (reader.Read())
             {
-                book_info_tb.Text = reader["book_note"].ToString();
+                book_del_why_tb.Text = reader["book_note"].ToString();
                 book_type_tb.Text = reader["book_type"].ToString();
             }
         }
 
         private void book_in_finish_btn_Click(object sender, EventArgs e)
         {
-
             // Checking if an item is selected in the ComboBox
             if (book_name_cb.SelectedIndex != -1)
             {
                 // Retrieving the selected item from the ComboBox
-                string selected_book = book_name_cb.SelectedItem.ToString();
+                string selectedValue = book_name_cb.SelectedItem.ToString();
 
-                string booktype = "";
-                string bookuser = "";
-                string dateout = "";
-                string dateback = "";
-                string bookinfo = "@bookinfo";
-
-                string updateQuery = "UPDATE books SET book_out = '0', book_type =@booktype, book_out_with ='', book_out_since ='', book_back_when ='' WHERE book_name =@selected_book AND book_out != '0'";
-
-                string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
-                MySqlConnection con = new MySqlConnection(connstring);
-
-                con.Open();
-                try
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    MySqlCommand cmd = new MySqlCommand(updateQuery, con);
+                    string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
 
-                    cmd.Parameters.AddWithValue("@booktype", booktype);
-                    cmd.Parameters.AddWithValue("@bookuser", bookuser);
-                    cmd.Parameters.AddWithValue("@dateout", dateout);
-                    cmd.Parameters.AddWithValue("@dateback", dateback);
-                    cmd.Parameters.AddWithValue("@bookinfo", bookinfo);
-                    cmd.Parameters.AddWithValue("@selected_book", selected_book);
+                    using (MySqlConnection con = new MySqlConnection(connstring))
+                    {
 
-                    if (cmd.ExecuteNonQuery() == 1)
-                    {
-                        MessageBox.Show("Buch erfolgreich abgegeben", "DATA WAS UPDATETD");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Das Buch ist bereits abgegeben!", "DATA NOT UPDATED");
+                        con.Open();
+
+                        string insertcmd = "DELETE * FROM lms_db.books WHERE book_name = '" + selectedValue +"' OUTPUT DELETED.* INTO deleted_books  --or temp table WHERE";
+                        using (MySqlCommand incmd = new MySqlCommand(insertcmd, con))
+                        {
+                            if (incmd.ExecuteNonQuery() == 1)
+                            {
+                              MessageBox.Show("Data copied and deleted!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Data NOT copied and deleted!");
+                            }
+                        }
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Löschen abgebrochen");
                 }
-                con.Close();
-
-            }
-            else
-            {
-                MessageBox.Show("Please select an item from the ComboBox.");
             }
         }
     }

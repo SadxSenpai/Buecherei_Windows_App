@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Text;
+using System.Diagnostics;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Bücherei_Windows_App.Forms
 {
@@ -62,8 +64,28 @@ namespace Bücherei_Windows_App.Forms
             InitializeComponent();
         }
 
+        public static class HashSHA256
+        {
+            public static string ComputeHash(string input)
+            {
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+                    StringBuilder builder = new StringBuilder();
+                    for (int i = 0; i < bytes.Length; i++)
+                    {
+                        builder.Append(bytes[i].ToString("x2"));
+                    }
+                    return builder.ToString();
+                }
+            }
+        }
+
         private void login_button_Click(object sender, EventArgs e)
         {
+            string enteredPassword = password_input.Text;
+            string hashedPassword = HashSHA256.ComputeHash(enteredPassword);
+
             string connectionString = "server=localhost;uid=root;pwd=;database=lms_db";
             string query = "SELECT email, password FROM app_users WHERE email = @email";
 
@@ -72,7 +94,7 @@ namespace Bücherei_Windows_App.Forms
                 using (MySqlCommand cmd = new MySqlCommand(query, Conn))
                 {
                     cmd.Parameters.AddWithValue("@email", email_input.Text);
-                    cmd.Parameters.AddWithValue("@password", HashSHA256(password_input.Text));
+                    cmd.Parameters.AddWithValue("@password", hashedPassword);
 
                     Conn.Open();
 
@@ -82,19 +104,27 @@ namespace Bücherei_Windows_App.Forms
                         {
                             string email = reader.GetString(0);
                             string password = reader.GetString(1);
-                            if (password == password_input.Text)
+
+                            if (email == email_input.Text)
                             {
-                                dashF.Enabled = true;
-                                this.Close();
+                                if (password == hashedPassword)
+                                {
+                                    dashF.Enabled = true;
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Incorrect username or password.", "Login Error 3");
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Login Error", "Incorrect username or password.");
+                                MessageBox.Show("Incorrect username or password.", "Login Error 2");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Login Error", "Incorrect username or password.");
+                            MessageBox.Show("Incorrect username or password.", "Login Error 1");
                         }
                     }
 
@@ -103,34 +133,31 @@ namespace Bücherei_Windows_App.Forms
             }
         }
 
-        private static string HashSHA256(string input)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
         public void testSQL_Click(object sender, EventArgs e)
         {
             try
             {
+
                 string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
-                MySqlConnection con = new MySqlConnection(connstring);
-                con.Open();
+                string querycheck = "SELECT * FROM books";
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `books`");
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (MySqlConnection con = new MySqlConnection(connstring))
                 {
-                    MessageBox.Show("SQL verbindung Erfolgreich");
+                    using (MySqlCommand cmd = new MySqlCommand(querycheck, con))
+                    {
+
+                        con.Open();
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            MessageBox.Show("SQL verbindung erfolgreich");
+                        }
+                        else
+                        {
+                            MessageBox.Show("SQL verbindung fehlgeschlagen");
+                        }
+                    }
                 }
             }
             catch (MySqlException ex)

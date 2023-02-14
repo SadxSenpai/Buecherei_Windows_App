@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.new_user = new System.Windows.Forms.Button();
             this.book_add_new = new System.Windows.Forms.Button();
             this.books_list = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
             this.userlist_uc1 = new Bücherei_Windows_App.Userlist_UC();
             this.user_Add_uc1 = new Bücherei_Windows_App.User_Add_UC();
+            this.book_Del_uc1 = new Bücherei_Windows_App.Book_Del_UC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_books)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +54,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.new_user);
             this.panel1.Controls.Add(this.book_add_new);
             this.panel1.Controls.Add(this.books_list);
@@ -66,6 +69,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 681);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(3, 312);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(254, 50);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Buch Löschen";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // new_user
             // 
@@ -257,6 +278,14 @@
             this.user_Add_uc1.Size = new System.Drawing.Size(404, 681);
             this.user_Add_uc1.TabIndex = 6;
             // 
+            // book_Del_uc1
+            // 
+            this.book_Del_uc1.BackColor = System.Drawing.Color.White;
+            this.book_Del_uc1.Location = new System.Drawing.Point(260, 0);
+            this.book_Del_uc1.Name = "book_Del_uc1";
+            this.book_Del_uc1.Size = new System.Drawing.Size(404, 681);
+            this.book_Del_uc1.TabIndex = 7;
+            // 
             // Dashboard_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,6 +294,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.BackgroundImage = global::Bücherei_Windows_App.Properties.Resources.Dash_BG;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.book_Del_uc1);
             this.Controls.Add(this.user_Add_uc1);
             this.Controls.Add(this.userlist_uc1);
             this.Controls.Add(this.booklist_uc1);
@@ -304,5 +334,7 @@
         private Book_add_UC book_add_uc1;
         private Button new_user;
         private User_Add_UC user_Add_uc1;
+        private Button button1;
+        private Book_Del_UC book_Del_uc1;
     }
 }

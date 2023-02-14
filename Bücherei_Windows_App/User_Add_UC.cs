@@ -83,8 +83,8 @@ namespace Bücherei_Windows_App
 
                                     using (MySqlCommand command = new MySqlCommand(query, connection))
                                     {
-                                        command.Parameters.AddWithValue("@firstname", first_name_tb.Text);
-                                        command.Parameters.AddWithValue("@lastname", last_name_tb.Text);
+                                        command.Parameters.AddWithValue("@firstname", last_name_tb.Text);
+                                        command.Parameters.AddWithValue("@lastname", first_name_tb.Text);
                                         command.Parameters.AddWithValue("@email", new_email_tb.Text);
                                         command.Parameters.AddWithValue("@password", hashedPassword);
                                         command.Parameters.AddWithValue("@usertype", UserType);

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Bücherei_Windows_App
 {
@@ -41,7 +42,11 @@ namespace Bücherei_Windows_App
             book_list_datagrid.Columns[6].HeaderText = "Bis:";
             book_list_datagrid.Columns[7].HeaderText = "Status";
 
-
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            btnColumn.HeaderText = "Action";
+            btnColumn.Text = "Click Me";
+            btnColumn.Name = "btnColumn";
+            book_list_datagrid.Columns.Add(btnColumn);
 
             book_list_datagrid.AutoResizeColumns();
         }

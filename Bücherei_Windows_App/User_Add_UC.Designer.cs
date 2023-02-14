@@ -35,8 +35,8 @@
             this.new_password_tb = new System.Windows.Forms.TextBox();
             this.new_email_check_tb = new System.Windows.Forms.TextBox();
             this.new_email_tb = new System.Windows.Forms.TextBox();
-            this.first_name_tb = new System.Windows.Forms.TextBox();
             this.last_name_tb = new System.Windows.Forms.TextBox();
+            this.first_name_tb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.new_user_create = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,8 +55,8 @@
             this.panel1.Controls.Add(this.new_password_tb);
             this.panel1.Controls.Add(this.new_email_check_tb);
             this.panel1.Controls.Add(this.new_email_tb);
-            this.panel1.Controls.Add(this.first_name_tb);
             this.panel1.Controls.Add(this.last_name_tb);
+            this.panel1.Controls.Add(this.first_name_tb);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.new_user_create);
             this.panel1.Controls.Add(this.label2);
@@ -122,23 +122,23 @@
             this.new_email_tb.Size = new System.Drawing.Size(207, 27);
             this.new_email_tb.TabIndex = 23;
             // 
-            // first_name_tb
-            // 
-            this.first_name_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.first_name_tb.Location = new System.Drawing.Point(176, 55);
-            this.first_name_tb.Name = "first_name_tb";
-            this.first_name_tb.PlaceholderText = "Vorname";
-            this.first_name_tb.Size = new System.Drawing.Size(100, 27);
-            this.first_name_tb.TabIndex = 22;
-            // 
             // last_name_tb
             // 
             this.last_name_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.last_name_tb.Location = new System.Drawing.Point(283, 55);
+            this.last_name_tb.Location = new System.Drawing.Point(283, 53);
             this.last_name_tb.Name = "last_name_tb";
             this.last_name_tb.PlaceholderText = "Nachname";
             this.last_name_tb.Size = new System.Drawing.Size(100, 27);
-            this.last_name_tb.TabIndex = 21;
+            this.last_name_tb.TabIndex = 22;
+            // 
+            // first_name_tb
+            // 
+            this.first_name_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.first_name_tb.Location = new System.Drawing.Point(177, 53);
+            this.first_name_tb.Name = "first_name_tb";
+            this.first_name_tb.PlaceholderText = "Vorname";
+            this.first_name_tb.Size = new System.Drawing.Size(100, 27);
+            this.first_name_tb.TabIndex = 21;
             // 
             // label5
             // 
@@ -236,8 +236,8 @@
         private TextBox new_password_tb;
         private TextBox new_email_check_tb;
         private TextBox new_email_tb;
-        private TextBox first_name_tb;
         private TextBox last_name_tb;
+        private TextBox first_name_tb;
         private TextBox new_password_check_tb;
         private Label label3;
         private Label label6;

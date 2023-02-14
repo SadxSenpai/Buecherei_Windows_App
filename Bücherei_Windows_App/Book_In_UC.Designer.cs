@@ -135,6 +135,7 @@
             // 
             // book_name_cb
             // 
+            this.book_name_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.book_name_cb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.book_name_cb.FormattingEnabled = true;
             this.book_name_cb.Location = new System.Drawing.Point(176, 53);

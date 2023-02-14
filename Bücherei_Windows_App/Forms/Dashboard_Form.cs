@@ -72,7 +72,7 @@ namespace Bücherei_Windows_App.Forms
 
             // showing Login Form
             Login_Form logf = new Login_Form(this);
-            logf.TopMost = true;
+            logf.BringToFront();
             logf.Show();
         }
 

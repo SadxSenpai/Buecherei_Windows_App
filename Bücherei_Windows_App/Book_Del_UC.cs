@@ -105,7 +105,7 @@ namespace Bücherei_Windows_App
                             if (incmd.ExecuteNonQuery() == 1)
                             {
                                 string insertcmd2 = "INSERT INTO deleted_books del_when =@delwhen, del_why =@delwhy WHERE book_name = '" + selectedValue + "'";
-                                using (MySqlCommand incmd2 = new MySqlCommand(insertcmd, con))
+                                using (MySqlCommand incmd2 = new MySqlCommand(insertcmd2, con))
                                 {
                                     incmd2.Parameters.AddWithValue("@delwhen", today_date_label.Text);
                                     incmd2.Parameters.AddWithValue("@delwhy", book_del_why_tb.Text);
@@ -122,7 +122,7 @@ namespace Bücherei_Windows_App
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Data NOT copied and deleted!");
+                                                MessageBox.Show("Data copied BUT NOT deleted!");
                                             }
                                         }
                                     }

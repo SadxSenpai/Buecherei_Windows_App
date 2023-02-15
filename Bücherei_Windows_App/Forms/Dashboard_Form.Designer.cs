@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.book_delete = new System.Windows.Forms.Button();
             this.new_user = new System.Windows.Forms.Button();
             this.book_add_new = new System.Windows.Forms.Button();
             this.books_list = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.book_delete);
             this.panel1.Controls.Add(this.new_user);
             this.panel1.Controls.Add(this.book_add_new);
             this.panel1.Controls.Add(this.books_list);
@@ -70,23 +70,24 @@
             this.panel1.Size = new System.Drawing.Size(260, 681);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // book_delete
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 312);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(254, 50);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Buch Löschen";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.book_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.book_delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.book_delete.FlatAppearance.BorderSize = 0;
+            this.book_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.book_delete.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.book_delete.ForeColor = System.Drawing.Color.White;
+            this.book_delete.Location = new System.Drawing.Point(3, 312);
+            this.book_delete.Name = "book_delete";
+            this.book_delete.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.book_delete.Size = new System.Drawing.Size(254, 50);
+            this.book_delete.TabIndex = 9;
+            this.book_delete.Text = "Buch Löschen";
+            this.book_delete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.book_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.book_delete.UseVisualStyleBackColor = false;
+            this.book_delete.Click += new System.EventHandler(this.book_delete_Click);
             // 
             // new_user
             // 
@@ -334,7 +335,7 @@
         private Book_add_UC book_add_uc1;
         private Button new_user;
         private User_Add_UC user_Add_uc1;
-        private Button button1;
+        private Button book_delete;
         private Book_Del_UC book_Del_uc1;
     }
 }

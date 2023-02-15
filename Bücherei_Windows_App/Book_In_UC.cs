@@ -51,19 +51,39 @@ namespace Bücherei_Windows_App
             MySqlConnection con = new MySqlConnection(connstring);
             con.Open();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT book_name FROM books WHERE book_out = '1'", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT book_out_with FROM books WHERE book_out = '1'", con);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                string name = reader.GetString("book_name");
-                book_name_cb.Items.Add(name);
+                string name = reader.GetString("book_out_with");
+                user_name_cb.Items.Add(name);
             }
         }
 
         private void OnDispose(object sender, EventArgs e)
         {
             Disposed += OnDispose;
+        }
+        private void user_name_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string connString = "server=localhost;uid=root;pwd=;database=lms_db";
+            MySqlConnection conn = new MySqlConnection(connString);
+            conn.Open();
+
+            string selecteduser = user_name_cb.SelectedItem.ToString();
+
+            // Execute a MySQL SELECT query based on the selected user
+            string query = "SELECT book_name FROM books WHERE book_out_with = '" + selecteduser + "'";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            // Read and display the data from the selected row
+            while (reader.Read())
+            {
+                string name = reader.GetString("book_name");
+                book_name_cb.Items.Add(name);
+            }
         }
 
         private void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,10 +92,10 @@ namespace Bücherei_Windows_App
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
 
-            string selectedValue = book_name_cb.SelectedItem.ToString();
+            string selectedbook = book_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected item
-            string query = "SELECT book_note, book_type FROM books WHERE book_name = '" + selectedValue + "'";
+            string query = "SELECT book_note, book_type FROM books WHERE book_name = '" + selectedbook + "'";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 

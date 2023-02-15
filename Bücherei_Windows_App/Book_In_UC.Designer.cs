@@ -40,12 +40,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.exit_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.user_name_cb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.user_name_cb);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.book_type_tb);
             this.panel1.Controls.Add(this.today_date_label);
             this.panel1.Controls.Add(this.book_info_tb);
@@ -65,7 +69,7 @@
             this.book_type_tb.BackColor = System.Drawing.Color.White;
             this.book_type_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.book_type_tb.ForeColor = System.Drawing.Color.Black;
-            this.book_type_tb.Location = new System.Drawing.Point(176, 119);
+            this.book_type_tb.Location = new System.Drawing.Point(176, 185);
             this.book_type_tb.Name = "book_type_tb";
             this.book_type_tb.Size = new System.Drawing.Size(207, 23);
             this.book_type_tb.TabIndex = 18;
@@ -76,7 +80,7 @@
             this.today_date_label.BackColor = System.Drawing.Color.White;
             this.today_date_label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.today_date_label.ForeColor = System.Drawing.Color.Black;
-            this.today_date_label.Location = new System.Drawing.Point(176, 185);
+            this.today_date_label.Location = new System.Drawing.Point(176, 251);
             this.today_date_label.Name = "today_date_label";
             this.today_date_label.Size = new System.Drawing.Size(207, 23);
             this.today_date_label.TabIndex = 15;
@@ -105,7 +109,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 185);
+            this.label5.Location = new System.Drawing.Point(3, 251);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 23);
             this.label5.TabIndex = 9;
@@ -118,7 +122,7 @@
             this.book_in_finish_btn.Name = "book_in_finish_btn";
             this.book_in_finish_btn.Size = new System.Drawing.Size(250, 42);
             this.book_in_finish_btn.TabIndex = 7;
-            this.book_in_finish_btn.Text = "Abgabe";
+            this.book_in_finish_btn.Text = "Rückgabe";
             this.book_in_finish_btn.UseVisualStyleBackColor = true;
             this.book_in_finish_btn.Click += new System.EventHandler(this.book_in_finish_btn_Click);
             // 
@@ -126,7 +130,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 119);
+            this.label2.Location = new System.Drawing.Point(3, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 23);
             this.label2.TabIndex = 2;
@@ -138,7 +142,7 @@
             this.book_name_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.book_name_cb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.book_name_cb.FormattingEnabled = true;
-            this.book_name_cb.Location = new System.Drawing.Point(176, 53);
+            this.book_name_cb.Location = new System.Drawing.Point(176, 115);
             this.book_name_cb.Name = "book_name_cb";
             this.book_name_cb.Size = new System.Drawing.Size(207, 33);
             this.book_name_cb.TabIndex = 1;
@@ -148,7 +152,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 53);
+            this.label1.Location = new System.Drawing.Point(3, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 23);
             this.label1.TabIndex = 0;
@@ -177,6 +181,28 @@
             this.label4.Size = new System.Drawing.Size(189, 32);
             this.label4.TabIndex = 6;
             this.label4.Text = "Buch Rückgabe";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(156, 23);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Teilnehmer";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // user_name_cb
+            // 
+            this.user_name_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.user_name_cb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.user_name_cb.FormattingEnabled = true;
+            this.user_name_cb.Location = new System.Drawing.Point(176, 53);
+            this.user_name_cb.Name = "user_name_cb";
+            this.user_name_cb.Size = new System.Drawing.Size(207, 33);
+            this.user_name_cb.TabIndex = 20;
+            this.user_name_cb.SelectedIndexChanged += new System.EventHandler(this.user_name_cb_SelectedIndexChanged);
             // 
             // Book_In_UC
             // 
@@ -210,5 +236,7 @@
         private Label label7;
         private Label today_date_label;
         private Label book_type_tb;
+        private ComboBox user_name_cb;
+        private Label label3;
     }
 }

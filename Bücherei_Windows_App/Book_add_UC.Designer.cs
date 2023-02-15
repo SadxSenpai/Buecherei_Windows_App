@@ -112,7 +112,7 @@
             this.book_add_finish_btn.Name = "book_add_finish_btn";
             this.book_add_finish_btn.Size = new System.Drawing.Size(250, 42);
             this.book_add_finish_btn.TabIndex = 7;
-            this.book_add_finish_btn.Text = "Abgabe";
+            this.book_add_finish_btn.Text = "Hinzufügen";
             this.book_add_finish_btn.UseVisualStyleBackColor = true;
             this.book_add_finish_btn.Click += new System.EventHandler(this.book_add_finish_btn_Click);
             // 

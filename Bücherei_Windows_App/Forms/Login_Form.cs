@@ -109,6 +109,7 @@ namespace Bücherei_Windows_App.Forms
                             {
                                 if (password == hashedPassword)
                                 {
+
                                     dashF.Enabled = true;
                                     this.Close();
                                 }

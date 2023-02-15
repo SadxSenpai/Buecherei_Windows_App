@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <Folder Include="Classes\" />
+    <Folder Include="MySql Export\" />
     <Folder Include="UserControl\" />
     <Folder Include="xMisc\" />
   </ItemGroup>

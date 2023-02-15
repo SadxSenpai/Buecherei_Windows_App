@@ -39,6 +39,7 @@
             this.rueckgabe_button = new System.Windows.Forms.Button();
             this.ausleih_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.userlist_uc1 = new Bücherei_Windows_App.Userlist_UC();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,6 +207,14 @@
             this.panel2.Size = new System.Drawing.Size(257, 10);
             this.panel2.TabIndex = 1;
             // 
+            // userlist_uc1
+            // 
+            this.userlist_uc1.BackColor = System.Drawing.Color.White;
+            this.userlist_uc1.Location = new System.Drawing.Point(260, 0);
+            this.userlist_uc1.Name = "userlist_uc1";
+            this.userlist_uc1.Size = new System.Drawing.Size(974, 646);
+            this.userlist_uc1.TabIndex = 1;
+            // 
             // Dashboard_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -214,6 +223,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.BackgroundImage = global::Bücherei_Windows_App.Properties.Resources.Dash_BG;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.userlist_uc1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -237,15 +247,9 @@
         private Button rueckgabe_button;
         private Button ausleih_button;
         private Button book_add_new;
-        private Booklist_UC booklist_uc1;
-        private Userlist_UC userlist_uc1;
-        private Book_Out_UC book_Out_uc1;
-        private Book_In_UC book_In_uc1;
-        private Book_add_UC book_add_uc1;
         private Button new_user;
-        private User_Add_UC user_Add_uc1;
         private Button book_delete;
-        private Book_Del_UC book_Del_uc1;
         private Panel panel3;
+        private Userlist_UC userlist_uc1;
     }
 }

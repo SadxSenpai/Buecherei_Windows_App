@@ -16,11 +16,11 @@ namespace Bücherei_Windows_App
     {
         public Blur_UC()
         {
-            this.EnableBlur();
+            //this.EnableBlur();
             BackColor = Color.Azure;
-            TransparencyKey = Color.Azure;
+            //TransparencyKey = Color.Azure;
             InitializeComponent();
-            guna2ShadowForm1.SetShadowForm(this);
+            //guna2ShadowForm1.SetShadowForm(this);
         }
     }
     public static class WindowExtension

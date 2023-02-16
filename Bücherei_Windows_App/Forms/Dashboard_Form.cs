@@ -23,7 +23,7 @@ namespace Bücherei_Windows_App.Forms
 
         private void exit_dash_label_MouseLeave(object sender, EventArgs e)
         {
-            exit_dash_label.ForeColor = Color.Black;
+            exit_dash_label.ForeColor = Color.White;
         }        
         private void mini_dash_label_Click(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace Bücherei_Windows_App.Forms
 
         private void mini_dash_label_MouseLeave(object sender, EventArgs e)
         {
-            mini_dash_label.ForeColor = Color.Black;
+            mini_dash_label.ForeColor = Color.White;
         }
 
         private void Dashboard_Form_Load(object sender, EventArgs e)
@@ -435,6 +435,17 @@ namespace Bücherei_Windows_App.Forms
                 user_Add_uc1 = null;
             }
         }
+        private void dogebox_MouseEnter(object sender, EventArgs e)
+        {
+            dogebox.Image = Properties.Resources.doge;
+
+        }
+
+        private void dogebox_MouseLeave(object sender, EventArgs e)
+        {
+            dogebox.Image = Properties.Resources.Transparent;
+        }
+
         // Topbar mouse "Drag" funktion um die Anwendeung zu verschieben
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -495,4 +506,5 @@ namespace Bücherei_Windows_App.Forms
     {
         WCA_ACCENT_POLICY = 19
     }
+
 }

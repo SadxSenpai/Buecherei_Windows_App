@@ -1,7 +1,6 @@
 ﻿using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System.Windows.Forms;
 
 namespace Bücherei_Windows_App
 {

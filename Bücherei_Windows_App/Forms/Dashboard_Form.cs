@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿using System.Runtime.InteropServices;
 
 namespace Bücherei_Windows_App.Forms
 {
@@ -6,11 +6,45 @@ namespace Bücherei_Windows_App.Forms
     {
         public Dashboard_Form()
         {
+            this.EnableBlur();
+            this.TransparencyKey = Color.LimeGreen;
+
             InitializeComponent();
+        }
+        private void exit_dash_label_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+            this.Dispose();
+        }
+
+        private void exit_dash_label_MouseEnter(object sender, EventArgs e)
+        {
+            exit_dash_label.ForeColor = Color.Red;
+        }
+
+        private void exit_dash_label_MouseLeave(object sender, EventArgs e)
+        {
+            exit_dash_label.ForeColor = Color.Black;
+        }        
+        private void mini_dash_label_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void mini_dash_label_MouseEnter(object sender, EventArgs e)
+        {
+            mini_dash_label.ForeColor = Color.Red;
+        }
+
+        private void mini_dash_label_MouseLeave(object sender, EventArgs e)
+        {
+            mini_dash_label.ForeColor = Color.Black;
         }
 
         private void Dashboard_Form_Load(object sender, EventArgs e)
         {
+            guna2ShadowForm1.SetShadowForm(this);
+
             //Load the Usercontrol
             /*
             booklist_uc1 = new Booklist_UC();
@@ -402,5 +436,56 @@ namespace Bücherei_Windows_App.Forms
                 user_Add_uc1 = null;
             }
         }
+
+        private void topbar_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+    }
+
+    public static class WindowExtension
+    {
+        [DllImport("user32.dll")]
+        static internal extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
+
+        public static void EnableBlur(this Form @this)
+        {
+            var accent = new AccentPolicy();
+            accent.AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND;
+            var accentStructSize = Marshal.SizeOf(accent);
+            var accentPtr = Marshal.AllocHGlobal(accentStructSize);
+            Marshal.StructureToPtr(accent, accentPtr, false);
+            var Data = new WindowCompositionAttributeData();
+            Data.Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY;
+            Data.SizeOfData = accentStructSize;
+            Data.Data = accentPtr;
+            SetWindowCompositionAttribute(@this.Handle, ref Data);
+            Marshal.FreeHGlobal(accentPtr);
+        }
+
+    }
+    enum AccentState
+    {
+        ACCENT_ENABLE_BLURBEHIND = 3
+    }
+
+    struct AccentPolicy
+    {
+        public AccentState AccentState;
+        public int AccentFlags;
+        public int GradientColor;
+        public int AnimationId;
+    }
+
+    struct WindowCompositionAttributeData
+    {
+        public WindowCompositionAttribute Attribute;
+        public IntPtr Data;
+        public int SizeOfData;
+    }
+
+    enum WindowCompositionAttribute
+    {
+        WCA_ACCENT_POLICY = 19
     }
 }

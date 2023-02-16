@@ -83,6 +83,16 @@ namespace Bücherei_Windows_App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BBW_Dash_logo {
+            get {
+                object obj = ResourceManager.GetObject("BBW_Dash_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BBW1 {
             get {
                 object obj = ResourceManager.GetObject("BBW1", resourceCulture);

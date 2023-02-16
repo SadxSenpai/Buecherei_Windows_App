@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,9 @@ namespace Bücherei_Windows_App.The_Database
 {
     // Build Database
 
-    internal class DB
+    public class DBCon
     {
-
+        //edit the constring for all con calls
+        public static string dbConnection = "server=localhost;uid=root;pwd=;database=lms_db";
     }
 }

@@ -36,7 +36,7 @@ namespace Bücherei_Windows_App
 
         private void Book_In_UC_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(260, 0);
+            this.Location = new Point(260, 27);
 
             // Get the current date and time
             DateTime today = DateTime.Now;

@@ -13,8 +13,7 @@ namespace Bücherei_Windows_App.Forms
         }
         private void exit_dash_label_Click(object sender, EventArgs e)
         {
-            this.Parent.Controls.Remove(this);
-            this.Dispose();
+            Application.Exit();
         }
 
         private void exit_dash_label_MouseEnter(object sender, EventArgs e)
@@ -436,10 +435,18 @@ namespace Bücherei_Windows_App.Forms
                 user_Add_uc1 = null;
             }
         }
+        // Topbar mouse "Drag" funktion um die Anwendeung zu verschieben
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
 
-        private void topbar_MouseDown(object sender, MouseEventArgs e)
+        private void Topbar_MouseDown(object sender, MouseEventArgs e)
         {
-
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
     }
 

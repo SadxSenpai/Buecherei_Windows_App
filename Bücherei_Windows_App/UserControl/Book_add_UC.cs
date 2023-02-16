@@ -27,7 +27,7 @@ namespace Bücherei_Windows_App
 
         private void Book_add_UC_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(260, 0);
+            this.Location = new Point(260, 27);
         }
 
         private void book_type_cb_KeyPress(object sender, KeyPressEventArgs e)

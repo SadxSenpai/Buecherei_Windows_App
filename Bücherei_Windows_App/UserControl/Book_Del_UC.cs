@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
@@ -36,7 +37,7 @@ namespace Bücherei_Windows_App
 
         private void Book_In_UC_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(260, 0);
+            this.Location = new Point(260, 27);
 
             // Get the current date and time
             DateTime today = DateTime.Now;
@@ -47,7 +48,7 @@ namespace Bücherei_Windows_App
             today_date_label.Text = todayString;
 
 
-            string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connstring = DBCon.dbConnection;
             MySqlConnection con = new MySqlConnection(connstring);
             con.Open();
 
@@ -63,7 +64,7 @@ namespace Bücherei_Windows_App
 
         private void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connString = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connString = DBCon.dbConnection;
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
 
@@ -92,7 +93,7 @@ namespace Bücherei_Windows_App
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+                    string connstring = DBCon.dbConnection;
 
                     using (MySqlConnection con = new MySqlConnection(connstring))
                     {

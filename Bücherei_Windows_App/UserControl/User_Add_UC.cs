@@ -38,7 +38,7 @@ namespace Bücherei_Windows_App
 
         private void User_Add_UC_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(260, 0);
+            this.Location = new Point(260, 27);
         }
         public class PasswordEncryption
         {

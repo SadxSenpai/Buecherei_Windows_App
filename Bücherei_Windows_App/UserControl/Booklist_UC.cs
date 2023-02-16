@@ -29,7 +29,7 @@ namespace Bücherei_Windows_App
 
         private void Booklist_UC_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(260, 0);
+            this.Location = new Point(260, 27);
 
             book_list_datagrid.DataSource = GetBooksDB();
 

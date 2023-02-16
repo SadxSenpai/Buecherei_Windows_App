@@ -35,7 +35,7 @@ namespace Bücherei_Windows_App
         }
         private void Userlist_UC_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(260, 0);
+            this.Location = new Point(260, 27);
 
             user_list_datagrid.DataSource = GetUsersDB();
 

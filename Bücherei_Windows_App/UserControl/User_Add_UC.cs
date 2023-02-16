@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.Text;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Bücherei_Windows_App
 {
@@ -71,7 +62,7 @@ namespace Bücherei_Windows_App
 
                             String UserType = "admin";
 
-                            string connstringceck = "server=localhost;uid=root;pwd=;database=lms_db";
+                            string connstringceck = DBCon.dbConnection;
 
                             using (MySqlConnection connection = new MySqlConnection(connstringceck))
                             {
@@ -88,7 +79,7 @@ namespace Bücherei_Windows_App
                                         command.Parameters.AddWithValue("@email", new_email_tb.Text);
                                         command.Parameters.AddWithValue("@password", hashedPassword);
                                         command.Parameters.AddWithValue("@usertype", UserType);
-                             
+
                                         if (command.ExecuteNonQuery() == 1)
                                         {
                                             MessageBox.Show("Nutzer erfolgreich angelegt", "DATA WAS UPDATETD");

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
@@ -55,7 +56,7 @@ namespace Bücherei_Windows_App
         {
             DataTable dtUsers = new DataTable();
 
-            string connString = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connString = DBCon.dbConnection;
 
             using (MySqlConnection con = new MySqlConnection(connString))
             {

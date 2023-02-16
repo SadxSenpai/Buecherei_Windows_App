@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
@@ -47,7 +48,7 @@ namespace Bücherei_Windows_App
             today_date_label.Text = todayString;
 
 
-            string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connstring = DBCon.dbConnection;
             MySqlConnection con = new MySqlConnection(connstring);
             con.Open();
 
@@ -67,7 +68,7 @@ namespace Bücherei_Windows_App
         }
         private void user_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connString = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connString = DBCon.dbConnection;
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
 
@@ -88,7 +89,7 @@ namespace Bücherei_Windows_App
 
         private void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connString = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connString = DBCon.dbConnection;
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
 
@@ -124,7 +125,7 @@ namespace Bücherei_Windows_App
 
                 string updateQuery = "UPDATE books SET book_out = '0', book_type =@booktype, book_out_with ='', book_out_since ='', book_back_when ='' WHERE book_name =@selected_book AND book_out != '0'";
 
-                string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+                string connstring = DBCon.dbConnection;
                 MySqlConnection con = new MySqlConnection(connstring);
 
                 con.Open();

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Bücherei_Windows_App.The_Database;
+using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
 
@@ -60,7 +61,7 @@ namespace Bücherei_Windows_App
         {
             DataTable dtBooks = new DataTable();
 
-            string connString = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connString = DBCon.dbConnection;
 
             using (MySqlConnection con = new MySqlConnection(connString))
             {

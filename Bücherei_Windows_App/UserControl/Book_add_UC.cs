@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Bücherei_Windows_App
 {
@@ -9,7 +10,8 @@ namespace Bücherei_Windows_App
             InitializeComponent();
 
         }
-        private void exit_label_Click(object sender, EventArgs e)
+
+    private void exit_label_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Remove(this);
             this.Dispose();
@@ -111,6 +113,19 @@ namespace Bücherei_Windows_App
             else
             {
                 MessageBox.Show("Die Namens eingabe darf nicht lehr sein");
+            }
+        }
+
+        private void upload_btn_Click(object sender, EventArgs e)
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                upload_imgbx.Image = new Bitmap(open.FileName);
             }
         }
     }

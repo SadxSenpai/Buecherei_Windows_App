@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.upload_imgbx = new System.Windows.Forms.PictureBox();
             this.book_author_tb = new System.Windows.Forms.TextBox();
             this.book_name_tb = new System.Windows.Forms.TextBox();
             this.book_info_tb = new System.Windows.Forms.TextBox();
@@ -40,12 +41,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.exit_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.upload_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upload_imgbx)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.upload_btn);
+            this.panel1.Controls.Add(this.upload_imgbx);
             this.panel1.Controls.Add(this.book_author_tb);
             this.panel1.Controls.Add(this.book_name_tb);
             this.panel1.Controls.Add(this.book_info_tb);
@@ -59,6 +64,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(398, 643);
             this.panel1.TabIndex = 0;
+            // 
+            // upload_imgbx
+            // 
+            this.upload_imgbx.Location = new System.Drawing.Point(183, 220);
+            this.upload_imgbx.Name = "upload_imgbx";
+            this.upload_imgbx.Size = new System.Drawing.Size(192, 192);
+            this.upload_imgbx.TabIndex = 21;
+            this.upload_imgbx.TabStop = false;
             // 
             // book_author_tb
             // 
@@ -176,6 +189,16 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Neues Buch";
             // 
+            // upload_btn
+            // 
+            this.upload_btn.Location = new System.Drawing.Point(67, 305);
+            this.upload_btn.Name = "upload_btn";
+            this.upload_btn.Size = new System.Drawing.Size(110, 23);
+            this.upload_btn.TabIndex = 22;
+            this.upload_btn.Text = "Bild hinzufügen";
+            this.upload_btn.UseVisualStyleBackColor = true;
+            this.upload_btn.Click += new System.EventHandler(this.upload_btn_Click);
+            // 
             // Book_add_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -189,6 +212,7 @@
             this.Load += new System.EventHandler(this.Book_add_UC_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upload_imgbx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +232,7 @@
         private Label label7;
         private TextBox book_name_tb;
         private TextBox book_author_tb;
+        private PictureBox upload_imgbx;
+        private Button upload_btn;
     }
 }

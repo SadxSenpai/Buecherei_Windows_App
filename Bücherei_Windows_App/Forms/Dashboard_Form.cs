@@ -44,6 +44,7 @@ namespace Bücherei_Windows_App.Forms
         {
             guna2ShadowForm1.SetShadowForm(this);
 
+
             //Load the Usercontrol
             /*
             booklist_uc1 = new Booklist_UC();
@@ -102,6 +103,7 @@ namespace Bücherei_Windows_App.Forms
             //books_list.Image = Image.FromFile("../../Images/xxx.png");
             //user_list.Image = Image.FromFile("../../Images/xxx.png");
         }
+
 
         private void Dashboard_Form_Shown(object sender, EventArgs e)
         {

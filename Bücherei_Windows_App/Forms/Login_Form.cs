@@ -8,6 +8,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Text;
 using System.Diagnostics;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Bücherei_Windows_App.The_Database;
 
 namespace Bücherei_Windows_App.Forms
 {
@@ -56,6 +57,7 @@ namespace Bücherei_Windows_App.Forms
                 }
             }
         }
+
         //Manipulattion des Dashboards via Loginscreen
         private Dashboard_Form dashF = null;
         public Login_Form(Dashboard_Form SourceForm)
@@ -86,7 +88,7 @@ namespace Bücherei_Windows_App.Forms
             string enteredPassword = password_input.Text;
             string hashedPassword = HashSHA256.ComputeHash(enteredPassword);
 
-            string connectionString = "server=localhost;uid=root;pwd=;database=lms_db";
+            string connectionString = DBCon.dbConnection;
             string query = "SELECT email, password FROM app_users WHERE email = @email";
 
             using (MySqlConnection Conn = new MySqlConnection(connectionString))
@@ -109,9 +111,8 @@ namespace Bücherei_Windows_App.Forms
                             {
                                 if (password == hashedPassword)
                                 {
-
-                                    dashF.Enabled = true;
-                                    this.Close();
+                                        dashF.Enabled = true;
+                                        this.Close();
                                 }
                                 else
                                 {
@@ -139,7 +140,7 @@ namespace Bücherei_Windows_App.Forms
             try
             {
 
-                string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+                string connstring = DBCon.dbConnection;
                 string querycheck = "SELECT * FROM books";
 
                 using (MySqlConnection con = new MySqlConnection(connstring))

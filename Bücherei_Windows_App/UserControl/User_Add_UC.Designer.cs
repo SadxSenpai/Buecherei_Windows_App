@@ -28,200 +28,201 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.new_password_check_tb = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.new_password_tb = new System.Windows.Forms.TextBox();
-            this.new_email_check_tb = new System.Windows.Forms.TextBox();
-            this.new_email_tb = new System.Windows.Forms.TextBox();
-            this.last_name_tb = new System.Windows.Forms.TextBox();
-            this.first_name_tb = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.new_user_create = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.exit_label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            label6 = new Label();
+            new_password_check_tb = new TextBox();
+            label3 = new Label();
+            new_password_tb = new TextBox();
+            new_email_check_tb = new TextBox();
+            new_email_tb = new TextBox();
+            last_name_tb = new TextBox();
+            first_name_tb = new TextBox();
+            label5 = new Label();
+            new_user_create = new Button();
+            label2 = new Label();
+            label1 = new Label();
+            exit_label = new Label();
+            label4 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.new_password_check_tb);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.new_password_tb);
-            this.panel1.Controls.Add(this.new_email_check_tb);
-            this.panel1.Controls.Add(this.new_email_tb);
-            this.panel1.Controls.Add(this.last_name_tb);
-            this.panel1.Controls.Add(this.first_name_tb);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.new_user_create);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(398, 643);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(new_password_check_tb);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(new_password_tb);
+            panel1.Controls.Add(new_email_check_tb);
+            panel1.Controls.Add(new_email_tb);
+            panel1.Controls.Add(last_name_tb);
+            panel1.Controls.Add(first_name_tb);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(new_user_create);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(3, 35);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(398, 643);
+            panel1.TabIndex = 0;
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 297);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 23);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Passwort Bestätigen";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(3, 297);
+            label6.Name = "label6";
+            label6.Size = new Size(156, 23);
+            label6.TabIndex = 28;
+            label6.Text = "Passwort Bestätigen";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // new_password_check_tb
             // 
-            this.new_password_check_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.new_password_check_tb.Location = new System.Drawing.Point(176, 295);
-            this.new_password_check_tb.Name = "new_password_check_tb";
-            this.new_password_check_tb.Size = new System.Drawing.Size(207, 27);
-            this.new_password_check_tb.TabIndex = 27;
-            this.new_password_check_tb.UseSystemPasswordChar = true;
+            new_password_check_tb.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            new_password_check_tb.Location = new Point(176, 295);
+            new_password_check_tb.Name = "new_password_check_tb";
+            new_password_check_tb.Size = new Size(207, 27);
+            new_password_check_tb.TabIndex = 27;
+            new_password_check_tb.UseSystemPasswordChar = true;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 237);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 23);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Passwort";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(3, 237);
+            label3.Name = "label3";
+            label3.Size = new Size(156, 23);
+            label3.TabIndex = 26;
+            label3.Text = "Passwort";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // new_password_tb
             // 
-            this.new_password_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.new_password_tb.Location = new System.Drawing.Point(176, 235);
-            this.new_password_tb.Name = "new_password_tb";
-            this.new_password_tb.Size = new System.Drawing.Size(207, 27);
-            this.new_password_tb.TabIndex = 25;
-            this.new_password_tb.UseSystemPasswordChar = true;
+            new_password_tb.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            new_password_tb.Location = new Point(176, 235);
+            new_password_tb.Name = "new_password_tb";
+            new_password_tb.Size = new Size(207, 27);
+            new_password_tb.TabIndex = 25;
+            new_password_tb.UseSystemPasswordChar = true;
             // 
             // new_email_check_tb
             // 
-            this.new_email_check_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.new_email_check_tb.Location = new System.Drawing.Point(176, 175);
-            this.new_email_check_tb.Name = "new_email_check_tb";
-            this.new_email_check_tb.Size = new System.Drawing.Size(207, 27);
-            this.new_email_check_tb.TabIndex = 24;
+            new_email_check_tb.CharacterCasing = CharacterCasing.Lower;
+            new_email_check_tb.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            new_email_check_tb.Location = new Point(176, 175);
+            new_email_check_tb.Name = "new_email_check_tb";
+            new_email_check_tb.Size = new Size(207, 27);
+            new_email_check_tb.TabIndex = 24;
             // 
             // new_email_tb
             // 
-            this.new_email_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.new_email_tb.Location = new System.Drawing.Point(176, 115);
-            this.new_email_tb.Name = "new_email_tb";
-            this.new_email_tb.Size = new System.Drawing.Size(207, 27);
-            this.new_email_tb.TabIndex = 23;
+            new_email_tb.CharacterCasing = CharacterCasing.Lower;
+            new_email_tb.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            new_email_tb.Location = new Point(176, 115);
+            new_email_tb.Name = "new_email_tb";
+            new_email_tb.Size = new Size(207, 27);
+            new_email_tb.TabIndex = 23;
             // 
             // last_name_tb
             // 
-            this.last_name_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.last_name_tb.Location = new System.Drawing.Point(283, 53);
-            this.last_name_tb.Name = "last_name_tb";
-            this.last_name_tb.PlaceholderText = "Nachname";
-            this.last_name_tb.Size = new System.Drawing.Size(100, 27);
-            this.last_name_tb.TabIndex = 22;
+            last_name_tb.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            last_name_tb.Location = new Point(283, 53);
+            last_name_tb.Name = "last_name_tb";
+            last_name_tb.PlaceholderText = "Nachname";
+            last_name_tb.Size = new Size(100, 27);
+            last_name_tb.TabIndex = 22;
             // 
             // first_name_tb
             // 
-            this.first_name_tb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.first_name_tb.Location = new System.Drawing.Point(177, 53);
-            this.first_name_tb.Name = "first_name_tb";
-            this.first_name_tb.PlaceholderText = "Vorname";
-            this.first_name_tb.Size = new System.Drawing.Size(100, 27);
-            this.first_name_tb.TabIndex = 21;
+            first_name_tb.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            first_name_tb.Location = new Point(177, 53);
+            first_name_tb.Name = "first_name_tb";
+            first_name_tb.PlaceholderText = "Vorname";
+            first_name_tb.Size = new Size(100, 27);
+            first_name_tb.TabIndex = 21;
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 177);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 23);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Email Bestätigen";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(3, 177);
+            label5.Name = "label5";
+            label5.Size = new Size(156, 23);
+            label5.TabIndex = 9;
+            label5.Text = "Email Bestätigen";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // new_user_create
             // 
-            this.new_user_create.Location = new System.Drawing.Point(67, 582);
-            this.new_user_create.Name = "new_user_create";
-            this.new_user_create.Size = new System.Drawing.Size(250, 42);
-            this.new_user_create.TabIndex = 7;
-            this.new_user_create.Text = "Erstellen";
-            this.new_user_create.UseVisualStyleBackColor = true;
-            this.new_user_create.Click += new System.EventHandler(this.new_user_create_Click);
+            new_user_create.Location = new Point(67, 582);
+            new_user_create.Name = "new_user_create";
+            new_user_create.Size = new Size(250, 42);
+            new_user_create.TabIndex = 7;
+            new_user_create.Text = "Erstellen";
+            new_user_create.UseVisualStyleBackColor = true;
+            new_user_create.Click += new_user_create_Click;
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Email";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(3, 117);
+            label2.Name = "label2";
+            label2.Size = new Size(156, 23);
+            label2.TabIndex = 2;
+            label2.Text = "Email";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 57);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 23);
+            label1.TabIndex = 0;
+            label1.Text = "Name";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // exit_label
             // 
-            this.exit_label.AutoSize = true;
-            this.exit_label.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exit_label.Location = new System.Drawing.Point(374, 0);
-            this.exit_label.Name = "exit_label";
-            this.exit_label.Size = new System.Drawing.Size(30, 32);
-            this.exit_label.TabIndex = 1;
-            this.exit_label.Text = "X";
-            this.exit_label.Click += new System.EventHandler(this.exit_label_Click);
-            this.exit_label.MouseEnter += new System.EventHandler(this.exit_label_MouseEnter);
-            this.exit_label.MouseLeave += new System.EventHandler(this.exit_label_MouseLeave);
+            exit_label.AutoSize = true;
+            exit_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            exit_label.Location = new Point(374, 0);
+            exit_label.Name = "exit_label";
+            exit_label.Size = new Size(30, 32);
+            exit_label.TabIndex = 1;
+            exit_label.Text = "X";
+            exit_label.Click += exit_label_Click;
+            exit_label.MouseEnter += exit_label_MouseEnter;
+            exit_label.MouseLeave += exit_label_MouseLeave;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(193, 32);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Neuer Benutzer";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(0, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(193, 32);
+            label4.TabIndex = 6;
+            label4.Text = "Neuer Benutzer";
             // 
             // User_Add_UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.exit_label);
-            this.Controls.Add(this.panel1);
-            this.Name = "User_Add_UC";
-            this.Size = new System.Drawing.Size(404, 681);
-            this.Load += new System.EventHandler(this.User_Add_UC_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(label4);
+            Controls.Add(exit_label);
+            Controls.Add(panel1);
+            Name = "User_Add_UC";
+            Size = new Size(404, 681);
+            Load += User_Add_UC_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

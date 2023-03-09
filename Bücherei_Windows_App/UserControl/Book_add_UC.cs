@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Bücherei_Windows_App.The_Database;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 namespace Bücherei_Windows_App
@@ -11,7 +12,7 @@ namespace Bücherei_Windows_App
 
         }
 
-    private void exit_label_Click(object sender, EventArgs e)
+        private void exit_label_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Remove(this);
             this.Dispose();
@@ -45,7 +46,19 @@ namespace Bücherei_Windows_App
                 {
                     if (book_type_cb.Text != "")
                     {
-                        string connstringceck = "server=localhost;uid=root;pwd=;database=lms_db";
+                        Image image = upload_imgbx.Image;
+                        byte[] imageData = null;
+                        if (image != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                imageData = ms.ToArray();
+                            }
+                        }
+
+
+                        string connstringceck = DBCon.dbConnection;
 
                         using (MySqlConnection connection = new MySqlConnection(connstringceck))
                         {
@@ -63,9 +76,9 @@ namespace Bücherei_Windows_App
                                 // If the data does not exist, insert it.
                                 if (count == 0)
                                 {
-                                    string insertQuery = "INSERT INTO books (book_name, book_author, book_type, book_note) VALUES (@bookname, @bookauthor, @booktype, @bookinfo)";
+                                    string insertQuery = "INSERT INTO books (book_name, book_author, book_type, book_img, book_note) VALUES (@bookname, @bookauthor, @booktype, @book_img, @bookinfo)";
 
-                                    string connstring = "server=localhost;uid=root;pwd=;database=lms_db";
+                                    string connstring = DBCon.dbConnection;
                                     MySqlConnection con = new MySqlConnection(connstring);
 
                                     con.Open();
@@ -76,6 +89,7 @@ namespace Bücherei_Windows_App
                                         cmd.Parameters.AddWithValue("@bookname", book_name_tb.Text);
                                         cmd.Parameters.AddWithValue("@bookauthor", book_author_tb.Text);
                                         cmd.Parameters.AddWithValue("@booktype", book_type_cb.Text);
+                                        cmd.Parameters.AddWithValue("@book_img", imageData);
                                         cmd.Parameters.AddWithValue("@bookinfo", book_info_tb.Text);
 
                                         if (cmd.ExecuteNonQuery() == 1)

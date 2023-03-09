@@ -28,194 +28,191 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.upload_imgbx = new System.Windows.Forms.PictureBox();
-            this.book_author_tb = new System.Windows.Forms.TextBox();
-            this.book_name_tb = new System.Windows.Forms.TextBox();
-            this.book_info_tb = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.book_add_finish_btn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.book_type_cb = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.exit_label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.upload_btn = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.upload_imgbx)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            upload_btn = new Button();
+            upload_imgbx = new PictureBox();
+            book_author_tb = new TextBox();
+            book_name_tb = new TextBox();
+            book_info_tb = new TextBox();
+            label7 = new Label();
+            label5 = new Label();
+            book_add_finish_btn = new Button();
+            label2 = new Label();
+            book_type_cb = new ComboBox();
+            label1 = new Label();
+            exit_label = new Label();
+            label4 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)upload_imgbx).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.upload_btn);
-            this.panel1.Controls.Add(this.upload_imgbx);
-            this.panel1.Controls.Add(this.book_author_tb);
-            this.panel1.Controls.Add(this.book_name_tb);
-            this.panel1.Controls.Add(this.book_info_tb);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.book_add_finish_btn);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.book_type_cb);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(398, 643);
-            this.panel1.TabIndex = 0;
-            // 
-            // upload_imgbx
-            // 
-            this.upload_imgbx.Location = new System.Drawing.Point(183, 220);
-            this.upload_imgbx.Name = "upload_imgbx";
-            this.upload_imgbx.Size = new System.Drawing.Size(192, 192);
-            this.upload_imgbx.TabIndex = 21;
-            this.upload_imgbx.TabStop = false;
-            // 
-            // book_author_tb
-            // 
-            this.book_author_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_author_tb.Location = new System.Drawing.Point(176, 115);
-            this.book_author_tb.Name = "book_author_tb";
-            this.book_author_tb.Size = new System.Drawing.Size(207, 33);
-            this.book_author_tb.TabIndex = 20;
-            // 
-            // book_name_tb
-            // 
-            this.book_name_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_name_tb.Location = new System.Drawing.Point(176, 49);
-            this.book_name_tb.Name = "book_name_tb";
-            this.book_name_tb.Size = new System.Drawing.Size(207, 33);
-            this.book_name_tb.TabIndex = 19;
-            // 
-            // book_info_tb
-            // 
-            this.book_info_tb.Location = new System.Drawing.Point(176, 418);
-            this.book_info_tb.Multiline = true;
-            this.book_info_tb.Name = "book_info_tb";
-            this.book_info_tb.Size = new System.Drawing.Size(207, 96);
-            this.book_info_tb.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 418);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 23);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Bemerkung";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 119);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 23);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Author";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // book_add_finish_btn
-            // 
-            this.book_add_finish_btn.Location = new System.Drawing.Point(67, 582);
-            this.book_add_finish_btn.Name = "book_add_finish_btn";
-            this.book_add_finish_btn.Size = new System.Drawing.Size(250, 42);
-            this.book_add_finish_btn.TabIndex = 7;
-            this.book_add_finish_btn.Text = "Hinzufügen";
-            this.book_add_finish_btn.UseVisualStyleBackColor = true;
-            this.book_add_finish_btn.Click += new System.EventHandler(this.book_add_finish_btn_Click);
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 185);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Art";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // book_type_cb
-            // 
-            this.book_type_cb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_type_cb.FormattingEnabled = true;
-            this.book_type_cb.Items.AddRange(new object[] {
-            "Buch",
-            "Buch + CD",
-            "Heft",
-            "Heft + CD"});
-            this.book_type_cb.Location = new System.Drawing.Point(176, 181);
-            this.book_type_cb.Name = "book_type_cb";
-            this.book_type_cb.Size = new System.Drawing.Size(207, 33);
-            this.book_type_cb.TabIndex = 1;
-            this.book_type_cb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.book_type_cb_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Buch";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // exit_label
-            // 
-            this.exit_label.AutoSize = true;
-            this.exit_label.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exit_label.Location = new System.Drawing.Point(374, 0);
-            this.exit_label.Name = "exit_label";
-            this.exit_label.Size = new System.Drawing.Size(30, 32);
-            this.exit_label.TabIndex = 1;
-            this.exit_label.Text = "X";
-            this.exit_label.Click += new System.EventHandler(this.exit_label_Click);
-            this.exit_label.MouseEnter += new System.EventHandler(this.exit_label_MouseEnter);
-            this.exit_label.MouseLeave += new System.EventHandler(this.exit_label_MouseLeave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 32);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Neues Buch";
+            panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(upload_btn);
+            panel1.Controls.Add(upload_imgbx);
+            panel1.Controls.Add(book_author_tb);
+            panel1.Controls.Add(book_name_tb);
+            panel1.Controls.Add(book_info_tb);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(book_add_finish_btn);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(book_type_cb);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(3, 35);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(398, 643);
+            panel1.TabIndex = 0;
             // 
             // upload_btn
             // 
-            this.upload_btn.Location = new System.Drawing.Point(67, 305);
-            this.upload_btn.Name = "upload_btn";
-            this.upload_btn.Size = new System.Drawing.Size(110, 23);
-            this.upload_btn.TabIndex = 22;
-            this.upload_btn.Text = "Bild hinzufügen";
-            this.upload_btn.UseVisualStyleBackColor = true;
-            this.upload_btn.Click += new System.EventHandler(this.upload_btn_Click);
+            upload_btn.Location = new Point(29, 305);
+            upload_btn.Name = "upload_btn";
+            upload_btn.Size = new Size(110, 23);
+            upload_btn.TabIndex = 22;
+            upload_btn.Text = "Bild hinzufügen";
+            upload_btn.UseVisualStyleBackColor = true;
+            upload_btn.Click += upload_btn_Click;
+            // 
+            // upload_imgbx
+            // 
+            upload_imgbx.BackColor = Color.Transparent;
+            upload_imgbx.Location = new Point(184, 220);
+            upload_imgbx.Name = "upload_imgbx";
+            upload_imgbx.Size = new Size(192, 192);
+            upload_imgbx.SizeMode = PictureBoxSizeMode.StretchImage;
+            upload_imgbx.TabIndex = 21;
+            upload_imgbx.TabStop = false;
+            // 
+            // book_author_tb
+            // 
+            book_author_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            book_author_tb.Location = new Point(176, 115);
+            book_author_tb.Name = "book_author_tb";
+            book_author_tb.Size = new Size(207, 33);
+            book_author_tb.TabIndex = 20;
+            // 
+            // book_name_tb
+            // 
+            book_name_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            book_name_tb.Location = new Point(176, 49);
+            book_name_tb.Name = "book_name_tb";
+            book_name_tb.Size = new Size(207, 33);
+            book_name_tb.TabIndex = 19;
+            // 
+            // book_info_tb
+            // 
+            book_info_tb.Location = new Point(176, 418);
+            book_info_tb.Multiline = true;
+            book_info_tb.Name = "book_info_tb";
+            book_info_tb.Size = new Size(207, 96);
+            book_info_tb.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(3, 418);
+            label7.Name = "label7";
+            label7.Size = new Size(156, 23);
+            label7.TabIndex = 13;
+            label7.Text = "Bemerkung";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(3, 119);
+            label5.Name = "label5";
+            label5.Size = new Size(156, 23);
+            label5.TabIndex = 9;
+            label5.Text = "Author";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // book_add_finish_btn
+            // 
+            book_add_finish_btn.Location = new Point(67, 582);
+            book_add_finish_btn.Name = "book_add_finish_btn";
+            book_add_finish_btn.Size = new Size(250, 42);
+            book_add_finish_btn.TabIndex = 7;
+            book_add_finish_btn.Text = "Hinzufügen";
+            book_add_finish_btn.UseVisualStyleBackColor = true;
+            book_add_finish_btn.Click += book_add_finish_btn_Click;
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(3, 185);
+            label2.Name = "label2";
+            label2.Size = new Size(156, 23);
+            label2.TabIndex = 2;
+            label2.Text = "Art";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // book_type_cb
+            // 
+            book_type_cb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            book_type_cb.FormattingEnabled = true;
+            book_type_cb.Items.AddRange(new object[] { "Buch", "Buch + CD", "Heft", "Heft + CD" });
+            book_type_cb.Location = new Point(176, 181);
+            book_type_cb.Name = "book_type_cb";
+            book_type_cb.Size = new Size(207, 33);
+            book_type_cb.TabIndex = 1;
+            book_type_cb.KeyPress += book_type_cb_KeyPress;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 53);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 23);
+            label1.TabIndex = 0;
+            label1.Text = "Buch";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // exit_label
+            // 
+            exit_label.AutoSize = true;
+            exit_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            exit_label.Location = new Point(374, 0);
+            exit_label.Name = "exit_label";
+            exit_label.Size = new Size(30, 32);
+            exit_label.TabIndex = 1;
+            exit_label.Text = "X";
+            exit_label.Click += exit_label_Click;
+            exit_label.MouseEnter += exit_label_MouseEnter;
+            exit_label.MouseLeave += exit_label_MouseLeave;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(0, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(148, 32);
+            label4.TabIndex = 6;
+            label4.Text = "Neues Buch";
             // 
             // Book_add_UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.exit_label);
-            this.Controls.Add(this.panel1);
-            this.Name = "Book_add_UC";
-            this.Size = new System.Drawing.Size(404, 681);
-            this.Load += new System.EventHandler(this.Book_add_UC_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.upload_imgbx)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(label4);
+            Controls.Add(exit_label);
+            Controls.Add(panel1);
+            Name = "Book_add_UC";
+            Size = new Size(404, 681);
+            Load += Book_add_UC_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)upload_imgbx).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

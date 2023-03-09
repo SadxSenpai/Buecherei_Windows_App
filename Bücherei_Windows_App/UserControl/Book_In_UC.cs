@@ -58,7 +58,15 @@ namespace Bücherei_Windows_App
             while (reader.Read())
             {
                 string name = reader.GetString("book_out_with");
-                user_name_cb.Items.Add(name);
+
+                if (user_name_cb.Items.Contains(name))
+                {
+
+                }
+                else
+                {
+                    user_name_cb.Items.Add(name);
+                }
             }
         }
 
@@ -68,6 +76,8 @@ namespace Bücherei_Windows_App
         }
         private void user_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            book_name_cb.Items.Clear();
+
             string connString = DBCon.dbConnection;
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
@@ -83,7 +93,15 @@ namespace Bücherei_Windows_App
             while (reader.Read())
             {
                 string name = reader.GetString("book_name");
-                book_name_cb.Items.Add(name);
+
+                if (book_name_cb.Items.Contains(name))
+                {
+
+                }
+                else
+                {
+                    book_name_cb.Items.Add(name);
+                }
             }
         }
 
@@ -123,7 +141,7 @@ namespace Bücherei_Windows_App
                 string dateback = "";
                 string bookinfo = "@bookinfo";
 
-                string updateQuery = "UPDATE books SET book_out = '0', book_type =@booktype, book_out_with ='', book_out_since ='', book_back_when ='' WHERE book_name =@selected_book AND book_out != '0'";
+                string updateQuery = "UPDATE books SET book_out = '0', book_out_with ='', book_out_since ='', book_back_when ='' WHERE book_name =@selected_book AND book_out != '0'";
 
                 string connstring = DBCon.dbConnection;
                 MySqlConnection con = new MySqlConnection(connstring);
@@ -133,7 +151,6 @@ namespace Bücherei_Windows_App
                 {
                     MySqlCommand cmd = new MySqlCommand(updateQuery, con);
 
-                    cmd.Parameters.AddWithValue("@booktype", booktype);
                     cmd.Parameters.AddWithValue("@bookuser", bookuser);
                     cmd.Parameters.AddWithValue("@dateout", dateout);
                     cmd.Parameters.AddWithValue("@dateback", dateback);

@@ -28,101 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.exit_label = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.book_list_datagrid = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.book_list_datagrid)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            exit_label = new Label();
+            panel1 = new Panel();
+            book_list_datagrid = new DataGridView();
+            dBConBindingSource = new BindingSource(components);
+            label1 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)book_list_datagrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dBConBindingSource).BeginInit();
+            SuspendLayout();
             // 
             // exit_label
             // 
-            this.exit_label.AutoSize = true;
-            this.exit_label.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exit_label.Location = new System.Drawing.Point(944, 0);
-            this.exit_label.Name = "exit_label";
-            this.exit_label.Size = new System.Drawing.Size(30, 32);
-            this.exit_label.TabIndex = 0;
-            this.exit_label.Text = "X";
-            this.exit_label.Click += new System.EventHandler(this.exit_label_Click);
-            this.exit_label.MouseEnter += new System.EventHandler(this.exit_label_MouseEnter);
-            this.exit_label.MouseLeave += new System.EventHandler(this.exit_label_MouseLeave);
+            exit_label.AutoSize = true;
+            exit_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            exit_label.Location = new Point(944, 0);
+            exit_label.Name = "exit_label";
+            exit_label.Size = new Size(30, 32);
+            exit_label.TabIndex = 0;
+            exit_label.Text = "X";
+            exit_label.Click += exit_label_Click;
+            exit_label.MouseEnter += exit_label_MouseEnter;
+            exit_label.MouseLeave += exit_label_MouseLeave;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.book_list_datagrid);
-            this.panel1.Location = new System.Drawing.Point(3, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(968, 608);
-            this.panel1.TabIndex = 1;
+            panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(book_list_datagrid);
+            panel1.Location = new Point(3, 35);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(968, 608);
+            panel1.TabIndex = 1;
             // 
             // book_list_datagrid
             // 
-            this.book_list_datagrid.AllowUserToAddRows = false;
-            this.book_list_datagrid.AllowUserToDeleteRows = false;
-            this.book_list_datagrid.AllowUserToResizeColumns = false;
-            this.book_list_datagrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.book_list_datagrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.book_list_datagrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.book_list_datagrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.book_list_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.book_list_datagrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.book_list_datagrid.GridColor = System.Drawing.Color.Black;
-            this.book_list_datagrid.Location = new System.Drawing.Point(3, 3);
-            this.book_list_datagrid.Name = "book_list_datagrid";
-            this.book_list_datagrid.ReadOnly = true;
-            this.book_list_datagrid.RowHeadersWidth = 25;
-            this.book_list_datagrid.RowTemplate.Height = 25;
-            this.book_list_datagrid.Size = new System.Drawing.Size(962, 602);
-            this.book_list_datagrid.TabIndex = 0;
+            book_list_datagrid.AllowUserToAddRows = false;
+            book_list_datagrid.AllowUserToDeleteRows = false;
+            book_list_datagrid.AllowUserToResizeColumns = false;
+            book_list_datagrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 255, 192);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            book_list_datagrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            book_list_datagrid.BackgroundColor = Color.FromArgb(46, 49, 49);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            book_list_datagrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            book_list_datagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            book_list_datagrid.DefaultCellStyle = dataGridViewCellStyle3;
+            book_list_datagrid.GridColor = Color.Black;
+            book_list_datagrid.Location = new Point(3, 3);
+            book_list_datagrid.Name = "book_list_datagrid";
+            book_list_datagrid.ReadOnly = true;
+            book_list_datagrid.RowHeadersWidth = 25;
+            book_list_datagrid.RowTemplate.Height = 25;
+            book_list_datagrid.Size = new Size(962, 602);
+            book_list_datagrid.TabIndex = 0;
+            // 
+            // dBConBindingSource
+            // 
+            dBConBindingSource.DataSource = typeof(The_Database.DBCon);
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 35);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Bücherliste";
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(6, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(302, 35);
+            label1.TabIndex = 1;
+            label1.Text = "Bücherliste";
             // 
             // Booklist_UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.exit_label);
-            this.Name = "Booklist_UC";
-            this.Size = new System.Drawing.Size(974, 646);
-            this.Load += new System.EventHandler(this.Booklist_UC_Load);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.book_list_datagrid)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(label1);
+            Controls.Add(panel1);
+            Controls.Add(exit_label);
+            Name = "Booklist_UC";
+            Size = new Size(974, 646);
+            Load += Booklist_UC_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)book_list_datagrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dBConBindingSource).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -131,5 +138,6 @@
         private Panel panel1;
         private DataGridView book_list_datagrid;
         private Label label1;
+        private BindingSource dBConBindingSource;
     }
 }

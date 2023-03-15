@@ -31,33 +31,40 @@ namespace Bücherei_Windows_App
 
         private void Booklist_UC_Load(object sender, EventArgs e)
         {
-            //insert the book_name, book_author, book_type, isbn into the datagridview
-            string query = "SELECT book_name, book_author, book_type, isbn FROM books";
+            //fetch and show books from database
+            string query = "SELECT * FROM books";
             MySqlConnection con = new MySqlConnection(DBCon.dbConnection);
             MySqlCommand cmd = new MySqlCommand(query, con);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            book_list_datagrid.DataSource = dt;
-            //change the header text
-            book_list_datagrid.Columns[0].HeaderText = "Buchname";
-            book_list_datagrid.Columns[1].HeaderText = "Autor";
-            book_list_datagrid.Columns[2].HeaderText = "Buchtyp";
-            book_list_datagrid.Columns[3].HeaderText = "ISBN";
-
-            //add and convert blob to image in datagridview
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            imageColumn.Name = "Bild";
-            imageColumn.HeaderText = "Bild";
-            book_list_datagrid.Columns.Add(imageColumn);
-            for (int i = 0; i < book_list_datagrid.Rows.Count; i++)
+            con.Open();
+            MySqlDataReader reader2 = cmd.ExecuteReader();
+            while (reader2.Read())
             {
-                byte[] imageData = (byte[])book_list_datagrid.Rows[i].Cells[4].Value;
-                using (MemoryStream ms = new MemoryStream(imageData))
+                ListViewItem item = new ListViewItem(reader2["book_name"].ToString(), 0);
+                book_list_datagrid.Items.Add(item);
+            }
+            con.Close();
+
+            //fetch and convert blob to img from database
+            string query2 = "SELECT book_blob FROM books_img";
+            MySqlConnection con2 = new MySqlConnection(DBCon.dbConnection);
+            MySqlCommand cmd2 = new MySqlCommand(query2, con2);
+            con2.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                byte[] img = (byte[])(reader["image"]);
+                if (img == null)
                 {
-                    book_list_datagrid.Rows[i].Cells[4].Value = Image.FromStream(ms);
+                    book_list_imglist.Images.Add(Image.FromFile(@"C:\Users\Public\Pictures\Sample Pictures\Desert.jpg"));
+                }
+                else
+                {
+                    MemoryStream ms = new MemoryStream(img);
+                    book_list_imglist.Images.Add(Image.FromStream(ms));
                 }
             }
+            con2.Close();
+
         }
 
         private void OnDispose(object sender, EventArgs e)

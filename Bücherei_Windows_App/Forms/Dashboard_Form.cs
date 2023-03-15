@@ -68,9 +68,11 @@ namespace Bücherei_Windows_App.Forms
 
 
             //Hide UserControls
-            this.Controls.Remove(booklist_uc1);
-            booklist_uc1.Dispose();
-            booklist_uc1 = null;
+            
+            
+            //this.Controls.Remove(booklist_uc1);
+            //booklist_uc1.Dispose();
+            //booklist_uc1 = null;
 
             this.Controls.Remove(book_add_uc1);
             book_add_uc1.Dispose();

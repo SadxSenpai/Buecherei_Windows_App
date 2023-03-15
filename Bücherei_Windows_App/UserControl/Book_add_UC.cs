@@ -76,7 +76,7 @@ namespace Bücherei_Windows_App
                                 // If the data does not exist, insert it.
                                 if (count == 0)
                                 {
-                                    string insertQuery = "INSERT INTO books (book_name, book_author, book_type, book_img, book_note) VALUES (@bookname, @bookauthor, @booktype, @book_img, @bookinfo)";
+                                    string insertQuery = "INSERT INTO books (book_name, book_author, book_type, isbn, book_note) VALUES (@bookname, @bookauthor, @booktype, @isbn, @bookinfo)";
 
                                     string connstring = DBCon.dbConnection;
                                     MySqlConnection con = new MySqlConnection(connstring);
@@ -89,16 +89,39 @@ namespace Bücherei_Windows_App
                                         cmd.Parameters.AddWithValue("@bookname", book_name_tb.Text);
                                         cmd.Parameters.AddWithValue("@bookauthor", book_author_tb.Text);
                                         cmd.Parameters.AddWithValue("@booktype", book_type_cb.Text);
-                                        cmd.Parameters.AddWithValue("@book_img", imageData);
+                                        cmd.Parameters.AddWithValue("@isbn", book_isbn_tb.Text);
                                         cmd.Parameters.AddWithValue("@bookinfo", book_info_tb.Text);
 
                                         if (cmd.ExecuteNonQuery() == 1)
                                         {
-                                            MessageBox.Show("Buch erfolgreich hinzugefügt", "DATA WAS UPDATETD");
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Error 404!", "DATA NOT UPDATED");
+                                            string insertQuery2 = "INSERT INTO books_img (book_name, isbn, book_blob) VALUES (@bookname2, @isbn2, @book_blob)";
+
+                                            string connstring2 = DBCon.dbConnection;
+                                            MySqlConnection con2 = new MySqlConnection(connstring);
+
+                                            con2.Open();
+                                            try
+                                            {
+                                                MySqlCommand cmd2 = new MySqlCommand(insertQuery2, con);
+
+                                                cmd2.Parameters.AddWithValue("@bookname2", book_name_tb.Text);
+                                                cmd2.Parameters.AddWithValue("@isbn2", book_isbn_tb.Text);
+                                                cmd2.Parameters.AddWithValue("@book_blob", imageData);
+
+                                                if (cmd2.ExecuteNonQuery() == 1)
+                                                {
+                                                    MessageBox.Show("Das Buch wurde erfolgreich hinzugefügt!", "DATA UPDATED");
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Error 404!", "DATA NOT UPDATED");
+                                                }
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                MessageBox.Show(ex.Message);
+                                            }
+                                            con2.Close();
                                         }
                                     }
                                     catch (Exception ex)
@@ -129,7 +152,6 @@ namespace Bücherei_Windows_App
                 MessageBox.Show("Die Namens eingabe darf nicht lehr sein");
             }
         }
-
         private void upload_btn_Click(object sender, EventArgs e)
         {
             // open file dialog   

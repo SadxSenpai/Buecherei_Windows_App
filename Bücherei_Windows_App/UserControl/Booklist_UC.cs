@@ -31,63 +31,31 @@ namespace Bücherei_Windows_App
 
         private void Booklist_UC_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(260, 27);
+            //insert the book_name, book_author, book_type, isbn into the datagridview
+            string query = "SELECT book_name, book_author, book_type, isbn FROM books";
+            MySqlConnection con = new MySqlConnection(DBCon.dbConnection);
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            book_list_datagrid.DataSource = dt;
+            //change the header text
+            book_list_datagrid.Columns[0].HeaderText = "Buchname";
+            book_list_datagrid.Columns[1].HeaderText = "Autor";
+            book_list_datagrid.Columns[2].HeaderText = "Buchtyp";
+            book_list_datagrid.Columns[3].HeaderText = "ISBN";
 
-            /*book_list_datagrid.Columns[0].HeaderText = "Nr.";
-            book_list_datagrid.Columns[1].HeaderText = "Name";
-            book_list_datagrid.Columns[2].HeaderText = "Author";
-            book_list_datagrid.Columns[3].HeaderText = "Art";
-            book_list_datagrid.Columns[4].HeaderText = "Bild";
-            book_list_datagrid.Columns[5].HeaderText = "Bei:";
-            book_list_datagrid.Columns[6].HeaderText = "Seit:";
-            book_list_datagrid.Columns[7].HeaderText = "Bis:";
-            book_list_datagrid.Columns[8].HeaderText = "Status";*/
-
-            book_list_datagrid.AutoResizeColumns();
-        }
-        private void GetGridData()
-        {
-
-            // 1. Create a connection to the database
-            using (SqlConnection connection = new SqlConnection(DBCon.dbConnection))
+            //add and convert blob to image in datagridview
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn.Name = "Bild";
+            imageColumn.HeaderText = "Bild";
+            book_list_datagrid.Columns.Add(imageColumn);
+            for (int i = 0; i < book_list_datagrid.Rows.Count; i++)
             {
-                connection.Open();
-
-                // 2. Create a command to retrieve the data from the database
-                SqlCommand command = new SqlCommand("SELECT * FROM Books", connection);
-
-                // 3. Execute the command and retrieve the data using a SqlDataReader
-                SqlDataReader reader = command.ExecuteReader();
-
-                // 4. Loop through the data and add each row to the DataGridView
-                while (reader.Read())
+                byte[] imageData = (byte[])book_list_datagrid.Rows[i].Cells[4].Value;
+                using (MemoryStream ms = new MemoryStream(imageData))
                 {
-                    // Retrieve the values from the reader
-                    string column1 = reader.GetString(0);
-                    string bookAuthor = reader.GetString(1);
-                    string bookType = reader.GetString(2);
-                    byte[] bookImage = (byte[])reader["book_img"];
-                    string book_out_with = reader.GetString(4);
-                    string book_out_since = reader.GetString(5);
-                    string book_back_when = reader.GetString(6);
-                    bool book_out = reader.GetBoolean(7);
-                    string book_note = reader.GetString(8);
-
-                    // Convert the byte array to an image
-                    MemoryStream ms = new MemoryStream(bookImage);
-                    Image image = Image.FromStream(ms);
-
-                    // Add the row to the DataGridView
-                    int rowIndex = book_list_datagrid.Rows.Add();
-                    book_list_datagrid.Rows[rowIndex].Cells["book_name"].Value = column1;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_author"].Value = bookAuthor;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_type"].Value = bookType;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_img"].Value = image;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_out_with"].Value = book_out_with;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_out_since"].Value = book_out_since;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_back_when"].Value = book_back_when;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_out"].Value = book_out;
-                    book_list_datagrid.Rows[rowIndex].Cells["book_note"].Value = book_note;
+                    book_list_datagrid.Rows[i].Cells[4].Value = Image.FromStream(ms);
                 }
             }
         }

@@ -59,10 +59,10 @@ namespace Bücherei_Windows_App.Forms
         }
 
         //Manipulattion des Dashboards via Loginscreen
-        private Dashboard_Form dashF = null;
-        public Login_Form(Dashboard_Form SourceForm)
+        private Dashboard_Form2 dashF = null;
+        public Login_Form(Dashboard_Form2 SourceForm)
         {
-            dashF = SourceForm as Dashboard_Form;
+            dashF = SourceForm as Dashboard_Form2;
             InitializeComponent();
         }
 

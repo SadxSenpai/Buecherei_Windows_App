@@ -1,6 +1,6 @@
 ﻿namespace Bücherei_Windows_App.Forms
 {
-    partial class Dashboard_Form
+    partial class Dashboard_Form2
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form2));
             this.userlist_uc1 = new Bücherei_Windows_App.Userlist_UC();
             this.user_Add_uc1 = new Bücherei_Windows_App.User_Add_UC();
             this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();
@@ -42,6 +42,7 @@
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Topbar = new System.Windows.Forms.Panel();
+            this.Bottombar = new System.Windows.Forms.Panel();
             this.mini_dash_label = new System.Windows.Forms.Label();
             this.exit_dash_label = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -58,6 +59,7 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dogebox)).BeginInit();
             this.Topbar.SuspendLayout();
+            this.Bottombar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -155,6 +157,14 @@
             this.Topbar.Size = new System.Drawing.Size(1267, 27);
             this.Topbar.TabIndex = 9;
             this.Topbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Topbar_MouseDown);
+            //
+            // Bottombar
+            // 
+            this.Bottombar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(57)))), ((int)(((byte)(141)))));
+            this.Bottombar.Location = new System.Drawing.Point(0, 708);
+            this.Bottombar.Name = "Bottombar";
+            this.Bottombar.Size = new System.Drawing.Size(1267, 27);
+            this.Bottombar.TabIndex = 9;
             // 
             // mini_dash_label
             // 
@@ -372,11 +382,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LimeGreen;
-            this.ClientSize = new System.Drawing.Size(1264, 707);
+            this.ClientSize = new System.Drawing.Size(1264, 735);
             this.Controls.Add(this.book_add_uc1);
             this.Controls.Add(this.userlist_uc1);
             this.Controls.Add(this.book_Del_uc1);
             this.Controls.Add(this.Topbar);
+            this.Controls.Add(this.Bottombar);
             this.Controls.Add(this.booklist_uc1);
             this.Controls.Add(this.user_Add_uc1);
             this.Controls.Add(this.panel1);
@@ -394,6 +405,7 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dogebox)).EndInit();
             this.Topbar.ResumeLayout(false);
+            this.Bottombar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -412,6 +424,7 @@
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Panel Topbar;
+        private Panel Bottombar;
         private Label mini_dash_label;
         private Label exit_dash_label;
         private PictureBox pictureBox1;

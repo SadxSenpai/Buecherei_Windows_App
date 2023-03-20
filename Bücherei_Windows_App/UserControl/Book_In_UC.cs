@@ -135,7 +135,6 @@ namespace Bücherei_Windows_App
                 // Retrieving the selected item from the ComboBox
                 string selected_book = book_name_cb.SelectedItem.ToString();
 
-                string booktype = "";
                 string bookuser = "";
                 string dateout = "";
                 string dateback = "";

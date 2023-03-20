@@ -2,9 +2,9 @@
 
 namespace Bücherei_Windows_App.Forms
 {
-    public partial class Dashboard_Form : Form
+    public partial class Dashboard_Form2 : Form
     {
-        public Dashboard_Form()
+        public Dashboard_Form2()
         {
             this.EnableBlur();
             this.TransparencyKey = Color.LimeGreen;

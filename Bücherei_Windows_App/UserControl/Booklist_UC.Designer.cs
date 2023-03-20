@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             exit_label = new Label();
             panel1 = new Panel();
+            search_tb = new TextBox();
             book_list_datagrid = new DataGridView();
             dBConBindingSource = new BindingSource(components);
             label1 = new Label();
@@ -58,11 +59,21 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(search_tb);
             panel1.Controls.Add(book_list_datagrid);
             panel1.Location = new Point(3, 35);
             panel1.Name = "panel1";
             panel1.Size = new Size(968, 608);
             panel1.TabIndex = 1;
+            // 
+            // search_tb
+            // 
+            search_tb.Location = new Point(3, 5);
+            search_tb.Name = "search_tb";
+            search_tb.PlaceholderText = "Suche";
+            search_tb.Size = new Size(201, 23);
+            search_tb.TabIndex = 1;
+            search_tb.TextChanged += search_tb_TextChanged;
             // 
             // book_list_datagrid
             // 
@@ -70,35 +81,35 @@
             book_list_datagrid.AllowUserToDeleteRows = false;
             book_list_datagrid.AllowUserToResizeColumns = false;
             book_list_datagrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 255, 192);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            book_list_datagrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 192);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            book_list_datagrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             book_list_datagrid.BackgroundColor = Color.FromArgb(46, 49, 49);
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            book_list_datagrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            book_list_datagrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             book_list_datagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            book_list_datagrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            book_list_datagrid.DefaultCellStyle = dataGridViewCellStyle6;
             book_list_datagrid.GridColor = Color.Black;
-            book_list_datagrid.Location = new Point(3, 3);
+            book_list_datagrid.Location = new Point(3, 34);
             book_list_datagrid.Name = "book_list_datagrid";
             book_list_datagrid.ReadOnly = true;
             book_list_datagrid.RowHeadersWidth = 25;
             book_list_datagrid.RowTemplate.Height = 25;
-            book_list_datagrid.Size = new Size(962, 602);
+            book_list_datagrid.Size = new Size(962, 571);
             book_list_datagrid.TabIndex = 0;
             // 
             // dBConBindingSource
@@ -126,6 +137,7 @@
             Size = new Size(974, 646);
             Load += Booklist_UC_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)book_list_datagrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)dBConBindingSource).EndInit();
             ResumeLayout(false);
@@ -139,5 +151,6 @@
         private DataGridView book_list_datagrid;
         private Label label1;
         private BindingSource dBConBindingSource;
+        private TextBox search_tb;
     }
 }

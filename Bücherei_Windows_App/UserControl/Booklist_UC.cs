@@ -2,12 +2,16 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Bücherei_Windows_App
 {
     public partial class Booklist_UC : UserControl
     {
+        //Initialzize of Datatable for Datagrid contents
+        DataTable dtBooks = new DataTable("Books");
+
         public Booklist_UC()
         {
             InitializeComponent();
@@ -31,45 +35,34 @@ namespace Bücherei_Windows_App
 
         private void Booklist_UC_Load(object sender, EventArgs e)
         {
-            //fetch and show books from database
-            string query = "SELECT * FROM books";
-            MySqlConnection con = new MySqlConnection(DBCon.dbConnection);
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            con.Open();
-            MySqlDataReader reader2 = cmd.ExecuteReader();
-            while (reader2.Read())
-            {
-                ListViewItem item = new ListViewItem(reader2["book_name"].ToString(), 0);
-                book_list_datagrid.Items.Add(item);
-            }
-            con.Close();
+            this.Location = new Point(260, 27);
 
-            //fetch and convert blob to img from database
-            string query2 = "SELECT book_blob FROM books_img";
-            MySqlConnection con2 = new MySqlConnection(DBCon.dbConnection);
-            MySqlCommand cmd2 = new MySqlCommand(query2, con2);
-            con2.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            book_list_datagrid.AutoResizeColumns();
+
+            //fetch data from local database
+            using (MySqlConnection con = new MySqlConnection(DBCon.dbConnection))
             {
-                byte[] img = (byte[])(reader["image"]);
-                if (img == null)
+                using (MySqlCommand cmd = new MySqlCommand("SELECT * From books", con))
                 {
-                    book_list_imglist.Images.Add(Image.FromFile(@"C:\Users\Public\Pictures\Sample Pictures\Desert.jpg"));
-                }
-                else
-                {
-                    MemoryStream ms = new MemoryStream(img);
-                    book_list_imglist.Images.Add(Image.FromStream(ms));
+                    con.Open();
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    dtBooks.Load(reader);
                 }
             }
-            con2.Close();
-
+            book_list_datagrid.DataSource = dtBooks;
         }
-
         private void OnDispose(object sender, EventArgs e)
         {
             Disposed += OnDispose;
+        }
+
+        private void search_tb_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = dtBooks.DefaultView;
+            dv.RowFilter = string.Format("book_name LIKE '%{0}%' OR isbn LIKE '%{0}%'", search_tb.Text);
+            book_list_datagrid.DataSource = dv.ToTable();
         }
     }
 }

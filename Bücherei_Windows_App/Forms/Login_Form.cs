@@ -1,46 +1,32 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Bücherei_Windows_App.The_Database;
+using MySql.Data.MySqlClient;
 using System.ComponentModel;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Reflection.Metadata.BlobBuilder;
-using System.Windows.Forms;
 using System.Security.Cryptography;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Text;
-using System.Diagnostics;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using Bücherei_Windows_App.The_Database;
 
 namespace Bücherei_Windows_App.Forms
 {
     public partial class Login_Form : Form
     {
-        public Login_Form()
+        public Login_Form() => InitializeComponent();
+        public Login_Form(Dashboard_Form SourceForm)
         {
+            dashF = SourceForm as Dashboard_Form;
             InitializeComponent();
         }
         public void Login_Form_Load(object sender, EventArgs e)
         {
-
         }
 
-        private void label_close_MouseEnter(object sender, EventArgs e)
-        {
-            label_close.ForeColor = Color.Red;
-        }
+        void label_close_MouseEnter(object sender, EventArgs e) => label_close.ForeColor = Color.Red;
 
-        private void label_close_MouseLeave(object sender, EventArgs e)
-        {
-            label_close.ForeColor = Color.Black;
-        }
+        void label_close_MouseLeave(object sender, EventArgs e) => label_close.ForeColor = Color.Black;
 
-        private void label_close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        void label_close_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void email_input_Validating(object sender, CancelEventArgs e)
+        void email_input_Validating(object sender, CancelEventArgs e)
         {
-            System.Text.RegularExpressions.Regex rEmail = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
+            var rEmail = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
 
             if (email_input.Text.Length > 0 && email_input.Text.Trim().Length != 0)
             {
@@ -58,13 +44,8 @@ namespace Bücherei_Windows_App.Forms
             }
         }
 
-        //Manipulattion des Dashboards via Loginscreen
-        private Dashboard_Form2 dashF = null;
-        public Login_Form(Dashboard_Form2 SourceForm)
-        {
-            dashF = SourceForm as Dashboard_Form2;
-            InitializeComponent();
-        }
+        // Manipulattion des Dashboards via Loginscreen
+        Dashboard_Form dashF;
 
         public static class HashSHA256
         {
@@ -72,24 +53,25 @@ namespace Bücherei_Windows_App.Forms
             {
                 using (SHA256 sha256 = SHA256.Create())
                 {
-                    byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
-                    StringBuilder builder = new StringBuilder();
+                    var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+                    var builder = new StringBuilder();
+
                     for (int i = 0; i < bytes.Length; i++)
-                    {
                         builder.Append(bytes[i].ToString("x2"));
-                    }
+                    
+
                     return builder.ToString();
                 }
             }
         }
 
-        private void login_button_Click(object sender, EventArgs e)
+        void login_button_Click(object sender, EventArgs e)
         {
-            string enteredPassword = password_input.Text;
-            string hashedPassword = HashSHA256.ComputeHash(enteredPassword);
+            var enteredPassword = password_input.Text;
+            var hashedPassword = HashSHA256.ComputeHash(enteredPassword);
 
-            string connectionString = DBCon.dbConnection;
-            string query = "SELECT email, password FROM app_users WHERE email = @email";
+            var connectionString = DBCon.dbConnection;
+            var query = "SELECT email, password FROM app_users WHERE email = @email";
 
             using (MySqlConnection Conn = new MySqlConnection(connectionString))
             {
@@ -104,15 +86,15 @@ namespace Bücherei_Windows_App.Forms
                     {
                         if (reader.Read())
                         {
-                            string email = reader.GetString(0);
-                            string password = reader.GetString(1);
+                            var email = reader.GetString(0);
+                            var password = reader.GetString(1);
 
                             if (email == email_input.Text)
                             {
                                 if (password == hashedPassword)
                                 {
-                                        dashF.Enabled = true;
-                                        this.Close();
+                                    dashF.Enabled = true;
+                                    Close();
                                 }
                                 else
                                 {
@@ -139,17 +121,15 @@ namespace Bücherei_Windows_App.Forms
         {
             try
             {
-
-                string connstring = DBCon.dbConnection;
-                string querycheck = "SELECT * FROM books";
+                var connstring = DBCon.dbConnection;
+                var querycheck = "SELECT * FROM books";
 
                 using (MySqlConnection con = new MySqlConnection(connstring))
                 {
                     using (MySqlCommand cmd = new MySqlCommand(querycheck, con))
                     {
-
                         con.Open();
-                        MySqlDataReader reader = cmd.ExecuteReader();
+                        var reader = cmd.ExecuteReader();
 
                         if (reader.Read())
                         {
@@ -168,13 +148,12 @@ namespace Bücherei_Windows_App.Forms
             }
         }
 
-        private void cattobox_MouseEnter(object sender, EventArgs e)
+        void cattobox_MouseEnter(object sender, EventArgs e)
         {
             cattobox.Image = Properties.Resources.BongoCat;
-
         }
 
-        private void cattobox_MouseLeave(object sender, EventArgs e)
+        void cattobox_MouseLeave(object sender, EventArgs e)
         {
             cattobox.Image = Properties.Resources.Transparent;
         }

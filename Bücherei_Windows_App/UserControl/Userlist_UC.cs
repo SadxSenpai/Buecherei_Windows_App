@@ -6,29 +6,21 @@ namespace Bücherei_Windows_App
 {
     public partial class Userlist_UC : UserControl
     {
-        public Userlist_UC()
+        public Userlist_UC() => InitializeComponent();
+
+        void exit_label_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            Parent.Controls.Remove(this);
+            Dispose();
         }
 
-        private void exit_label_Click(object sender, EventArgs e)
-        {
-            this.Parent.Controls.Remove(this);
-            this.Dispose();
-        }
+        void exit_label_MouseEnter(object sender, EventArgs e) => exit_label.ForeColor = Color.Red;
 
-        private void exit_label_MouseEnter(object sender, EventArgs e)
-        {
-            exit_label.ForeColor = Color.Red;
-        }
+        void exit_label_MouseLeave(object sender, EventArgs e) => exit_label.ForeColor = Color.Black;
 
-        private void exit_label_MouseLeave(object sender, EventArgs e)
+        void Userlist_UC_Load(object sender, EventArgs e)
         {
-            exit_label.ForeColor = Color.Black;
-        }
-        private void Userlist_UC_Load(object sender, EventArgs e)
-        {
-            this.Location = new Point(260, 27);
+            Location = new Point(260, 27);
 
             user_list_datagrid.DataSource = GetUsersDB();
 
@@ -40,15 +32,13 @@ namespace Bücherei_Windows_App
             user_list_datagrid.AutoResizeColumns();
         }
 
-        private void OnDispose(object sender, EventArgs e)
-        {
-            Disposed += OnDispose;
-        }
-        private DataTable GetUsersDB()
-        {
-            DataTable dtUsers = new DataTable();
+        void OnDispose(object sender, EventArgs e) => Disposed += OnDispose;
 
-            string connString = DBCon.dbConnection;
+        DataTable GetUsersDB()
+        {
+            var dtUsers = new DataTable();
+
+            var connString = DBCon.dbConnection;
 
             using (MySqlConnection con = new MySqlConnection(connString))
             {
@@ -56,7 +46,7 @@ namespace Bücherei_Windows_App
                 {
                     con.Open();
 
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    var reader = cmd.ExecuteReader();
 
                     dtUsers.Load(reader);
                 }

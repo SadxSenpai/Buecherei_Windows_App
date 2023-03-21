@@ -1,67 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Bücherei_Windows_App.The_Database;
+﻿using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
 {
     public partial class Book_In_UC : UserControl
     {
-        public Book_In_UC()
+        public Book_In_UC() => InitializeComponent();
+
+        void exit_label_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            Parent.Controls.Remove(this);
+            Dispose();
         }
 
-        private void exit_label_Click(object sender, EventArgs e)
-        {
-            this.Parent.Controls.Remove(this);
-            this.Dispose();
-        }
+        void exit_label_MouseEnter(object sender, EventArgs e) => exit_label.ForeColor = Color.Red;
 
-        private void exit_label_MouseEnter(object sender, EventArgs e)
-        {
-            exit_label.ForeColor = Color.Red;
-        }
+        void exit_label_MouseLeave(object sender, EventArgs e) => exit_label.ForeColor = Color.Black;
 
-        private void exit_label_MouseLeave(object sender, EventArgs e)
+        void Book_In_UC_Load(object sender, EventArgs e)
         {
-            exit_label.ForeColor = Color.Black;
-        }
-
-        private void Book_In_UC_Load(object sender, EventArgs e)
-        {
-            this.Location = new Point(260, 27);
+            Location = new Point(260, 27);
 
             // Get the current date and time
-            DateTime today = DateTime.Now;
+            var today = DateTime.Now;
 
             // Format the dates to strings in the desired format
-            string todayString = today.ToString("dd/MM/yyyy");
+            var todayString = today.ToString("dd/MM/yyyy");
 
             today_date_label.Text = todayString;
 
-
-            string connstring = DBCon.dbConnection;
-            MySqlConnection con = new MySqlConnection(connstring);
+            var connstring = DBCon.dbConnection;
+            var con = new MySqlConnection(connstring);
             con.Open();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT book_out_with FROM books WHERE book_out = '1'", con);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            var cmd = new MySqlCommand("SELECT book_out_with FROM books WHERE book_out = '1'", con);
+            var reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                string name = reader.GetString("book_out_with");
+                var name = reader.GetString("book_out_with");
 
                 if (user_name_cb.Items.Contains(name))
                 {
-
                 }
                 else
                 {
@@ -70,33 +50,30 @@ namespace Bücherei_Windows_App
             }
         }
 
-        private void OnDispose(object sender, EventArgs e)
-        {
-            Disposed += OnDispose;
-        }
-        private void user_name_cb_SelectedIndexChanged(object sender, EventArgs e)
+        void OnDispose(object sender, EventArgs e) => Disposed += OnDispose;
+
+        void user_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
             book_name_cb.Items.Clear();
 
-            string connString = DBCon.dbConnection;
-            MySqlConnection conn = new MySqlConnection(connString);
+            var connString = DBCon.dbConnection;
+            var conn = new MySqlConnection(connString);
             conn.Open();
 
-            string selecteduser = user_name_cb.SelectedItem.ToString();
+            var selecteduser = user_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected user
-            string query = "SELECT book_name FROM books WHERE book_out_with = '" + selecteduser + "'";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            var query = "SELECT book_name FROM books WHERE book_out_with = '" + selecteduser + "'";
+            var cmd = new MySqlCommand(query, conn);
+            var reader = cmd.ExecuteReader();
 
             // Read and display the data from the selected row
             while (reader.Read())
             {
-                string name = reader.GetString("book_name");
+                var name = reader.GetString("book_name");
 
                 if (book_name_cb.Items.Contains(name))
                 {
-
                 }
                 else
                 {
@@ -105,18 +82,18 @@ namespace Bücherei_Windows_App
             }
         }
 
-        private void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
+        void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connString = DBCon.dbConnection;
-            MySqlConnection conn = new MySqlConnection(connString);
+            var connString = DBCon.dbConnection;
+            var conn = new MySqlConnection(connString);
             conn.Open();
 
-            string selectedbook = book_name_cb.SelectedItem.ToString();
+            var selectedbook = book_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected item
-            string query = "SELECT book_note, book_type FROM books WHERE book_name = '" + selectedbook + "'";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            var query = "SELECT book_note, book_type FROM books WHERE book_name = '" + selectedbook + "'";
+            var cmd = new MySqlCommand(query, conn);
+            var reader = cmd.ExecuteReader();
 
             // Read and display the data from the selected row
             while (reader.Read())
@@ -126,29 +103,29 @@ namespace Bücherei_Windows_App
             }
         }
 
-        private void book_in_finish_btn_Click(object sender, EventArgs e)
+        void book_in_finish_btn_Click(object sender, EventArgs e)
         {
-
             // Checking if an item is selected in the ComboBox
             if (book_name_cb.SelectedIndex != -1)
             {
                 // Retrieving the selected item from the ComboBox
-                string selected_book = book_name_cb.SelectedItem.ToString();
+                var selected_book = book_name_cb.SelectedItem.ToString();
 
-                string bookuser = "";
-                string dateout = "";
-                string dateback = "";
-                string bookinfo = "@bookinfo";
+                var bookuser = "";
+                var dateout = "";
+                var dateback = "";
+                var bookinfo = "@bookinfo";
 
-                string updateQuery = "UPDATE books SET book_out = '0', book_out_with ='', book_out_since ='', book_back_when ='' WHERE book_name =@selected_book AND book_out != '0'";
+                var updateQuery = "UPDATE books SET book_out = '0', book_out_with ='', book_out_since ='', book_back_when ='' WHERE book_name =@selected_book AND book_out != '0'";
 
-                string connstring = DBCon.dbConnection;
-                MySqlConnection con = new MySqlConnection(connstring);
+                var connstring = DBCon.dbConnection;
+                var con = new MySqlConnection(connstring);
 
                 con.Open();
+
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand(updateQuery, con);
+                    var cmd = new MySqlCommand(updateQuery, con);
 
                     cmd.Parameters.AddWithValue("@bookuser", bookuser);
                     cmd.Parameters.AddWithValue("@dateout", dateout);
@@ -169,8 +146,8 @@ namespace Bücherei_Windows_App
                 {
                     MessageBox.Show(ex.Message);
                 }
-                con.Close();
 
+                con.Close();
             }
             else
             {

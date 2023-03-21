@@ -1,6 +1,6 @@
 ﻿namespace Bücherei_Windows_App.Forms
 {
-    partial class Dashboard_Form2
+    partial class Dashboard_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form));
             this.userlist_uc1 = new Bücherei_Windows_App.Userlist_UC();
             this.user_Add_uc1 = new Bücherei_Windows_App.User_Add_UC();
             this.booklist_uc1 = new Bücherei_Windows_App.Booklist_UC();

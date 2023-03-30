@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label3 = new Label();
+            book_isbn_tb = new TextBox();
             upload_btn = new Button();
             upload_imgbx = new PictureBox();
             book_author_tb = new TextBox();
@@ -42,8 +44,8 @@
             label1 = new Label();
             exit_label = new Label();
             label4 = new Label();
-            book_isbn_tb = new TextBox();
-            label3 = new Label();
+            book_count_tb = new TextBox();
+            label6 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)upload_imgbx).BeginInit();
             SuspendLayout();
@@ -51,6 +53,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(book_count_tb);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(book_isbn_tb);
             panel1.Controls.Add(upload_btn);
@@ -68,6 +72,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(398, 643);
             panel1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(3, 142);
+            label3.Name = "label3";
+            label3.Size = new Size(156, 23);
+            label3.TabIndex = 24;
+            label3.Text = "ISBN";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // book_isbn_tb
+            // 
+            book_isbn_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            book_isbn_tb.Location = new Point(176, 138);
+            book_isbn_tb.Name = "book_isbn_tb";
+            book_isbn_tb.Size = new Size(207, 33);
+            book_isbn_tb.TabIndex = 23;
             // 
             // upload_btn
             // 
@@ -92,7 +115,7 @@
             // book_author_tb
             // 
             book_author_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            book_author_tb.Location = new Point(176, 93);
+            book_author_tb.Location = new Point(176, 98);
             book_author_tb.Name = "book_author_tb";
             book_author_tb.Size = new Size(207, 33);
             book_author_tb.TabIndex = 20;
@@ -100,7 +123,7 @@
             // book_name_tb
             // 
             book_name_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            book_name_tb.Location = new Point(176, 49);
+            book_name_tb.Location = new Point(176, 18);
             book_name_tb.Name = "book_name_tb";
             book_name_tb.Size = new Size(207, 33);
             book_name_tb.TabIndex = 19;
@@ -128,7 +151,7 @@
             // 
             label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(3, 97);
+            label5.Location = new Point(3, 102);
             label5.Name = "label5";
             label5.Size = new Size(156, 23);
             label5.TabIndex = 9;
@@ -149,7 +172,7 @@
             // 
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3, 185);
+            label2.Location = new Point(3, 182);
             label2.Name = "label2";
             label2.Size = new Size(156, 23);
             label2.TabIndex = 2;
@@ -161,7 +184,7 @@
             book_type_cb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             book_type_cb.FormattingEnabled = true;
             book_type_cb.Items.AddRange(new object[] { "Buch", "Buch + CD", "Heft", "Heft + CD" });
-            book_type_cb.Location = new Point(176, 181);
+            book_type_cb.Location = new Point(176, 178);
             book_type_cb.Name = "book_type_cb";
             book_type_cb.Size = new Size(207, 33);
             book_type_cb.TabIndex = 1;
@@ -171,7 +194,7 @@
             // 
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(3, 53);
+            label1.Location = new Point(3, 22);
             label1.Name = "label1";
             label1.Size = new Size(156, 23);
             label1.TabIndex = 0;
@@ -201,24 +224,24 @@
             label4.TabIndex = 6;
             label4.Text = "Neues Buch";
             // 
-            // book_isbn_tb
+            // book_count_tb
             // 
-            book_isbn_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            book_isbn_tb.Location = new Point(176, 137);
-            book_isbn_tb.Name = "book_isbn_tb";
-            book_isbn_tb.Size = new Size(207, 33);
-            book_isbn_tb.TabIndex = 23;
+            book_count_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            book_count_tb.Location = new Point(176, 58);
+            book_count_tb.Name = "book_count_tb";
+            book_count_tb.Size = new Size(207, 33);
+            book_count_tb.TabIndex = 25;
             // 
-            // label3
+            // label6
             // 
-            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(3, 141);
-            label3.Name = "label3";
-            label3.Size = new Size(156, 23);
-            label3.TabIndex = 24;
-            label3.Text = "ISBN";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(3, 62);
+            label6.Name = "label6";
+            label6.Size = new Size(156, 23);
+            label6.TabIndex = 26;
+            label6.Text = "Menge";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Book_add_UC
             // 
@@ -256,5 +279,7 @@
         private Button upload_btn;
         private Label label3;
         private TextBox book_isbn_tb;
+        private Label label6;
+        private TextBox book_count_tb;
     }
 }

@@ -58,7 +58,6 @@ namespace Bücherei_Windows_App.Forms
 
                     for (int i = 0; i < bytes.Length; i++)
                         builder.Append(bytes[i].ToString("x2"));
-                    
 
                     return builder.ToString();
                 }

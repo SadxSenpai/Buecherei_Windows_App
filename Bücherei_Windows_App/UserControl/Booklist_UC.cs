@@ -30,7 +30,7 @@ namespace Bücherei_Windows_App
             // fetch data from local database
             using (MySqlConnection con = new MySqlConnection(DBCon.dbConnection))
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT * From books", con))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT book_name, book_type, book_out_with, book_out_since, book_back_when, book_note FROM books", con))
                 {
                     con.Open();
 
@@ -39,15 +39,12 @@ namespace Bücherei_Windows_App
                     dtBooks.Load(reader);
 
                     // Name Collums in Datagrid
-                    dtBooks.Columns[0].ColumnName = "Nr.";
-                    dtBooks.Columns[1].ColumnName = "Name";
-                    dtBooks.Columns[2].ColumnName = "Author";
-                    dtBooks.Columns[3].ColumnName = "Typ";
-                    dtBooks.Columns[4].ColumnName = "ISBN";
-                    dtBooks.Columns[5].ColumnName = "Ausgeliehen von";
-                    dtBooks.Columns[6].ColumnName = "Ausgeliehen am:";
-                    dtBooks.Columns[7].ColumnName = "Ausgeliehen bis:";
-                    dtBooks.Columns[8].ColumnName = "Status";
+                    dtBooks.Columns[0].ColumnName = "Name";
+                    dtBooks.Columns[1].ColumnName = "Typ";
+                    dtBooks.Columns[2].ColumnName = "Ausgeliehen von";
+                    dtBooks.Columns[3].ColumnName = "Ausgeliehen am:";
+                    dtBooks.Columns[4].ColumnName = "Ausgeliehen bis:";
+                    dtBooks.Columns[5].ColumnName = "Bemerkung";
                 }
             }
 

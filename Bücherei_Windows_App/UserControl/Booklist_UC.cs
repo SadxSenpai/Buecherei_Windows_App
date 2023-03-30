@@ -21,11 +21,29 @@ namespace Bücherei_Windows_App
 
         void exit_label_MouseLeave(object sender, EventArgs e) => exit_label.ForeColor = Color.Black;
 
+        void StyleDatagridview()
+        {
+            book_list_datagrid.BorderStyle = BorderStyle.None;
+            book_list_datagrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            book_list_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            book_list_datagrid.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
+            book_list_datagrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            book_list_datagrid.BackgroundColor = Color.FromArgb(46, 49, 49);
+            book_list_datagrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            book_list_datagrid.EnableHeadersVisualStyles = false;
+            book_list_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            book_list_datagrid.ColumnHeadersDefaultCellStyle.Font = new Font("MS Reference Sans Serif", 10);
+            book_list_datagrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 49, 49);
+            book_list_datagrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            book_list_datagrid.AutoResizeColumns();
+        }
+
         void Booklist_UC_Load(object sender, EventArgs e)
         {
             Location = new Point(260, 27);
-
-            book_list_datagrid.AutoResizeColumns();
+            
+            StyleDatagridview();
 
             // fetch data from local database
             using (MySqlConnection con = new MySqlConnection(DBCon.dbConnection))

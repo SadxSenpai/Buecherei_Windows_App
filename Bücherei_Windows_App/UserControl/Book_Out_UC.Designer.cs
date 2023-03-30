@@ -28,240 +28,235 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.book_type_tb = new System.Windows.Forms.Label();
-            this.seven_days_label = new System.Windows.Forms.Label();
-            this.today_date_label = new System.Windows.Forms.Label();
-            this.book_info_tb = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.book_user_tb = new System.Windows.Forms.TextBox();
-            this.book_out_finish_btn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.book_name_cb = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.exit_label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            item_name_cb = new Guna.UI2.WinForms.Guna2ComboBox();
+            item_note_tb = new TextBox();
+            item_date_in_tb = new TextBox();
+            item_date_out_tb = new TextBox();
+            item_with_who_tb = new TextBox();
+            item_type_tb = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            book_out_finish_btn = new Button();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            exit_label = new Label();
+            label4 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.book_type_tb);
-            this.panel1.Controls.Add(this.seven_days_label);
-            this.panel1.Controls.Add(this.today_date_label);
-            this.panel1.Controls.Add(this.book_info_tb);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.book_user_tb);
-            this.panel1.Controls.Add(this.book_out_finish_btn);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.book_name_cb);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(398, 643);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(item_name_cb);
+            panel1.Controls.Add(item_note_tb);
+            panel1.Controls.Add(item_date_in_tb);
+            panel1.Controls.Add(item_date_out_tb);
+            panel1.Controls.Add(item_with_who_tb);
+            panel1.Controls.Add(item_type_tb);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(book_out_finish_btn);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(3, 35);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(398, 643);
+            panel1.TabIndex = 0;
             // 
-            // book_type_tb
+            // item_name_cb
             // 
-            this.book_type_tb.BackColor = System.Drawing.Color.White;
-            this.book_type_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_type_tb.ForeColor = System.Drawing.Color.Black;
-            this.book_type_tb.Location = new System.Drawing.Point(176, 124);
-            this.book_type_tb.Name = "book_type_tb";
-            this.book_type_tb.Size = new System.Drawing.Size(207, 23);
-            this.book_type_tb.TabIndex = 17;
-            this.book_type_tb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            item_name_cb.BackColor = Color.Transparent;
+            item_name_cb.DrawMode = DrawMode.OwnerDrawFixed;
+            item_name_cb.DropDownStyle = ComboBoxStyle.DropDownList;
+            item_name_cb.FocusedColor = Color.FromArgb(94, 148, 255);
+            item_name_cb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            item_name_cb.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            item_name_cb.ForeColor = Color.FromArgb(68, 88, 112);
+            item_name_cb.ItemHeight = 30;
+            item_name_cb.Location = new Point(176, 51);
+            item_name_cb.Name = "item_name_cb";
+            item_name_cb.Size = new Size(207, 36);
+            item_name_cb.TabIndex = 39;
+            item_name_cb.SelectedIndexChanged += item_name_cb_SelectedIndexChanged;
             // 
-            // seven_days_label
+            // item_note_tb
             // 
-            this.seven_days_label.BackColor = System.Drawing.Color.White;
-            this.seven_days_label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.seven_days_label.ForeColor = System.Drawing.Color.Black;
-            this.seven_days_label.Location = new System.Drawing.Point(176, 317);
-            this.seven_days_label.Name = "seven_days_label";
-            this.seven_days_label.Size = new System.Drawing.Size(207, 23);
-            this.seven_days_label.TabIndex = 16;
-            this.seven_days_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            item_note_tb.Location = new Point(176, 417);
+            item_note_tb.Multiline = true;
+            item_note_tb.Name = "item_note_tb";
+            item_note_tb.Size = new Size(207, 96);
+            item_note_tb.TabIndex = 38;
             // 
-            // today_date_label
+            // item_date_in_tb
             // 
-            this.today_date_label.BackColor = System.Drawing.Color.White;
-            this.today_date_label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.today_date_label.ForeColor = System.Drawing.Color.Black;
-            this.today_date_label.Location = new System.Drawing.Point(176, 256);
-            this.today_date_label.Name = "today_date_label";
-            this.today_date_label.Size = new System.Drawing.Size(207, 23);
-            this.today_date_label.TabIndex = 15;
-            this.today_date_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            item_date_in_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            item_date_in_tb.Location = new Point(176, 343);
+            item_date_in_tb.Name = "item_date_in_tb";
+            item_date_in_tb.Size = new Size(207, 33);
+            item_date_in_tb.TabIndex = 37;
             // 
-            // book_info_tb
+            // item_date_out_tb
             // 
-            this.book_info_tb.Location = new System.Drawing.Point(176, 418);
-            this.book_info_tb.Multiline = true;
-            this.book_info_tb.Name = "book_info_tb";
-            this.book_info_tb.Size = new System.Drawing.Size(207, 96);
-            this.book_info_tb.TabIndex = 14;
+            item_date_out_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            item_date_out_tb.Location = new Point(176, 269);
+            item_date_out_tb.Name = "item_date_out_tb";
+            item_date_out_tb.Size = new Size(207, 33);
+            item_date_out_tb.TabIndex = 36;
+            // 
+            // item_with_who_tb
+            // 
+            item_with_who_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            item_with_who_tb.Location = new Point(176, 195);
+            item_with_who_tb.Name = "item_with_who_tb";
+            item_with_who_tb.Size = new Size(207, 33);
+            item_with_who_tb.TabIndex = 35;
+            // 
+            // item_type_tb
+            // 
+            item_type_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            item_type_tb.Location = new Point(176, 121);
+            item_type_tb.Name = "item_type_tb";
+            item_type_tb.Size = new Size(207, 33);
+            item_type_tb.TabIndex = 34;
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 418);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 23);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Bemerkung";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(3, 416);
+            label7.Name = "label7";
+            label7.Size = new Size(156, 23);
+            label7.TabIndex = 13;
+            label7.Text = "Bemerkung";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 317);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 23);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Abgabe am:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(3, 343);
+            label6.Name = "label6";
+            label6.Size = new Size(156, 23);
+            label6.TabIndex = 11;
+            label6.Text = "Abgabe am:";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 256);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 23);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Ausgabe am:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // book_user_tb
-            // 
-            this.book_user_tb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_user_tb.Location = new System.Drawing.Point(176, 185);
-            this.book_user_tb.Name = "book_user_tb";
-            this.book_user_tb.Size = new System.Drawing.Size(207, 33);
-            this.book_user_tb.TabIndex = 8;
+            label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(3, 270);
+            label5.Name = "label5";
+            label5.Size = new Size(156, 23);
+            label5.TabIndex = 9;
+            label5.Text = "Ausgabe am:";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // book_out_finish_btn
             // 
-            this.book_out_finish_btn.Location = new System.Drawing.Point(67, 582);
-            this.book_out_finish_btn.Name = "book_out_finish_btn";
-            this.book_out_finish_btn.Size = new System.Drawing.Size(250, 42);
-            this.book_out_finish_btn.TabIndex = 7;
-            this.book_out_finish_btn.Text = "Ausgabe";
-            this.book_out_finish_btn.UseVisualStyleBackColor = true;
-            this.book_out_finish_btn.Click += new System.EventHandler(this.book_out_finish_btn_Click);
+            book_out_finish_btn.Location = new Point(67, 582);
+            book_out_finish_btn.Name = "book_out_finish_btn";
+            book_out_finish_btn.Size = new Size(250, 42);
+            book_out_finish_btn.TabIndex = 7;
+            book_out_finish_btn.Text = "Ausgabe";
+            book_out_finish_btn.UseVisualStyleBackColor = true;
+            book_out_finish_btn.Click += book_out_finish_btn_Click;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 23);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "An";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(3, 197);
+            label3.Name = "label3";
+            label3.Size = new Size(156, 23);
+            label3.TabIndex = 4;
+            label3.Text = "An";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Art";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // book_name_cb
-            // 
-            this.book_name_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.book_name_cb.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.book_name_cb.FormattingEnabled = true;
-            this.book_name_cb.Location = new System.Drawing.Point(176, 53);
-            this.book_name_cb.Name = "book_name_cb";
-            this.book_name_cb.Size = new System.Drawing.Size(207, 33);
-            this.book_name_cb.TabIndex = 1;
-            this.book_name_cb.SelectedIndexChanged += new System.EventHandler(this.book_name_cb_SelectedIndexChanged);
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(3, 124);
+            label2.Name = "label2";
+            label2.Size = new Size(156, 23);
+            label2.TabIndex = 2;
+            label2.Text = "item_type";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Buch";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 51);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 23);
+            label1.TabIndex = 0;
+            label1.Text = "item_name";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // exit_label
             // 
-            this.exit_label.AutoSize = true;
-            this.exit_label.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exit_label.Location = new System.Drawing.Point(374, 0);
-            this.exit_label.Name = "exit_label";
-            this.exit_label.Size = new System.Drawing.Size(30, 32);
-            this.exit_label.TabIndex = 1;
-            this.exit_label.Text = "X";
-            this.exit_label.Click += new System.EventHandler(this.exit_label_Click);
-            this.exit_label.MouseEnter += new System.EventHandler(this.exit_label_MouseEnter);
-            this.exit_label.MouseLeave += new System.EventHandler(this.exit_label_MouseLeave);
+            exit_label.AutoSize = true;
+            exit_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            exit_label.Location = new Point(374, 0);
+            exit_label.Name = "exit_label";
+            exit_label.Size = new Size(30, 32);
+            exit_label.TabIndex = 1;
+            exit_label.Text = "X";
+            exit_label.Click += exit_label_Click;
+            exit_label.MouseEnter += exit_label_MouseEnter;
+            exit_label.MouseLeave += exit_label_MouseLeave;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 32);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Buch Ausgabe";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(0, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(176, 32);
+            label4.TabIndex = 6;
+            label4.Text = "Buch Ausgabe";
             // 
             // Book_Out_UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.exit_label);
-            this.Controls.Add(this.panel1);
-            this.Name = "Book_Out_UC";
-            this.Size = new System.Drawing.Size(404, 681);
-            this.Load += new System.EventHandler(this.Book_Out_UC_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(label4);
+            Controls.Add(exit_label);
+            Controls.Add(panel1);
+            Name = "Book_Out_UC";
+            Size = new Size(404, 681);
+            Load += Book_Out_UC_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
         private Label exit_label;
-        private ComboBox book_name_cb;
         private Label label1;
         private Label label6;
         private Label label5;
-        private TextBox book_user_tb;
         private Button book_out_finish_btn;
         private Label label3;
         private Label label2;
         private Label label4;
-        private TextBox book_info_tb;
         private Label label7;
-        private Label today_date_label;
-        private Label seven_days_label;
-        private Label book_type_tb;
+        private TextBox item_note_tb;
+        private TextBox item_date_in_tb;
+        private TextBox item_date_out_tb;
+        private TextBox item_with_who_tb;
+        private TextBox item_type_tb;
+        private Guna.UI2.WinForms.Guna2ComboBox item_name_cb;
     }
 }

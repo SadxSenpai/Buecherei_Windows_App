@@ -29,67 +29,68 @@ namespace Bücherei_Windows_App
             var today = DateTime.Now;
 
             // Get the date in 7 days
-            var in7Days = today.AddDays(7);
+            var inDaysBack = today.AddDays(7);
 
+            //TODO: Format the dates to allow multiple return date choices with a combobox
             // Format the dates to strings in the desired format
             var todayString = today.ToString("dd/MM/yyyy");
-            var in7DaysString = in7Days.ToString("dd/MM/yyyy");
+            var inDaysBackString = inDaysBack.ToString("dd/MM/yyyy");
 
-            today_date_label.Text = todayString;
-            seven_days_label.Text = in7DaysString;
+            item_date_out_tb.Text = todayString;
+            item_date_in_tb.Text = inDaysBackString;
 
             var connstring = DBCon.dbConnection;
             var con = new MySqlConnection(connstring);
             con.Open();
 
-            var cmd = new MySqlCommand("SELECT book_name FROM books WHERE book_out = '0'", con);
+            var cmd = new MySqlCommand("SELECT item_name FROM main_inventory WHERE item_count > '0'", con);
             var reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                var name = reader.GetString("book_name");
-                book_name_cb.Items.Add(name);
+                var name = reader.GetString("item_name");
+                item_name_cb.Items.Add(name);
             }
         }
 
         void OnDispose(object sender, EventArgs e) => Disposed += OnDispose;
 
-        void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
+        void item_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
             var connString = DBCon.dbConnection;
             var conn = new MySqlConnection(connString);
             conn.Open();
 
-            var selectedValue = book_name_cb.SelectedItem.ToString();
+            var selectedValue = item_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected item
-            var query = "SELECT book_note, book_type FROM books WHERE book_name = '" + selectedValue + "'";
+            var query = "SELECT item_type, item_note FROM main_inventory WHERE item_name = '" + selectedValue + "'";
             var cmd = new MySqlCommand(query, conn);
             var reader = cmd.ExecuteReader();
 
             // Read and display the data from the selected row
             while (reader.Read())
             {
-                book_info_tb.Text = reader["book_note"].ToString();
-                book_type_tb.Text = reader["book_type"].ToString();
+                item_type_tb.Text = reader["item_note"].ToString();
+                item_note_tb.Text = reader["item_type"].ToString();
             }
         }
 
         void book_out_finish_btn_Click(object sender, EventArgs e)
         {
             // Checking if an item is selected in the ComboBox
-            if (book_name_cb.SelectedIndex != -1)
+            if (item_name_cb.SelectedIndex != -1)
             {
                 // Retrieving the selected item from the ComboBox
-                var selected_book = book_name_cb.SelectedItem.ToString();
+                var selected_item = item_name_cb.SelectedItem.ToString();
 
-                var booktype = book_type_tb.Text;
-                var bookuser = book_user_tb.Text;
-                var dateout = today_date_label.Text;
-                var dateback = seven_days_label.Text;
-                var bookinfo = book_info_tb.Text;
+                var itemtype = item_type_tb.Text;
+                var itemuser = item_with_who_tb.Text;
+                var dateout = item_date_out_tb.Text;
+                var dateback = item_date_in_tb.Text;
+                var iteminfo = item_note_tb.Text;
 
-                var updateQuery = "UPDATE books SET book_out = '1', book_type =@booktype, book_out_with =@bookuser, book_out_since =@dateout, book_back_when =@dateback, book_note =@bookinfo WHERE book_name =@selected_book AND book_out != '1'";
+                var updateQuery = "INSERT INTO out_of_house (item_name, item_type, item_date_out, item_date_in, item_with_who, item_note) VALUES (@selected_item, @item_type, @item_date_out, @item_date_in, @item_with_who, @item_note)";
 
                 var connstring = DBCon.dbConnection;
                 var con = new MySqlConnection(connstring);
@@ -100,16 +101,21 @@ namespace Bücherei_Windows_App
                 {
                     var cmd = new MySqlCommand(updateQuery, con);
 
-                    cmd.Parameters.AddWithValue("@booktype", booktype);
-                    cmd.Parameters.AddWithValue("@bookuser", bookuser);
-                    cmd.Parameters.AddWithValue("@dateout", dateout);
-                    cmd.Parameters.AddWithValue("@dateback", dateback);
-                    cmd.Parameters.AddWithValue("@bookinfo", bookinfo);
-                    cmd.Parameters.AddWithValue("@selected_book", selected_book);
+                    cmd.Parameters.AddWithValue("@selected_item", selected_item);
+                    cmd.Parameters.AddWithValue("@item_type", itemtype);
+                    cmd.Parameters.AddWithValue("@item_date_out", dateout);
+                    cmd.Parameters.AddWithValue("@item_date_in", dateback);
+                    cmd.Parameters.AddWithValue("@item_with_who", itemuser);
+                    cmd.Parameters.AddWithValue("@item_note", iteminfo);
 
                     if (cmd.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Buch erfolgreich verliehen", "DATA WAS UPDATETD");
+
+
+                        var updateQuery2 = "UPDATE main_inventory SET item_count = item_count - 1 WHERE item_name = '" + selected_item + "'";
+                        var cmd2 = new MySqlCommand(updateQuery2, con);
+                        cmd2.ExecuteNonQuery();
                     }
                     else
                     {

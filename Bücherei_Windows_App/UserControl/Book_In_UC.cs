@@ -33,12 +33,12 @@ namespace Bücherei_Windows_App
             var con = new MySqlConnection(connstring);
             con.Open();
 
-            var cmd = new MySqlCommand("SELECT book_out_with FROM books WHERE book_out = '1'", con);
+            var cmd = new MySqlCommand("SELECT item_with_who FROM out_of_house", con);
             var reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                var name = reader.GetString("book_out_with");
+                var name = reader.GetString("item_with_who");
 
                 if (user_name_cb.Items.Contains(name))
                 {
@@ -54,7 +54,7 @@ namespace Bücherei_Windows_App
 
         void user_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            book_name_cb.Items.Clear();
+            item_name_cb.Items.Clear();
 
             var connString = DBCon.dbConnection;
             var conn = new MySqlConnection(connString);
@@ -63,60 +63,55 @@ namespace Bücherei_Windows_App
             var selecteduser = user_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected user
-            var query = "SELECT book_name FROM books WHERE book_out_with = '" + selecteduser + "'";
+            var query = "SELECT item_name FROM out_of_house WHERE item_with_who = '" + selecteduser + "'";
             var cmd = new MySqlCommand(query, conn);
             var reader = cmd.ExecuteReader();
 
             // Read and display the data from the selected row
             while (reader.Read())
             {
-                var name = reader.GetString("book_name");
+                var name = reader.GetString("item_name");
 
-                if (book_name_cb.Items.Contains(name))
+                if (item_name_cb.Items.Contains(name))
                 {
                 }
                 else
                 {
-                    book_name_cb.Items.Add(name);
+                    item_name_cb.Items.Add(name);
                 }
             }
         }
 
-        void book_name_cb_SelectedIndexChanged(object sender, EventArgs e)
+        void item_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
             var connString = DBCon.dbConnection;
             var conn = new MySqlConnection(connString);
             conn.Open();
 
-            var selectedbook = book_name_cb.SelectedItem.ToString();
+            var selecteditem = item_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected item
-            var query = "SELECT book_note, book_type FROM books WHERE book_name = '" + selectedbook + "'";
+            var query = "SELECT item_note, item_type FROM out_of_house WHERE item_name = '" + selecteditem + "'";
             var cmd = new MySqlCommand(query, conn);
             var reader = cmd.ExecuteReader();
 
             // Read and display the data from the selected row
             while (reader.Read())
             {
-                book_info_tb.Text = reader["book_note"].ToString();
-                book_type_tb.Text = reader["book_type"].ToString();
+                item_note_tb.Text = reader["item_note"].ToString();
+                item_type_tb.Text = reader["item_type"].ToString();
             }
         }
 
-        void book_in_finish_btn_Click(object sender, EventArgs e)
+        void item_in_finish_btn_Click(object sender, EventArgs e)
         {
             // Checking if an item is selected in the ComboBox
-            if (book_name_cb.SelectedIndex != -1)
+            if (item_name_cb.SelectedIndex != -1)
             {
                 // Retrieving the selected item from the ComboBox
-                var selected_book = book_name_cb.SelectedItem.ToString();
+                var selecteditem2 = item_name_cb.SelectedItem.ToString();
 
-                var bookuser = "";
-                var dateout = "";
-                var dateback = "";
-                var bookinfo = "@bookinfo";
-
-                var updateQuery = "UPDATE books SET book_out = '0', book_out_with ='', book_out_since ='', book_back_when ='' WHERE book_name =@selected_book AND book_out != '0'";
+                var delquery = "DELETE FROM out_of_house WHERE item_name= '" + selecteditem2 + "'";
 
                 var connstring = DBCon.dbConnection;
                 var con = new MySqlConnection(connstring);
@@ -125,22 +120,26 @@ namespace Bücherei_Windows_App
 
                 try
                 {
-                    var cmd = new MySqlCommand(updateQuery, con);
+                    //execute delquery
+                    var cmd2 = new MySqlCommand(delquery, con);
+                    cmd2.ExecuteNonQuery();
 
-                    cmd.Parameters.AddWithValue("@bookuser", bookuser);
-                    cmd.Parameters.AddWithValue("@dateout", dateout);
-                    cmd.Parameters.AddWithValue("@dateback", dateback);
-                    cmd.Parameters.AddWithValue("@bookinfo", bookinfo);
-                    cmd.Parameters.AddWithValue("@selected_book", selected_book);
-
-                    if (cmd.ExecuteNonQuery() == 1)
+                    //check if last query was sucessfull
+                    if (cmd2.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("Buch erfolgreich abgegeben", "DATA WAS UPDATETD");
+                        MessageBox.Show("The item has been successfully returned!");
+
+                        //update item_cound inside main_inventory to +1
+                        var selecteditem3 = item_name_cb.SelectedItem.ToString();
+                        var updateQuery = "UPDATE main_inventory SET item_count = item_count + 1 WHERE item_name = '" + selecteditem3 + "'";
+                        var cmd3 = new MySqlCommand(updateQuery, con);
+                        cmd3.ExecuteNonQuery();
                     }
                     else
                     {
-                        MessageBox.Show("Das Buch ist bereits abgegeben!", "DATA NOT UPDATED");
+                        MessageBox.Show("An error occured. The item could not be returned.");
                     }
+
                 }
                 catch (Exception ex)
                 {

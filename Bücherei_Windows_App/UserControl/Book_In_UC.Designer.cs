@@ -31,17 +31,17 @@
             panel1 = new Panel();
             user_name_cb = new ComboBox();
             label3 = new Label();
-            book_type_tb = new Label();
+            item_type_tb = new Label();
             today_date_label = new Label();
-            book_info_tb = new TextBox();
+            item_note_tb = new TextBox();
             label7 = new Label();
             label5 = new Label();
-            book_in_finish_btn = new Button();
+            item_in_finish_btn = new Button();
             label2 = new Label();
+            item_name_cb = new ComboBox();
             label1 = new Label();
             exit_label = new Label();
             label4 = new Label();
-            book_name_cb = new ComboBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,14 +50,14 @@
             panel1.BackColor = Color.FromArgb(46, 49, 49);
             panel1.Controls.Add(user_name_cb);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(book_type_tb);
+            panel1.Controls.Add(item_type_tb);
             panel1.Controls.Add(today_date_label);
-            panel1.Controls.Add(book_info_tb);
+            panel1.Controls.Add(item_note_tb);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(book_in_finish_btn);
+            panel1.Controls.Add(item_in_finish_btn);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(book_name_cb);
+            panel1.Controls.Add(item_name_cb);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(3, 35);
             panel1.Name = "panel1";
@@ -72,7 +72,7 @@
             user_name_cb.Location = new Point(176, 53);
             user_name_cb.Name = "user_name_cb";
             user_name_cb.Size = new Size(207, 33);
-            user_name_cb.TabIndex = 20;
+            user_name_cb.TabIndex = 1;
             user_name_cb.SelectedIndexChanged += user_name_cb_SelectedIndexChanged;
             // 
             // label3
@@ -86,16 +86,16 @@
             label3.Text = "Teilnehmer";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // book_type_tb
+            // item_type_tb
             // 
-            book_type_tb.BackColor = Color.White;
-            book_type_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            book_type_tb.ForeColor = Color.Black;
-            book_type_tb.Location = new Point(176, 185);
-            book_type_tb.Name = "book_type_tb";
-            book_type_tb.Size = new Size(207, 23);
-            book_type_tb.TabIndex = 18;
-            book_type_tb.TextAlign = ContentAlignment.MiddleCenter;
+            item_type_tb.BackColor = Color.White;
+            item_type_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            item_type_tb.ForeColor = Color.Black;
+            item_type_tb.Location = new Point(176, 185);
+            item_type_tb.Name = "item_type_tb";
+            item_type_tb.Size = new Size(207, 23);
+            item_type_tb.TabIndex = 3;
+            item_type_tb.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // today_date_label
             // 
@@ -105,16 +105,16 @@
             today_date_label.Location = new Point(176, 251);
             today_date_label.Name = "today_date_label";
             today_date_label.Size = new Size(207, 23);
-            today_date_label.TabIndex = 15;
+            today_date_label.TabIndex = 4;
             today_date_label.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // book_info_tb
+            // item_note_tb
             // 
-            book_info_tb.Location = new Point(176, 418);
-            book_info_tb.Multiline = true;
-            book_info_tb.Name = "book_info_tb";
-            book_info_tb.Size = new Size(207, 96);
-            book_info_tb.TabIndex = 14;
+            item_note_tb.Location = new Point(176, 418);
+            item_note_tb.Multiline = true;
+            item_note_tb.Name = "item_note_tb";
+            item_note_tb.Size = new Size(207, 96);
+            item_note_tb.TabIndex = 5;
             // 
             // label7
             // 
@@ -138,15 +138,15 @@
             label5.Text = "Rückgabe am:";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // book_in_finish_btn
+            // item_in_finish_btn
             // 
-            book_in_finish_btn.Location = new Point(67, 582);
-            book_in_finish_btn.Name = "book_in_finish_btn";
-            book_in_finish_btn.Size = new Size(250, 42);
-            book_in_finish_btn.TabIndex = 7;
-            book_in_finish_btn.Text = "Rückgabe";
-            book_in_finish_btn.UseVisualStyleBackColor = true;
-            book_in_finish_btn.Click += book_in_finish_btn_Click;
+            item_in_finish_btn.Location = new Point(67, 582);
+            item_in_finish_btn.Name = "item_in_finish_btn";
+            item_in_finish_btn.Size = new Size(250, 42);
+            item_in_finish_btn.TabIndex = 6;
+            item_in_finish_btn.Text = "Rückgabe";
+            item_in_finish_btn.UseVisualStyleBackColor = true;
+            item_in_finish_btn.Click += item_in_finish_btn_Click;
             // 
             // label2
             // 
@@ -158,6 +158,17 @@
             label2.TabIndex = 2;
             label2.Text = "Art";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // item_name_cb
+            // 
+            item_name_cb.DropDownStyle = ComboBoxStyle.DropDownList;
+            item_name_cb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            item_name_cb.FormattingEnabled = true;
+            item_name_cb.Location = new Point(176, 115);
+            item_name_cb.Name = "item_name_cb";
+            item_name_cb.Size = new Size(207, 33);
+            item_name_cb.TabIndex = 2;
+            item_name_cb.SelectedIndexChanged += item_name_cb_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -193,17 +204,6 @@
             label4.TabIndex = 6;
             label4.Text = "Buch Rückgabe";
             // 
-            // book_name_cb
-            // 
-            book_name_cb.DropDownStyle = ComboBoxStyle.DropDownList;
-            book_name_cb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            book_name_cb.FormattingEnabled = true;
-            book_name_cb.Location = new Point(176, 115);
-            book_name_cb.Name = "book_name_cb";
-            book_name_cb.Size = new Size(207, 33);
-            book_name_cb.TabIndex = 1;
-            book_name_cb.SelectedIndexChanged += book_name_cb_SelectedIndexChanged;
-            // 
             // Book_In_UC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -227,15 +227,15 @@
         private Label exit_label;
         private Label label1;
         private Label label5;
-        private Button book_in_finish_btn;
+        private Button item_in_finish_btn;
         private Label label2;
         private Label label4;
-        private TextBox book_info_tb;
+        private TextBox item_note_tb;
         private Label label7;
         private Label today_date_label;
-        private Label book_type_tb;
+        private Label item_type_tb;
         private ComboBox user_name_cb;
         private Label label3;
-        private ComboBox book_name_cb;
+        private ComboBox item_name_cb;
     }
 }

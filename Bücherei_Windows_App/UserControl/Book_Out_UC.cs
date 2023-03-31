@@ -1,5 +1,6 @@
 ﻿using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Bücherei_Windows_App
 {
@@ -97,34 +98,44 @@ namespace Bücherei_Windows_App
 
                 con.Open();
 
-                try
+                // Create a SELECT query to retrieve the relevant data from the database.
+                var selectQuery = "SELECT COUNT(*) FROM out_of_house WHERE item_name = '" + selected_item + "'";
+
+                using (MySqlCommand cmdcheck = new MySqlCommand(selectQuery, con))
                 {
-                    var cmd = new MySqlCommand(updateQuery, con);
+                    var count = Convert.ToInt32(cmdcheck.ExecuteScalar());
 
-                    cmd.Parameters.AddWithValue("@selected_item", selected_item);
-                    cmd.Parameters.AddWithValue("@item_type", itemtype);
-                    cmd.Parameters.AddWithValue("@item_date_out", dateout);
-                    cmd.Parameters.AddWithValue("@item_date_in", dateback);
-                    cmd.Parameters.AddWithValue("@item_with_who", itemuser);
-                    cmd.Parameters.AddWithValue("@item_note", iteminfo);
+                    // If the data does not exist, insert it.
+                    if (count == 0)
 
-                    if (cmd.ExecuteNonQuery() == 1)
-                    {
-                        MessageBox.Show("Buch erfolgreich verliehen", "DATA WAS UPDATETD");
+                        try
+                        {
+                            var cmd = new MySqlCommand(updateQuery, con);
 
+                            cmd.Parameters.AddWithValue("@selected_item", selected_item);
+                            cmd.Parameters.AddWithValue("@item_type", itemtype);
+                            cmd.Parameters.AddWithValue("@item_date_out", dateout);
+                            cmd.Parameters.AddWithValue("@item_date_in", dateback);
+                            cmd.Parameters.AddWithValue("@item_with_who", itemuser);
+                            cmd.Parameters.AddWithValue("@item_note", iteminfo);
 
-                        var updateQuery2 = "UPDATE main_inventory SET item_count = item_count - 1 WHERE item_name = '" + selected_item + "'";
-                        var cmd2 = new MySqlCommand(updateQuery2, con);
-                        cmd2.ExecuteNonQuery();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Das Buch ist bereits verliehen!", "DATA NOT UPDATED");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                            if (cmd.ExecuteNonQuery() == 1)
+                            {
+                                MessageBox.Show("Buch erfolgreich verliehen", "DATA WAS UPDATETD");
+
+                                var updateQuery2 = "UPDATE main_inventory SET item_count = item_count - 1 WHERE item_name = '" + selected_item + "'";
+                                var cmd2 = new MySqlCommand(updateQuery2, con);
+                                cmd2.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Das Buch ist bereits verliehen!", "DATA NOT UPDATED");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                 }
 
                 con.Close();

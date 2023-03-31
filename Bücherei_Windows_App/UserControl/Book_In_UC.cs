@@ -122,9 +122,9 @@ namespace Bücherei_Windows_App
                 {
                     //execute delquery
                     var cmd2 = new MySqlCommand(delquery, con);
-                    cmd2.ExecuteNonQuery();
 
-                    //check if last query was sucessfull
+                    //check if cmd2 query was sucessfull
+
                     if (cmd2.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("The item has been successfully returned!");

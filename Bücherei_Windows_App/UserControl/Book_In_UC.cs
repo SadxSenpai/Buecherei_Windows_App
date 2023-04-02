@@ -118,13 +118,10 @@ namespace Bücherei_Windows_App
 
                 con.Open();
 
-                try
-                {
                     //execute delquery
                     var cmd2 = new MySqlCommand(delquery, con);
 
                     //check if cmd2 query was sucessfull
-
                     if (cmd2.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("The item has been successfully returned!");
@@ -139,12 +136,6 @@ namespace Bücherei_Windows_App
                     {
                         MessageBox.Show("An error occured. The item could not be returned.");
                     }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
 
                 con.Close();
             }

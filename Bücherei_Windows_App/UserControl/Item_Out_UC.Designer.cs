@@ -1,6 +1,6 @@
 ﻿namespace Bücherei_Windows_App
 {
-    partial class Book_Out_UC
+    partial class Item_Out_UC
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            item_date_in_cb = new Guna.UI2.WinForms.Guna2ComboBox();
             item_name_cb = new Guna.UI2.WinForms.Guna2ComboBox();
             item_note_tb = new TextBox();
-            item_date_in_tb = new TextBox();
             item_date_out_tb = new TextBox();
             item_with_who_tb = new TextBox();
             item_type_tb = new TextBox();
@@ -50,9 +50,9 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(item_date_in_cb);
             panel1.Controls.Add(item_name_cb);
             panel1.Controls.Add(item_note_tb);
-            panel1.Controls.Add(item_date_in_tb);
             panel1.Controls.Add(item_date_out_tb);
             panel1.Controls.Add(item_with_who_tb);
             panel1.Controls.Add(item_type_tb);
@@ -68,6 +68,21 @@
             panel1.Size = new Size(398, 643);
             panel1.TabIndex = 0;
             // 
+            // item_date_in_cb
+            // 
+            item_date_in_cb.BackColor = Color.Transparent;
+            item_date_in_cb.DrawMode = DrawMode.OwnerDrawFixed;
+            item_date_in_cb.DropDownStyle = ComboBoxStyle.DropDownList;
+            item_date_in_cb.FocusedColor = Color.FromArgb(94, 148, 255);
+            item_date_in_cb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            item_date_in_cb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            item_date_in_cb.ForeColor = Color.FromArgb(68, 88, 112);
+            item_date_in_cb.ItemHeight = 30;
+            item_date_in_cb.Location = new Point(176, 343);
+            item_date_in_cb.Name = "item_date_in_cb";
+            item_date_in_cb.Size = new Size(207, 36);
+            item_date_in_cb.TabIndex = 40;
+            // 
             // item_name_cb
             // 
             item_name_cb.BackColor = Color.Transparent;
@@ -75,7 +90,7 @@
             item_name_cb.DropDownStyle = ComboBoxStyle.DropDownList;
             item_name_cb.FocusedColor = Color.FromArgb(94, 148, 255);
             item_name_cb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            item_name_cb.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            item_name_cb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             item_name_cb.ForeColor = Color.FromArgb(68, 88, 112);
             item_name_cb.ItemHeight = 30;
             item_name_cb.Location = new Point(176, 51);
@@ -92,19 +107,12 @@
             item_note_tb.Size = new Size(207, 96);
             item_note_tb.TabIndex = 38;
             // 
-            // item_date_in_tb
-            // 
-            item_date_in_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            item_date_in_tb.Location = new Point(176, 343);
-            item_date_in_tb.Name = "item_date_in_tb";
-            item_date_in_tb.Size = new Size(207, 33);
-            item_date_in_tb.TabIndex = 37;
-            // 
             // item_date_out_tb
             // 
             item_date_out_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             item_date_out_tb.Location = new Point(176, 269);
             item_date_out_tb.Name = "item_date_out_tb";
+            item_date_out_tb.ReadOnly = true;
             item_date_out_tb.Size = new Size(207, 33);
             item_date_out_tb.TabIndex = 36;
             // 
@@ -253,10 +261,10 @@
         private Label label4;
         private Label label7;
         private TextBox item_note_tb;
-        private TextBox item_date_in_tb;
         private TextBox item_date_out_tb;
         private TextBox item_with_who_tb;
         private TextBox item_type_tb;
         private Guna.UI2.WinForms.Guna2ComboBox item_name_cb;
+        private Guna.UI2.WinForms.Guna2ComboBox item_date_in_cb;
     }
 }

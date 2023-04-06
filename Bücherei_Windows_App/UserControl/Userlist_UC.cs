@@ -18,8 +18,28 @@ namespace Bücherei_Windows_App
 
         void exit_label_MouseLeave(object sender, EventArgs e) => exit_label.ForeColor = Color.Black;
 
+        void StyleDatagridview()
+        {
+            user_list_datagrid.BorderStyle = BorderStyle.None;
+            user_list_datagrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            user_list_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            user_list_datagrid.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
+            user_list_datagrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            user_list_datagrid.BackgroundColor = Color.FromArgb(46, 49, 49);
+            user_list_datagrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            user_list_datagrid.EnableHeadersVisualStyles = false;
+            user_list_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            user_list_datagrid.ColumnHeadersDefaultCellStyle.Font = new Font("MS Reference Sans Serif", 10);
+            user_list_datagrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 49, 49);
+            user_list_datagrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            user_list_datagrid.AutoResizeColumns();
+        }
+
         void Userlist_UC_Load(object sender, EventArgs e)
         {
+            StyleDatagridview();
+
             Location = new Point(260, 27);
 
             user_list_datagrid.DataSource = GetUsersDB();

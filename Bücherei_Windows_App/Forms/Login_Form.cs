@@ -8,12 +8,13 @@ namespace Bücherei_Windows_App.Forms
 {
     public partial class Login_Form : Form
     {
-        public Login_Form() => InitializeComponent();
+
         public Login_Form(Dashboard_Form SourceForm)
         {
             dashF = SourceForm as Dashboard_Form;
             InitializeComponent();
         }
+
         public void Login_Form_Load(object sender, EventArgs e)
         {
         }
@@ -44,7 +45,6 @@ namespace Bücherei_Windows_App.Forms
             }
         }
 
-        // Manipulattion des Dashboards via Loginscreen
         Dashboard_Form dashF;
 
         public static class HashSHA256
@@ -66,6 +66,8 @@ namespace Bücherei_Windows_App.Forms
 
         void login_button_Click(object sender, EventArgs e)
         {
+            dashF.username_label.Text = "Angemeldet als: " + email_input.Text;
+
             var enteredPassword = password_input.Text;
             var hashedPassword = HashSHA256.ComputeHash(enteredPassword);
 
@@ -77,7 +79,6 @@ namespace Bücherei_Windows_App.Forms
                 using (MySqlCommand cmd = new MySqlCommand(query, Conn))
                 {
                     cmd.Parameters.AddWithValue("@email", email_input.Text);
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
 
                     Conn.Open();
 

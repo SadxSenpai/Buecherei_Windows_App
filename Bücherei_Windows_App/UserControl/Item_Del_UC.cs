@@ -3,9 +3,9 @@ using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Book_Del_UC : UserControl
+    public partial class Item_Del_UC : UserControl
     {
-        public Book_Del_UC() => InitializeComponent();
+        public Item_Del_UC() => InitializeComponent();
         void exit_label_Click(object sender, EventArgs e)
         {
             Parent.Controls.Remove(this);
@@ -32,13 +32,13 @@ namespace Bücherei_Windows_App
             var con = new MySqlConnection(connstring);
             con.Open();
 
-            var cmd = new MySqlCommand("SELECT book_name FROM books WHERE book_out = '0'", con);
+            var cmd = new MySqlCommand("SELECT item_name FROM main_inventory", con);
             var reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                var name = reader.GetString("book_name");
-                book_name_cb.Items.Add(name);
+                var name = reader.GetString("item_name");
+                item_name_cb.Items.Add(name);
             }
         }
 
@@ -48,27 +48,27 @@ namespace Bücherei_Windows_App
             var conn = new MySqlConnection(connString);
             conn.Open();
 
-            var selectedValue = book_name_cb.SelectedItem.ToString();
+            var selectedValue = item_name_cb.SelectedItem.ToString();
 
             // Execute a MySQL SELECT query based on the selected item
-            var query = "SELECT book_note, book_type, book_author FROM books WHERE book_name = '" + selectedValue + "'";
+            var query = "SELECT item_name, item_type, item_origin, item_id, item_note FROM main_inventory WHERE item_name = '" + selectedValue + "'";
             var cmd = new MySqlCommand(query, conn);
             var reader = cmd.ExecuteReader();
 
             // Read and display the data from the selected row
             while (reader.Read())
             {
-                book_del_why_tb.Text = reader["book_note"].ToString();
-                book_type_tb.Text = reader["book_type"].ToString();
+                item_del_why_tb.Text = reader["item_note"].ToString();
+                item_type_tb.Text = reader["item_type"].ToString();
             }
         }
 
         void book_in_finish_btn_Click(object sender, EventArgs e)
         {
             // Checking if an item is selected in the ComboBox
-            if (book_name_cb.SelectedIndex != -1)
+            if (item_name_cb.SelectedIndex != -1)
             {
-                var selectedValue = book_name_cb.SelectedItem.ToString();
+                var selectedValue = item_name_cb.SelectedItem.ToString();
 
                 var result = MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -80,7 +80,7 @@ namespace Bücherei_Windows_App
                     {
                         con.Open();
 
-                        var insertcmd = "INSERT INTO deleted_books (book_name, book_author, book_type) SELECT book_name, book_author, book_type FROM books WHERE book_name = '" + selectedValue + "'";
+                        var insertcmd = "INSERT INTO deleted_books (item_name, item_origin, item_type, item_id) SELECT item_name, item_origin, item_type, item_id FROM main_inventory WHERE item_name = '" + selectedValue + "'";
 
                         using (MySqlCommand incmd = new MySqlCommand(insertcmd, con))
                         {
@@ -91,7 +91,7 @@ namespace Bücherei_Windows_App
                                 using (MySqlCommand incmd2 = new MySqlCommand(insertcmd2, con))
                                 {
                                     incmd2.Parameters.AddWithValue("@delwhen", today_date_label.Text);
-                                    incmd2.Parameters.AddWithValue("@delwhy", book_del_why_tb.Text);
+                                    incmd2.Parameters.AddWithValue("@delwhy", item_del_why_tb.Text);
 
                                     if (incmd2.ExecuteNonQuery() == 1)
                                     {

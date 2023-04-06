@@ -3,9 +3,9 @@ using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Book_In_UC : UserControl
+    public partial class Item_In_UC : UserControl
     {
-        public Book_In_UC() => InitializeComponent();
+        public Item_In_UC() => InitializeComponent();
 
         void exit_label_Click(object sender, EventArgs e)
         {

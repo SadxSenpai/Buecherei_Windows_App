@@ -1,6 +1,6 @@
 ﻿namespace Bücherei_Windows_App
 {
-    partial class Book_In_UC
+    partial class Item_In_UC
     {
         /// <summary> 
         /// Required designer variable.

@@ -4,9 +4,9 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Book_Out_UC : UserControl
+    public partial class Item_Out_UC : UserControl
     {
-        public Book_Out_UC()
+        public Item_Out_UC()
         {
             InitializeComponent();
             Location = new Point(260, 0);
@@ -29,16 +29,24 @@ namespace Bücherei_Windows_App
             // Get the current date and time
             var today = DateTime.Now;
 
-            // Get the date in 7 days
-            var inDaysBack = today.AddDays(7);
 
             //TODO: Format the dates to allow multiple return date choices with a combobox
             // Format the dates to strings in the desired format
             var todayString = today.ToString("dd/MM/yyyy");
-            var inDaysBackString = inDaysBack.ToString("dd/MM/yyyy");
 
             item_date_out_tb.Text = todayString;
-            item_date_in_tb.Text = inDaysBackString;
+
+            // Populate the ComboBox with 7, 14 and 21 days from the current date
+            var inDays7 = today.AddDays(7);
+            var inDays14 = today.AddDays(14);
+            var inDays21 = today.AddDays(21);
+            var inDays7String = inDays7.ToString("dd/MM/yyyy");
+            var inDays14String = inDays14.ToString("dd/MM/yyyy");
+            var inDays21String = inDays21.ToString("dd/MM/yyyy");
+            item_date_in_cb.Items.Add(inDays7String);
+            item_date_in_cb.Items.Add(inDays14String);
+            item_date_in_cb.Items.Add(inDays21String);
+            // Populate the ComboBox with the items in the database
 
             var connstring = DBCon.dbConnection;
             var con = new MySqlConnection(connstring);
@@ -84,11 +92,12 @@ namespace Bücherei_Windows_App
             {
                 // Retrieving the selected item from the ComboBox
                 var selected_item = item_name_cb.SelectedItem.ToString();
+                var item_date_back = item_date_in_cb.SelectedItem.ToString();
 
                 var itemtype = item_type_tb.Text;
                 var itemuser = item_with_who_tb.Text;
                 var dateout = item_date_out_tb.Text;
-                var dateback = item_date_in_tb.Text;
+                var dateback = item_date_back;
                 var iteminfo = item_note_tb.Text;
 
                 var updateQuery = "INSERT INTO out_of_house (item_name, item_type, item_date_out, item_date_in, item_with_who, item_note) VALUES (@selected_item, @item_type, @item_date_out, @item_date_in, @item_with_who, @item_note)";

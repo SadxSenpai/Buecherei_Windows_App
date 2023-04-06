@@ -4,12 +4,12 @@ using System.Data;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Booklist_UC : UserControl
+    public partial class Itemlist_UC : UserControl
     {
         // Initialzize of Datatable for Datagrid contents
         DataTable dtBooks = new DataTable("Books");
 
-        public Booklist_UC() => InitializeComponent();
+        public Itemlist_UC() => InitializeComponent();
 
         void exit_label_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace Bücherei_Windows_App
             // fetch data from local database
             using (MySqlConnection con = new MySqlConnection(DBCon.dbConnection))
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT book_name, book_type, book_out_with, book_out_since, book_back_when, book_note FROM books", con))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT item_name, item_type, item_origin, item_id, item_count, item_note FROM main_inventory", con))
                 {
                     con.Open();
 
@@ -59,9 +59,9 @@ namespace Bücherei_Windows_App
                     // Name Collums in Datagrid
                     dtBooks.Columns[0].ColumnName = "Name";
                     dtBooks.Columns[1].ColumnName = "Typ";
-                    dtBooks.Columns[2].ColumnName = "Ausgeliehen von";
-                    dtBooks.Columns[3].ColumnName = "Ausgeliehen am:";
-                    dtBooks.Columns[4].ColumnName = "Ausgeliehen bis:";
+                    dtBooks.Columns[2].ColumnName = "Hersteller / Author";
+                    dtBooks.Columns[3].ColumnName = "Atk. Nr. / ISBN";
+                    dtBooks.Columns[4].ColumnName = "Verfügbar";
                     dtBooks.Columns[5].ColumnName = "Bemerkung";
                 }
             }

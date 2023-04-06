@@ -4,7 +4,12 @@ namespace Bücherei_Windows_App.Forms
 {
     public partial class Dashboard_Form : Form
     {
-        public Dashboard_Form() => InitializeComponent();
+
+        public Dashboard_Form()
+        {
+
+            InitializeComponent();
+        }
 
         void exit_dash_label_Click(object sender, EventArgs e) => Application.Exit();
 
@@ -32,33 +37,17 @@ namespace Bücherei_Windows_App.Forms
 
         void Dashboard_Form_Load(object sender, EventArgs e)
         {
+            //set dashboard form as shadowform
             guna2ShadowForm1.SetShadowForm(this);
 
             this.EnableBlur();
             TransparencyKey = Color.LimeGreen;
 
-            // Load the Usercontrol
-            /*
-            booklist_uc1 = new Booklist_UC();
-            this.Controls.Add(booklist_uc1);
-
-            book_add_uc1 = new Book_add_UC();
-            this.Controls.Add(book_add_uc1);
-
-            book_Out_uc1 = new Book_Out_UC();
-            this.Controls.Add(book_Out_uc1);
-
-            book_In_uc1 = new Book_In_UC();
-            this.Controls.Add(book_In_uc1);
-
-            userlist_uc1 = new Userlist_UC();
-            this.Controls.Add(userlist_uc1);
-
-            booklist_uc1 = new Booklist_UC();
-            this.Controls.Add(booklist_uc1);
-            */
-
             // Hide UserControls
+
+            Controls.Remove(itemout_uc1);
+            itemout_uc1.Dispose();
+            itemout_uc1 = null;
 
             Controls.Remove(booklist_uc1);
             booklist_uc1.Dispose();
@@ -87,12 +76,6 @@ namespace Bücherei_Windows_App.Forms
             Controls.Remove(book_Del_uc1);
             book_Del_uc1.Dispose();
             book_Del_uc1 = null;
-
-            //  Side Panel Bilder
-            // ausleih_button.Image = Image.FromFile("../../Images/xxx.png");
-            // rueckgabe_button.Image = Image.FromFile("../../Images/xxx.png");
-            // books_list.Image = Image.FromFile("../../Images/xxx.png");
-            // user_list.Image = Image.FromFile("../../Images/xxx.png");
         }
 
         void Dashboard_Form_Shown(object sender, EventArgs e)
@@ -107,7 +90,7 @@ namespace Bücherei_Windows_App.Forms
 
         void Books_list_Click(object sender, EventArgs e)
         {
-            booklist_uc1 = new Booklist_UC();
+            booklist_uc1 = new Itemlist_UC();
             Controls.Add(booklist_uc1);
             booklist_uc1.BringToFront();
 
@@ -153,11 +136,18 @@ namespace Bücherei_Windows_App.Forms
                 book_Del_uc1.Dispose();
                 book_Del_uc1 = null;
             }
+
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
+            }
         }
 
         void Ausleih_button_Click(object sender, EventArgs e)
         {
-            book_Out_uc1 = new Book_Out_UC();
+            book_Out_uc1 = new Item_Out_UC();
             Controls.Add(book_Out_uc1);
             book_Out_uc1.BringToFront();
 
@@ -203,11 +193,18 @@ namespace Bücherei_Windows_App.Forms
                 book_Del_uc1.Dispose();
                 book_Del_uc1 = null;
             }
+
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
+            }
         }
 
         void Rueckgabe_button_Click(object sender, EventArgs e)
         {
-            book_In_uc1 = new Book_In_UC();
+            book_In_uc1 = new Item_In_UC();
             Controls.Add(book_In_uc1);
             book_In_uc1.BringToFront();
 
@@ -252,6 +249,13 @@ namespace Bücherei_Windows_App.Forms
                 Controls.Remove(book_Del_uc1);
                 book_Del_uc1.Dispose();
                 book_Del_uc1 = null;
+            }
+
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
             }
         }
 
@@ -303,11 +307,18 @@ namespace Bücherei_Windows_App.Forms
                 book_Del_uc1.Dispose();
                 book_Del_uc1 = null;
             }
+
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
+            }
         }
 
         void book_add_new_Click(object sender, EventArgs e)
         {
-            book_add_uc1 = new Book_add_UC();
+            book_add_uc1 = new Item_add_UC();
             Controls.Add(book_add_uc1);
             book_add_uc1.BringToFront();
 
@@ -352,6 +363,13 @@ namespace Bücherei_Windows_App.Forms
                 Controls.Remove(book_Del_uc1);
                 book_Del_uc1.Dispose();
                 book_Del_uc1 = null;
+            }
+
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
             }
         }
 
@@ -403,20 +421,89 @@ namespace Bücherei_Windows_App.Forms
                 book_Del_uc1.Dispose();
                 book_Del_uc1 = null;
             }
+
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
+            }
         }
 
         void book_delete_Click(object sender, EventArgs e)
         {
-            book_Del_uc1 = new Book_Del_UC();
+            book_Del_uc1 = new Item_Del_UC();
             Controls.Add(book_Del_uc1);
             book_Del_uc1.BringToFront();
 
-            // Schließe andere UCs
             if (booklist_uc1 != null)
             {
                 Controls.Remove(booklist_uc1);
                 booklist_uc1.Dispose();
                 booklist_uc1 = null;
+            }
+
+            if (book_Out_uc1 != null)
+            {
+                Controls.Remove(book_Out_uc1);
+                book_Out_uc1.Dispose();
+                book_Out_uc1 = null;
+            }
+
+            if (book_In_uc1 != null)
+            {
+                Controls.Remove(book_In_uc1);
+                book_In_uc1.Dispose();
+                book_In_uc1 = null;
+            }
+
+            if (userlist_uc1 != null)
+            {
+                Controls.Remove(userlist_uc1);
+                userlist_uc1.Dispose();
+                userlist_uc1 = null;
+            }
+
+            if (book_add_uc1 != null)
+            {
+                Controls.Remove(book_add_uc1);
+                book_add_uc1.Dispose();
+                book_add_uc1 = null;
+            }
+
+            if (user_Add_uc1 != null)
+            {
+                Controls.Remove(user_Add_uc1);
+                user_Add_uc1.Dispose();
+                user_Add_uc1 = null;
+            }
+
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
+            }
+        }
+        private void itemout_list_Click(object sender, EventArgs e)
+        {
+            itemout_uc1 = new Itemout_UC();
+            Controls.Add(itemout_uc1);
+            itemout_uc1.BringToFront();
+
+            // close every other Usercontrol
+            if (booklist_uc1 != null)
+            {
+                Controls.Remove(booklist_uc1);
+                booklist_uc1.Dispose();
+                booklist_uc1 = null;
+            }
+
+            if (book_Del_uc1 != null)
+            {
+                Controls.Remove(book_Del_uc1);
+                book_Del_uc1.Dispose();
+                book_Del_uc1 = null;
             }
 
             if (book_Out_uc1 != null)

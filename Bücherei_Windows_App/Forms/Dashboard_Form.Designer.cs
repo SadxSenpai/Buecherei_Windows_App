@@ -38,8 +38,8 @@
             book_In_uc1 = new Item_In_UC();
             book_Del_uc1 = new Item_Del_UC();
             panel4 = new Panel();
-            dashboard_uc1 = new Dashboard_UC();
             dogebox = new PictureBox();
+            dashboard_uc1 = new Dashboard_UC();
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
             Topbar = new Panel();
@@ -58,7 +58,7 @@
             panel2 = new Panel();
             panel3 = new Panel();
             itemout_list = new Button();
-            button2 = new Button();
+            extend_button = new Button();
             itemout_uc1 = new Itemout_UC();
             panel1 = new Panel();
             panel4.SuspendLayout();
@@ -129,12 +129,25 @@
             // 
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
-            panel4.Controls.Add(dashboard_uc1);
             panel4.Controls.Add(dogebox);
+            panel4.Controls.Add(dashboard_uc1);
             panel4.Location = new Point(260, 27);
             panel4.Name = "panel4";
             panel4.Size = new Size(1007, 681);
             panel4.TabIndex = 8;
+            // 
+            // dogebox
+            // 
+            dogebox.BackgroundImage = (Image)resources.GetObject("dogebox.BackgroundImage");
+            dogebox.BackgroundImageLayout = ImageLayout.None;
+            dogebox.Location = new Point(907, 582);
+            dogebox.Name = "dogebox";
+            dogebox.Size = new Size(100, 100);
+            dogebox.SizeMode = PictureBoxSizeMode.StretchImage;
+            dogebox.TabIndex = 0;
+            dogebox.TabStop = false;
+            dogebox.MouseEnter += dogebox_MouseEnter;
+            dogebox.MouseLeave += dogebox_MouseLeave;
             // 
             // dashboard_uc1
             // 
@@ -143,19 +156,6 @@
             dashboard_uc1.Name = "dashboard_uc1";
             dashboard_uc1.Size = new Size(1007, 683);
             dashboard_uc1.TabIndex = 13;
-            // 
-            // dogebox
-            // 
-            dogebox.BackgroundImage = (Image)resources.GetObject("dogebox.BackgroundImage");
-            dogebox.BackgroundImageLayout = ImageLayout.None;
-            dogebox.Location = new Point(907, 581);
-            dogebox.Name = "dogebox";
-            dogebox.Size = new Size(100, 100);
-            dogebox.SizeMode = PictureBoxSizeMode.StretchImage;
-            dogebox.TabIndex = 0;
-            dogebox.TabStop = false;
-            dogebox.MouseEnter += dogebox_MouseEnter;
-            dogebox.MouseLeave += dogebox_MouseLeave;
             // 
             // guna2DragControl1
             // 
@@ -401,24 +401,24 @@
             itemout_list.UseVisualStyleBackColor = false;
             itemout_list.Click += itemout_list_Click;
             // 
-            // button2
+            // extend_button
             // 
-            button2.BackColor = Color.FromArgb(0, 57, 141);
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.Image = Properties.Resources.book_add;
-            button2.ImageAlign = ContentAlignment.MiddleRight;
-            button2.Location = new Point(3, 285);
-            button2.Name = "button2";
-            button2.Padding = new Padding(10, 0, 0, 0);
-            button2.Size = new Size(241, 50);
-            button2.TabIndex = 12;
-            button2.Text = "Verlängern";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = false;
+            extend_button.BackColor = Color.FromArgb(0, 57, 141);
+            extend_button.Cursor = Cursors.Hand;
+            extend_button.FlatAppearance.BorderSize = 0;
+            extend_button.FlatStyle = FlatStyle.Flat;
+            extend_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            extend_button.ForeColor = Color.White;
+            extend_button.Image = Properties.Resources.book_add;
+            extend_button.ImageAlign = ContentAlignment.MiddleRight;
+            extend_button.Location = new Point(3, 285);
+            extend_button.Name = "extend_button";
+            extend_button.Padding = new Padding(10, 0, 0, 0);
+            extend_button.Size = new Size(241, 50);
+            extend_button.TabIndex = 12;
+            extend_button.Text = "Verlängern";
+            extend_button.TextAlign = ContentAlignment.MiddleLeft;
+            extend_button.UseVisualStyleBackColor = false;
             // 
             // itemout_uc1
             // 
@@ -432,7 +432,7 @@
             // 
             panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(itemout_uc1);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(extend_button);
             panel1.Controls.Add(itemout_list);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
@@ -512,7 +512,7 @@
         private Panel panel2;
         private Panel panel3;
         private Button itemout_list;
-        private Button button2;
+        private Button extend_button;
         private Itemout_UC itemout_uc1;
         private Dashboard_UC dashboard_uc1;
         private Panel panel1;

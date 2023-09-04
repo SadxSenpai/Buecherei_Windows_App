@@ -130,7 +130,7 @@ namespace Bücherei_Windows_App
                         var selecteditem3 = item_name_cb.SelectedItem.ToString();
                         var updateQuery = "UPDATE main_inventory SET item_count = item_count + 1 WHERE item_name = '" + selecteditem3 + "'";
                         var cmd3 = new MySqlCommand(updateQuery, con);
-                        cmd3.ExecuteNonQuery();
+                        cmd3.ExecuteNonQuery();;
                     }
                     else
                     {

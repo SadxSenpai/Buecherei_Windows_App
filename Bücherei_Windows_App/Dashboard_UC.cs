@@ -1,5 +1,6 @@
 ﻿using Bücherei_Windows_App.The_Database;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 using System.Data;
 using System.Windows.Forms;
 
@@ -11,6 +12,18 @@ namespace Bücherei_Windows_App
         {
             InitializeComponent();
         }
+        public void RefreshList()
+        {
+            due_soon_dgv.DataSource = null;
+
+            //fill due_soon_dgv datadridview with item_date_in, item_name, item_with_who column from out_of_house table in database
+            string query = "SELECT item_date_in, item_name, item_with_who FROM out_of_house";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, DBCon.dbConnection);
+            adapter.Fill(table);
+            due_soon_dgv.DataSource = table;
+        }
+
         void StyleDatagridview()
         {
             due_soon_dgv.BorderStyle = BorderStyle.None;
@@ -31,13 +44,7 @@ namespace Bücherei_Windows_App
         private void Dashboard_UC_Load(object sender, EventArgs e)
         {
             StyleDatagridview();
-
-            //fill due_soon_dgv datadridview with item_date_in, item_name, item_with_who column from out_of_house table in database
-            string query = "SELECT item_date_in, item_name, item_with_who FROM out_of_house";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, DBCon.dbConnection);
-            adapter.Fill(table);
-            due_soon_dgv.DataSource = table;
+            RefreshList();
         }
     }
 }

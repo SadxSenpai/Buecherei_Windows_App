@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2025 at 03:26 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Feb 15, 2023 at 12:48 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ CREATE TABLE `app_users` (
 --
 
 INSERT INTO `app_users` (`id`, `first_name`, `last_name`, `email`, `password`, `user_type`) VALUES
-(1, 'Marvin', 'Hauser', 'Admin@LMS.de', 'admin', 'admin'),
+(1, 'Marvin', 'Hauser', 'Admin@LMS.de', 'c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f', 'admin'),
 (10, 'Test', 'Test', 'test@test.de', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 'admin');
 
 -- --------------------------------------------------------
@@ -87,45 +87,6 @@ CREATE TABLE `deleted_books` (
   `del_why` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `main_inventory`
---
-
-CREATE TABLE `main_inventory` (
-  `id` int(11) NOT NULL,
-  `item_name` varchar(256) NOT NULL,
-  `item_origin` varchar(256) NOT NULL,
-  `item_id` varchar(256) NOT NULL,
-  `item_count` varchar(255) NOT NULL,
-  `item_note` varchar(256) NOT NULL,
-  `item_type` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `main_inventory`
---
-
-INSERT INTO `main_inventory` (`id`, `item_name`, `item_origin`, `item_id`, `item_count`, `item_note`, `item_type`) VALUES
-(1, 'test', 'testauthor', '123456789', '1', 'none', 'book');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `out_of_house`
---
-
-CREATE TABLE `out_of_house` (
-  `id` int(255) NOT NULL,
-  `item_name` varchar(256) NOT NULL,
-  `item_type` varchar(256) NOT NULL,
-  `item_date_out` varchar(256) NOT NULL,
-  `item_date_in` varchar(256) NOT NULL,
-  `item_with_who` varchar(256) NOT NULL,
-  `item_note` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -149,18 +110,6 @@ ALTER TABLE `deleted_books`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `main_inventory`
---
-ALTER TABLE `main_inventory`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `out_of_house`
---
-ALTER TABLE `out_of_house`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -181,18 +130,6 @@ ALTER TABLE `books`
 --
 ALTER TABLE `deleted_books`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `main_inventory`
---
-ALTER TABLE `main_inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `out_of_house`
---
-ALTER TABLE `out_of_house`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

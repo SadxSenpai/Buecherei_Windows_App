@@ -49,6 +49,8 @@ namespace Bücherei_Windows_App
             using (MySqlConnection con = new MySqlConnection(DBCon.dbConnection))
             {
                 using (MySqlCommand cmd = new MySqlCommand("SELECT item_name, item_type, item_origin, item_id, item_count, item_note FROM main_inventory", con))
+
+                    //TODO Add query to pull return date and add as entry to the grid for easy viewing if item and until it is out of house
                 {
                     con.Open();
 

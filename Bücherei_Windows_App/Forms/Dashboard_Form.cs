@@ -10,7 +10,7 @@ namespace Bücherei_Windows_App.Forms
 
             InitializeComponent();
         }
-
+        //Dasboard window button bar visuals
         void exit_dash_label_Click(object sender, EventArgs e) => Application.Exit();
 
         void exit_dash_label_MouseEnter(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace Bücherei_Windows_App.Forms
             this.EnableBlur();
             TransparencyKey = Color.LimeGreen;
 
-            // Hide UserControls
+            // Hide UserControls on Load
 
             Controls.Remove(itemout_uc1);
             itemout_uc1.Dispose();
@@ -541,7 +541,7 @@ namespace Bücherei_Windows_App.Forms
                 user_Add_uc1 = null;
             }
         }
-
+        //Sekrit Doge huehue
         void dogebox_MouseEnter(object sender, EventArgs e)
         {
             dogebox.Image = Properties.Resources.doge;

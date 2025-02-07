@@ -80,22 +80,22 @@ namespace Bücherei_Windows_App
             // Read and display the data from the selected row
             while (reader.Read())
             {
-                item_type_tb.Text = reader["item_note"].ToString();
-                item_note_tb.Text = reader["item_type"].ToString();
+                item_type_tb.Text = reader["item_type"].ToString();
+                item_note_tb.Text = reader["item_note"].ToString();
             }
         }
 
         void book_out_finish_btn_Click(object sender, EventArgs e)
         {
-            // Checking if an item is selected in the ComboBox
-            if (item_name_cb.SelectedIndex != -1)
+            // Checking if an item is selected in the ComboBox  
+            if (item_name_cb.SelectedIndex != -1 && item_date_in_cb.SelectedIndex != -1 && item_with_who_tb.Text.Length == 0) 
             {
-                // Retrieving the selected item from the ComboBox
+                // Retrieving the selected item from the ComboBox  
                 var selected_item = item_name_cb.SelectedItem.ToString();
-                var item_date_back = item_date_in_cb.SelectedItem.ToString();
+                var item_date_back = item_date_in_cb.SelectedItem?.ToString();
+                var itemuser = item_with_who_tb.Text;
 
                 var itemtype = item_type_tb.Text;
-                var itemuser = item_with_who_tb.Text;
                 var dateout = item_date_out_tb.Text;
                 var dateback = item_date_back;
                 var iteminfo = item_note_tb.Text;
@@ -107,16 +107,15 @@ namespace Bücherei_Windows_App
 
                 con.Open();
 
-                // Create a SELECT query to retrieve the relevant data from the database.
+                // Create a SELECT query to retrieve the relevant data from the database.  
                 var selectQuery = "SELECT COUNT(*) FROM out_of_house WHERE item_name = '" + selected_item + "'";
 
                 using (MySqlCommand cmdcheck = new MySqlCommand(selectQuery, con))
                 {
                     var count = Convert.ToInt32(cmdcheck.ExecuteScalar());
 
-                    // If the data does not exist, insert it.
+                    // If the data does not exist, insert it.  
                     if (count == 0)
-
                         try
                         {
                             var cmd = new MySqlCommand(updateQuery, con);
@@ -151,7 +150,7 @@ namespace Bücherei_Windows_App
             }
             else
             {
-                MessageBox.Show("Please select an item from the ComboBox.");
+                MessageBox.Show("Bitte füllen Sie alle Felder aus.");
             }
         }
     }

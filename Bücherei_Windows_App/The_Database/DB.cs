@@ -1,12 +1,14 @@
 ﻿namespace Bücherei_Windows_App.The_Database
 {
-    // Build Database
+    // Datenbank aufbauen / Build Database
 
     public class DBCon
     {
-        // edit the constring for all con calls
+        // Bearbeiten Sie die Verbindungszeichenfolge für alle Verbindungsaufrufe
+        // Edit the connection string for all connection calls
 
-        // public static string dbConnection = "server=10.10.50.1;Port=3306;uid=MarvinAdmin;pwd= Gadheim0815!;database=lms_db";
+        // Verbindungszeichenfolge für die lokale Datenbank
+        // Connection string for the local database
         public static string dbConnection = "server=localhost;Port=3306;uid=root;pwd=;database=lms_db";
     }
 }

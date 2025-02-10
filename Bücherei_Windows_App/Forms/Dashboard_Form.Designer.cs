@@ -30,16 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_Form));
-            userlist_uc1 = new Userlist_UC();
-            user_Add_uc1 = new User_Add_UC();
-            booklist_uc1 = new Itemlist_UC();
-            book_add_uc1 = new Item_add_UC();
-            book_Out_uc1 = new Item_Out_UC();
-            book_In_uc1 = new Item_In_UC();
-            book_Del_uc1 = new Item_Del_UC();
             panel4 = new Panel();
             dogebox = new PictureBox();
-            dashboard_uc1 = new Dashboard_UC();
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
             Topbar = new Panel();
@@ -59,7 +51,6 @@
             panel3 = new Panel();
             itemout_list = new Button();
             extend_button = new Button();
-            itemout_uc1 = new Itemout_UC();
             panel1 = new Panel();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dogebox).BeginInit();
@@ -69,68 +60,11 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // userlist_uc1
-            // 
-            userlist_uc1.BackColor = Color.White;
-            userlist_uc1.Location = new Point(260, 27);
-            userlist_uc1.Name = "userlist_uc1";
-            userlist_uc1.Size = new Size(974, 646);
-            userlist_uc1.TabIndex = 1;
-            // 
-            // user_Add_uc1
-            // 
-            user_Add_uc1.BackColor = Color.White;
-            user_Add_uc1.Location = new Point(260, 27);
-            user_Add_uc1.Name = "user_Add_uc1";
-            user_Add_uc1.Size = new Size(404, 681);
-            user_Add_uc1.TabIndex = 2;
-            // 
-            // booklist_uc1
-            // 
-            booklist_uc1.BackColor = Color.White;
-            booklist_uc1.Location = new Point(260, 27);
-            booklist_uc1.Name = "booklist_uc1";
-            booklist_uc1.Size = new Size(974, 646);
-            booklist_uc1.TabIndex = 3;
-            // 
-            // book_add_uc1
-            // 
-            book_add_uc1.BackColor = Color.White;
-            book_add_uc1.Location = new Point(260, 27);
-            book_add_uc1.Name = "book_add_uc1";
-            book_add_uc1.Size = new Size(404, 681);
-            book_add_uc1.TabIndex = 4;
-            // 
-            // book_Out_uc1
-            // 
-            book_Out_uc1.BackColor = Color.White;
-            book_Out_uc1.Location = new Point(260, 27);
-            book_Out_uc1.Name = "book_Out_uc1";
-            book_Out_uc1.Size = new Size(404, 681);
-            book_Out_uc1.TabIndex = 5;
-            // 
-            // book_In_uc1
-            // 
-            book_In_uc1.BackColor = Color.White;
-            book_In_uc1.Location = new Point(260, 27);
-            book_In_uc1.Name = "book_In_uc1";
-            book_In_uc1.Size = new Size(404, 681);
-            book_In_uc1.TabIndex = 6;
-            // 
-            // book_Del_uc1
-            // 
-            book_Del_uc1.BackColor = Color.White;
-            book_Del_uc1.Location = new Point(260, 27);
-            book_Del_uc1.Name = "book_Del_uc1";
-            book_Del_uc1.Size = new Size(404, 681);
-            book_Del_uc1.TabIndex = 7;
-            // 
             // panel4
             // 
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
             panel4.Controls.Add(dogebox);
-            panel4.Controls.Add(dashboard_uc1);
             panel4.Location = new Point(260, 27);
             panel4.Name = "panel4";
             panel4.Size = new Size(1007, 681);
@@ -148,14 +82,6 @@
             dogebox.TabStop = false;
             dogebox.MouseEnter += dogebox_MouseEnter;
             dogebox.MouseLeave += dogebox_MouseLeave;
-            // 
-            // dashboard_uc1
-            // 
-            dashboard_uc1.BackColor = Color.Transparent;
-            dashboard_uc1.Location = new Point(0, -1);
-            dashboard_uc1.Name = "dashboard_uc1";
-            dashboard_uc1.Size = new Size(1007, 683);
-            dashboard_uc1.TabIndex = 13;
             // 
             // guna2DragControl1
             // 
@@ -175,7 +101,7 @@
             // 
             // mini_dash_label
             // 
-            mini_dash_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            mini_dash_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             mini_dash_label.ForeColor = Color.White;
             mini_dash_label.Location = new Point(1209, -4);
             mini_dash_label.Name = "mini_dash_label";
@@ -188,7 +114,7 @@
             // 
             // exit_dash_label
             // 
-            exit_dash_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            exit_dash_label.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             exit_dash_label.ForeColor = Color.White;
             exit_dash_label.Location = new Point(1236, -4);
             exit_dash_label.Name = "exit_dash_label";
@@ -210,7 +136,7 @@
             // 
             // username_label
             // 
-            username_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            username_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             username_label.ForeColor = Color.White;
             username_label.Location = new Point(0, 0);
             username_label.Name = "username_label";
@@ -220,7 +146,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = Properties.Resources.BBW_Dash_logo;
+            pictureBox1.Image = Properties.Resources.placeholder;
             pictureBox1.Location = new Point(-1, 27);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(251, 131);
@@ -235,7 +161,7 @@
             ausleih_button.Cursor = Cursors.Hand;
             ausleih_button.FlatAppearance.BorderSize = 0;
             ausleih_button.FlatStyle = FlatStyle.Flat;
-            ausleih_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ausleih_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             ausleih_button.ForeColor = Color.White;
             ausleih_button.Image = Properties.Resources.book_circle_arrow_right;
             ausleih_button.ImageAlign = ContentAlignment.MiddleRight;
@@ -255,7 +181,7 @@
             rueckgabe_button.Cursor = Cursors.Hand;
             rueckgabe_button.FlatAppearance.BorderSize = 0;
             rueckgabe_button.FlatStyle = FlatStyle.Flat;
-            rueckgabe_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rueckgabe_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             rueckgabe_button.ForeColor = Color.White;
             rueckgabe_button.Image = Properties.Resources.book_in;
             rueckgabe_button.ImageAlign = ContentAlignment.MiddleRight;
@@ -275,7 +201,7 @@
             user_list.Cursor = Cursors.Hand;
             user_list.FlatAppearance.BorderSize = 0;
             user_list.FlatStyle = FlatStyle.Flat;
-            user_list.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            user_list.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             user_list.Image = Properties.Resources.users;
             user_list.ImageAlign = ContentAlignment.MiddleRight;
             user_list.Location = new Point(3, 596);
@@ -294,7 +220,7 @@
             books_list.Cursor = Cursors.Hand;
             books_list.FlatAppearance.BorderSize = 0;
             books_list.FlatStyle = FlatStyle.Flat;
-            books_list.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            books_list.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             books_list.Image = Properties.Resources.books;
             books_list.ImageAlign = ContentAlignment.MiddleRight;
             books_list.Location = new Point(3, 540);
@@ -313,7 +239,7 @@
             book_add_new.Cursor = Cursors.Hand;
             book_add_new.FlatAppearance.BorderSize = 0;
             book_add_new.FlatStyle = FlatStyle.Flat;
-            book_add_new.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            book_add_new.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             book_add_new.ForeColor = Color.White;
             book_add_new.Image = Properties.Resources.book_add;
             book_add_new.ImageAlign = ContentAlignment.MiddleRight;
@@ -333,7 +259,7 @@
             new_user.Cursor = Cursors.Hand;
             new_user.FlatAppearance.BorderSize = 0;
             new_user.FlatStyle = FlatStyle.Flat;
-            new_user.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            new_user.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             new_user.Image = Properties.Resources.user_add;
             new_user.ImageAlign = ContentAlignment.MiddleRight;
             new_user.Location = new Point(3, 652);
@@ -352,7 +278,7 @@
             book_delete.Cursor = Cursors.Hand;
             book_delete.FlatAppearance.BorderSize = 0;
             book_delete.FlatStyle = FlatStyle.Flat;
-            book_delete.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            book_delete.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             book_delete.ForeColor = Color.White;
             book_delete.Image = Properties.Resources.book_delete;
             book_delete.ImageAlign = ContentAlignment.MiddleRight;
@@ -388,7 +314,7 @@
             itemout_list.Cursor = Cursors.Hand;
             itemout_list.FlatAppearance.BorderSize = 0;
             itemout_list.FlatStyle = FlatStyle.Flat;
-            itemout_list.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            itemout_list.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             itemout_list.Image = Properties.Resources.books;
             itemout_list.ImageAlign = ContentAlignment.MiddleRight;
             itemout_list.Location = new Point(3, 484);
@@ -407,7 +333,7 @@
             extend_button.Cursor = Cursors.Hand;
             extend_button.FlatAppearance.BorderSize = 0;
             extend_button.FlatStyle = FlatStyle.Flat;
-            extend_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            extend_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             extend_button.ForeColor = Color.White;
             extend_button.Image = Properties.Resources.book_add;
             extend_button.ImageAlign = ContentAlignment.MiddleRight;
@@ -420,18 +346,9 @@
             extend_button.TextAlign = ContentAlignment.MiddleLeft;
             extend_button.UseVisualStyleBackColor = false;
             // 
-            // itemout_uc1
-            // 
-            itemout_uc1.BackColor = Color.White;
-            itemout_uc1.Location = new Point(260, 27);
-            itemout_uc1.Name = "itemout_uc1";
-            itemout_uc1.Size = new Size(974, 646);
-            itemout_uc1.TabIndex = 1;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(itemout_uc1);
             panel1.Controls.Add(extend_button);
             panel1.Controls.Add(itemout_list);
             panel1.Controls.Add(panel3);
@@ -457,17 +374,10 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.LimeGreen;
             ClientSize = new Size(1264, 735);
-            Controls.Add(book_add_uc1);
-            Controls.Add(userlist_uc1);
-            Controls.Add(book_Del_uc1);
             Controls.Add(Topbar);
             Controls.Add(Bottombar);
-            Controls.Add(booklist_uc1);
-            Controls.Add(user_Add_uc1);
             Controls.Add(panel1);
             Controls.Add(panel4);
-            Controls.Add(book_In_uc1);
-            Controls.Add(book_Out_uc1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;

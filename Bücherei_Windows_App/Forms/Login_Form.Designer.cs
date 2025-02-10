@@ -98,7 +98,7 @@
             // 
             label_close.BackColor = Color.White;
             label_close.Cursor = Cursors.Hand;
-            label_close.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label_close.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label_close.ForeColor = Color.Black;
             label_close.Location = new Point(420, 13);
             label_close.Name = "label_close";
@@ -113,7 +113,7 @@
             // label1
             // 
             label1.BackColor = Color.White;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(450, 65);
@@ -124,7 +124,7 @@
             // login_button
             // 
             login_button.Cursor = Cursors.Hand;
-            login_button.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            login_button.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             login_button.Location = new Point(48, 375);
             login_button.Name = "login_button";
             login_button.Size = new Size(350, 50);
@@ -136,7 +136,7 @@
             // password_label
             // 
             password_label.BackColor = Color.Transparent;
-            password_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            password_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             password_label.ForeColor = Color.White;
             password_label.Location = new Point(16, 314);
             password_label.Name = "password_label";
@@ -156,7 +156,7 @@
             // email_label
             // 
             email_label.BackColor = Color.Transparent;
-            email_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            email_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             email_label.ForeColor = Color.White;
             email_label.Location = new Point(16, 265);
             email_label.Name = "email_label";
@@ -178,7 +178,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = Properties.Resources.BBW_137_137;
+            pictureBox1.Image = Properties.Resources.placeholder;
             pictureBox1.Location = new Point(0, 60);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(450, 190);

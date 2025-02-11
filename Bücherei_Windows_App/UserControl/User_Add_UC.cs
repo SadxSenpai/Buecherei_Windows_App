@@ -8,19 +8,31 @@ namespace Bücherei_Windows_App
     public partial class User_Add_UC : UserControl
     {
         public User_Add_UC() => InitializeComponent();
+
+        // Event handler for exit label click
+        // Ereignis-Handler für Klick auf das Exit-Label
         void exit_label_Click(object sender, EventArgs e)
         {
             Parent.Controls.Remove(this);
             Dispose();
         }
 
+        // Event handler for mouse entering the exit label
+        // Ereignis-Handler für das Betreten des Exit-Labels mit der Maus
         void exit_label_MouseEnter(object sender, EventArgs e) => exit_label.ForeColor = Color.Red;
 
+        // Event handler for mouse leaving the exit label
+        // Ereignis-Handler für das Verlassen des Exit-Labels mit der Maus
         void exit_label_MouseLeave(object sender, EventArgs e) => exit_label.ForeColor = Color.Black;
 
+        // Event handler for User Control load
+        // Ereignis-Handler für das Laden des User Controls
         void User_Add_UC_Load(object sender, EventArgs e) => Location = new Point(260, 27);
+
         public class PasswordEncryption
         {
+            // Method to hash a password using SHA256
+            // Methode zum Hashen eines Passworts mit SHA256
             public static string HashSHA256(string password)
             {
                 using (SHA256 sha256Hash = SHA256.Create())
@@ -37,6 +49,8 @@ namespace Bücherei_Windows_App
             }
         }
 
+        // Event handler for creating a new user
+        // Ereignis-Handler zum Erstellen eines neuen Benutzers
         void new_user_create_Click(object sender, EventArgs e)
         {
             if (new_email_tb.Text == new_email_check_tb.Text)
@@ -71,7 +85,7 @@ namespace Bücherei_Windows_App
 
                                         if (command.ExecuteNonQuery() == 1)
                                         {
-                                            MessageBox.Show("Nutzer erfolgreich angelegt", "DATA WAS UPDATETD");
+                                            MessageBox.Show("Nutzer erfolgreich angelegt", "DATA WAS UPDATED");
                                         }
                                         else
                                         {

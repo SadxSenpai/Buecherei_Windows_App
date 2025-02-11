@@ -6,13 +6,16 @@ namespace Bücherei_Windows_App
 {
     public partial class Itemlist_UC : UserControl
     {
-        // Initialzize of Datatable for Datagrid contents
+        // Initialisierung der Datentabelle für den Inhalt des Datenrasters
+        // Initialization of Datatable for Datagrid contents
         DataTable dtBooks = new DataTable("Books");
 
         public Itemlist_UC() => InitializeComponent();
 
         void exit_label_Click(object sender, EventArgs e)
         {
+            // Entfernen des Steuerelements und Freigabe der Ressourcen
+            // Remove the control and release resources
             Parent.Controls.Remove(this);
             Dispose();
         }
@@ -23,6 +26,8 @@ namespace Bücherei_Windows_App
 
         void StyleDatagridview()
         {
+            // Stil des Datenrasters festlegen
+            // Set the style of the datagrid
             book_list_datagrid.BorderStyle = BorderStyle.None;
             book_list_datagrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             book_list_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -41,16 +46,20 @@ namespace Bücherei_Windows_App
 
         void Booklist_UC_Load(object sender, EventArgs e)
         {
+            // Position des Steuerelements festlegen
+            // Set the position of the control
             Location = new Point(260, 27);
-            
+
             StyleDatagridview();
 
-            // fetch data from local database
+            // Daten aus der lokalen Datenbank abrufen
+            // Fetch data from local database
             using (MySqlConnection con = new MySqlConnection(DBCon.dbConnection))
             {
                 using (MySqlCommand cmd = new MySqlCommand("SELECT item_name, item_type, item_origin, item_id, item_count, item_note FROM main_inventory", con))
 
-                    //TODO Add query to pull return date and add as entry to the grid for easy viewing if item and until it is out of house
+                // TODO: Abfrage hinzufügen, um das Rückgabedatum abzurufen und als Eintrag in das Raster hinzuzufügen, um das Element und bis es aus dem Haus ist, leicht anzuzeigen
+                // TODO: Add query to pull return date and add as entry to the grid for easy viewing if item and until it is out of house
                 {
                     con.Open();
 
@@ -58,7 +67,8 @@ namespace Bücherei_Windows_App
 
                     dtBooks.Load(reader);
 
-                    // Name Collums in Datagrid
+                    // Spalten im Datenraster benennen
+                    // Name columns in datagrid
                     dtBooks.Columns[0].ColumnName = "Name";
                     dtBooks.Columns[1].ColumnName = "Typ";
                     dtBooks.Columns[2].ColumnName = "Hersteller / Author";
@@ -75,6 +85,8 @@ namespace Bücherei_Windows_App
 
         void search_tb_TextChanged(object sender, EventArgs e)
         {
+            // Filter für die Datensicht festlegen
+            // Set filter for the data view
             var dv = dtBooks.DefaultView;
             dv.RowFilter = string.Format("book_name LIKE '%{0}%' OR isbn LIKE '%{0}%'", search_tb.Text);
             book_list_datagrid.DataSource = dv.ToTable();

@@ -6,23 +6,32 @@ namespace Bücherei_Windows_App
 {
     public partial class Itemout_UC : UserControl
     {
-        // Initialzize of Datatable for Datagrid contents
+        // Initialisierung der Datentabelle für den Inhalt des Datenrasters
+        // Initialization of Datatable for Datagrid contents
         DataTable dtItems = new DataTable("out_of_house");
 
         public Itemout_UC()
         {
             InitializeComponent();
         }
+        // Methode zum Behandeln des Klick-Ereignisses des exit_label
+        // Method to handle the click event of the exit_label
         void exit_label_Click(object sender, EventArgs e)
         {
             Parent.Controls.Remove(this);
             Dispose();
         }
 
+        // Methode zum Behandeln des MouseEnter-Ereignisses des exit_label
+        // Method to handle the MouseEnter event of the exit_label
         void exit_label_MouseEnter(object sender, EventArgs e) => exit_label.ForeColor = Color.Red;
 
+        // Methode zum Behandeln des MouseLeave-Ereignisses des exit_label
+        // Method to handle the MouseLeave event of the exit_label
         void exit_label_MouseLeave(object sender, EventArgs e) => exit_label.ForeColor = Color.Black;
 
+        // Methode zum Stylen des Datenrasters
+        // Method to style the datagridview
         void StyleDatagridview()
         {
             Item_list_datagrid.BorderStyle = BorderStyle.None;
@@ -41,13 +50,16 @@ namespace Bücherei_Windows_App
             Item_list_datagrid.AutoResizeColumns();
         }
 
+        // Methode zum Laden des UserControls
+        // Method to load the UserControl
         void Itemout_UC_Load(object sender, EventArgs e)
         {
             Location = new Point(260, 27);
 
             StyleDatagridview();
 
-            // fetch data from local database
+            // Daten aus der lokalen Datenbank abrufen
+            // Fetch data from local database
             using (MySqlConnection con = new MySqlConnection(DBCon.dbConnection))
             {
                 using (MySqlCommand cmd = new MySqlCommand("SELECT item_name, item_type, item_date_out, item_date_in, item_with_who, item_note FROM out_of_house", con))
@@ -58,7 +70,8 @@ namespace Bücherei_Windows_App
 
                     dtItems.Load(reader);
 
-                    // Name Collums in Datagrid
+                    // Spalten im Datenraster benennen
+                    // Name columns in datagrid
                     dtItems.Columns[0].ColumnName = "Name";
                     dtItems.Columns[1].ColumnName = "Typ";
                     dtItems.Columns[2].ColumnName = "Ausgeliehen am:";
@@ -71,8 +84,12 @@ namespace Bücherei_Windows_App
             Item_list_datagrid.DataSource = dtItems;
         }
 
+        // Methode zum Behandeln des Dispose-Ereignisses
+        // Method to handle the dispose event
         void OnDispose(object sender, EventArgs e) => Disposed += OnDispose;
 
+        // Methode zum Behandeln des TextChanged-Ereignisses der Suchleiste
+        // Method to handle the TextChanged event of the search textbox
         void search_tb_TextChanged(object sender, EventArgs e)
         {
             var dv = dtItems.DefaultView;

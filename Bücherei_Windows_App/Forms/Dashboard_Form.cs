@@ -49,47 +49,68 @@ namespace Bücherei_Windows_App.Forms
         void Dashboard_Form_Load(object sender, EventArgs e)
         {
             // Setzt das Dashboard-Formular als Shadow-Form
-            // Sets the dashboard form as a shadow form
             guna2ShadowForm1.SetShadowForm(this);
 
             // Aktiviert den Blur-Effekt
-            // Enables the blur effect
             this.EnableBlur();
             TransparencyKey = Color.LimeGreen;
 
             // Entfernt und bereinigt alle UserControls beim Laden
-            // Removes and cleans up all user controls on load
-            Controls.Remove(itemout_uc1);
-            itemout_uc1.Dispose();
-            itemout_uc1 = null;
+            if (itemout_uc1 != null)
+            {
+                Controls.Remove(itemout_uc1);
+                itemout_uc1.Dispose();
+                itemout_uc1 = null;
+            }
 
-            Controls.Remove(booklist_uc1);
-            booklist_uc1.Dispose();
-            booklist_uc1 = null;
+            if (booklist_uc1 != null)
+            {
+                Controls.Remove(booklist_uc1);
+                booklist_uc1.Dispose();
+                booklist_uc1 = null;
+            }
 
-            Controls.Remove(book_add_uc1);
-            book_add_uc1.Dispose();
-            book_add_uc1 = null;
+            if (book_add_uc1 != null)
+            {
+                Controls.Remove(book_add_uc1);
+                book_add_uc1.Dispose();
+                book_add_uc1 = null;
+            }
 
-            Controls.Remove(book_Out_uc1);
-            book_Out_uc1.Dispose();
-            book_Out_uc1 = null;
+            if (book_Out_uc1 != null)
+            {
+                Controls.Remove(book_Out_uc1);
+                book_Out_uc1.Dispose();
+                book_Out_uc1 = null;
+            }
 
-            Controls.Remove(book_In_uc1);
-            book_In_uc1.Dispose();
-            book_In_uc1 = null;
+            if (book_In_uc1 != null)
+            {
+                Controls.Remove(book_In_uc1);
+                book_In_uc1.Dispose();
+                book_In_uc1 = null;
+            }
 
-            Controls.Remove(userlist_uc1);
-            userlist_uc1.Dispose();
-            userlist_uc1 = null;
+            if (userlist_uc1 != null)
+            {
+                Controls.Remove(userlist_uc1);
+                userlist_uc1.Dispose();
+                userlist_uc1 = null;
+            }
 
-            Controls.Remove(user_Add_uc1);
-            user_Add_uc1.Dispose();
-            user_Add_uc1 = null;
+            if (user_Add_uc1 != null)
+            {
+                Controls.Remove(user_Add_uc1);
+                user_Add_uc1.Dispose();
+                user_Add_uc1 = null;
+            }
 
-            Controls.Remove(book_Del_uc1);
-            book_Del_uc1.Dispose();
-            book_Del_uc1 = null;
+            if (book_Del_uc1 != null)
+            {
+                Controls.Remove(book_Del_uc1);
+                book_Del_uc1.Dispose();
+                book_Del_uc1 = null;
+            }
         }
 
         // Ereignishandler für das Anzeigen des Dashboard-Formulars
@@ -615,75 +636,101 @@ namespace Bücherei_Windows_App.Forms
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
     }
-
+    // Erweiterungsklasse für Fenster
+    // Extension class for windows
     public static class WindowExtension
     {
+        // Importiert die SetWindowCompositionAttribute-Funktion aus der user32.dll
+        // Imports the SetWindowCompositionAttribute function from user32.dll
         [DllImport("user32.dll")]
         static internal extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
 
         // Aktiviert den Blur-Effekt für das Formular
+        // Enables the blur effect for the form
         public static void EnableBlur(this Form @this)
         {
-            // Erstellt eine neue Instanz der AccentPolicy-Struktur
-            var accent = new AccentPolicy();
-            // Setzt den AccentState auf ACCENT_ENABLE_BLURBEHIND, um den Blur-Effekt zu aktivieren
-            accent.AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND;
-            // Bestimmt die Größe der AccentPolicy-Struktur in Bytes
+            // Erstellt eine neue Akzent-Richtlinie mit dem Blur-Effekt
+            // Creates a new accent policy with the blur effect
+            var accent = new AccentPolicy
+            {
+                AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND
+            };
+            // Bestimmt die Größe der Akzent-Richtlinie-Struktur
+            // Determines the size of the accent policy structure
             var accentStructSize = Marshal.SizeOf(accent);
-            // Reserviert einen Block von nicht verwaltetem Speicher der Größe der AccentPolicy-Struktur
+            // Reserviert Speicherplatz für die Akzent-Richtlinie-Struktur
+            // Allocates memory for the accent policy structure
             var accentPtr = Marshal.AllocHGlobal(accentStructSize);
-            // Kopiert die Daten der AccentPolicy-Struktur in den reservierten nicht verwalteten Speicher
+            // Kopiert die Akzent-Richtlinie-Struktur in den reservierten Speicher
+            // Copies the accent policy structure to the allocated memory
             Marshal.StructureToPtr(accent, accentPtr, false);
-            // Erstellt eine neue Instanz der WindowCompositionAttributeData-Struktur
-            var Data = new WindowCompositionAttributeData();
-            // Setzt das Attribut auf WCA_ACCENT_POLICY, um die Akzent-Richtlinie zu ändern
-            Data.Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY;
-            // Setzt die Größe der Daten auf die Größe der AccentPolicy-Struktur
-            Data.SizeOfData = accentStructSize;
-            // Setzt den Datenzeiger auf den reservierten nicht verwalteten Speicher, der die AccentPolicy-Daten enthält
-            Data.Data = accentPtr;
-            // Ruft die SetWindowCompositionAttribute-Funktion auf, um die Fensterkompositionsattribute des Formulars zu ändern
+
+            // Erstellt eine neue Fensterkompositionsattribut-Datenstruktur
+            // Creates a new window composition attribute data structure
+            var Data = new WindowCompositionAttributeData
+            {
+                Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY,
+                SizeOfData = accentStructSize,
+                Data = accentPtr
+            };
+
+            // Setzt das Fensterkompositionsattribut für das Formular
+            // Sets the window composition attribute for the form
             SetWindowCompositionAttribute(@this.Handle, ref Data);
-            // Gibt den reservierten nicht verwalteten Speicher frei, um Speicherlecks zu vermeiden
+            // Gibt den reservierten Speicher wieder frei
+            // Frees the allocated memory
             Marshal.FreeHGlobal(accentPtr);
         }
     }
 
     // Definiert den Zustand des Akzents für die Fenstereffekte
+    // Defines the accent state for window effects
     enum AccentState
     {
         // Aktiviert den Blur-Effekt hinter dem Fenster
+        // Enables the blur effect behind the window
         ACCENT_ENABLE_BLURBEHIND = 3
     }
 
     // Struktur zur Definition der Akzent-Richtlinie für das Fenster
+    // Structure to define the accent policy for the window
     struct AccentPolicy
     {
         // Der Zustand des Akzents (z.B. Blur-Effekt)
+        // The state of the accent (e.g., blur effect)
         public AccentState AccentState;
-        // Flags für zusätzliche Akzentoptionen (nicht verwendet)
-        //public int AccentFlags;
-        // Farbe für den Akzentverlauf (nicht verwendet)
-        //public int GradientColor;
-        // ID für Animationen (nicht verwendet)
-        //public int AnimationId;
+        // Flags für zusätzliche Akzentoptionen
+        // Flags for additional accent options
+        public int AccentFlags;
+        // Farbe für den Akzentverlauf
+        // Color for the accent gradient
+        public int GradientColor;
+        // ID für Animationen
+        // ID for animations
+        public int AnimationId;
     }
 
     // Struktur zur Definition der Fensterkompositionsattribute
+    // Structure to define the window composition attributes
     struct WindowCompositionAttributeData
     {
         // Das Attribut, das geändert werden soll (z.B. Akzent-Richtlinie)
+        // The attribute to be changed (e.g., accent policy)
         public WindowCompositionAttribute Attribute;
         // Zeiger auf die Daten der Akzent-Richtlinie
+        // Pointer to the accent policy data
         public IntPtr Data;
         // Größe der Datenstruktur
+        // Size of the data structure
         public int SizeOfData;
     }
 
     // Definiert die verschiedenen Fensterkompositionsattribute
+    // Defines the various window composition attributes
     enum WindowCompositionAttribute
     {
         // Attribut für die Akzent-Richtlinie
+        // Attribute for the accent policy
         WCA_ACCENT_POLICY = 19
     }
 }

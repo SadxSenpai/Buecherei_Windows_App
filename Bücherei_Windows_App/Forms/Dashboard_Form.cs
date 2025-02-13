@@ -624,6 +624,10 @@ namespace Bücherei_Windows_App.Forms
         // Allows moving the form by dragging the topbar
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
+        //user32.dll ist eine Windows-Bibliothek, die grundlegende Funktionen für die Benutzeroberfläche und die Interaktion mit dem Betriebssystem bereitstellt.
+        //Sie enthält Funktionen zur Fensterverwaltung, Nachrichtenverarbeitung und Benutzereingaben.
+        //Diese Bibliothek ermöglicht es Anwendungen, mit dem Windows-Betriebssystem zu kommunizieren und verschiedene GUI-Operationen durchzuführen.
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 

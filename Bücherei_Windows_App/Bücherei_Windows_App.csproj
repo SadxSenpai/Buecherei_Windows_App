@@ -13,11 +13,59 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net9.0-windows7.0\Bücherei_Windows_App.deps.json" />
+    <Content Include="bin\Debug\net9.0-windows7.0\Bücherei_Windows_App.runtimeconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net7.0-windows\" />
+    <Folder Include="bin\Release\net7.0-windows\" />
     <Folder Include="Classes\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="bin\Debug\net9.0-windows7.0\BouncyCastle.Crypto.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Bücherei_Windows_App.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Bücherei_Windows_App.exe" />
+    <None Include="bin\Debug\net9.0-windows7.0\Bücherei_Windows_App.pdb" />
+    <None Include="bin\Debug\net9.0-windows7.0\comerr64.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\EntityFramework.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\EntityFramework.SqlServer.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Google.Protobuf.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\gssapi64.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Guna.UI2.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Humanizer.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\K4os.Compression.LZ4.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\K4os.Compression.LZ4.Streams.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\K4os.Hash.xxHash.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\k5sprt64.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\krb5_64.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\krbcc64.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.EntityFrameworkCore.Design.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.EntityFrameworkCore.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.Caching.Memory.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.DependencyModel.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\Mono.TextTemplating.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\MySql.Data.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\MySqlConnector.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\runtimes\win-arm64\native\sni.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\runtimes\win-x64\native\sni.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\runtimes\win-x86\native\sni.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\System.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net9.0-windows7.0\ZstdNet.dll" />
   </ItemGroup>
 
   <ItemGroup>

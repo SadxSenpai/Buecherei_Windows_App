@@ -90,7 +90,7 @@
             // 
             // Topbar
             // 
-            Topbar.BackColor = Color.FromArgb(0, 57, 141);
+            Topbar.BackColor = Color.FromArgb(17, 24, 34);
             Topbar.Controls.Add(mini_dash_label);
             Topbar.Controls.Add(exit_dash_label);
             Topbar.Location = new Point(0, 0);
@@ -127,7 +127,7 @@
             // 
             // Bottombar
             // 
-            Bottombar.BackColor = Color.FromArgb(0, 57, 141);
+            Bottombar.BackColor = Color.FromArgb(17, 24, 34);
             Bottombar.Controls.Add(username_label);
             Bottombar.Location = new Point(0, 708);
             Bottombar.Name = "Bottombar";
@@ -136,6 +136,7 @@
             // 
             // username_label
             // 
+            username_label.BackColor = Color.Transparent;
             username_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             username_label.ForeColor = Color.White;
             username_label.Location = new Point(0, 0);
@@ -156,7 +157,7 @@
             // 
             // ausleih_button
             // 
-            ausleih_button.BackColor = Color.FromArgb(0, 57, 141);
+            ausleih_button.BackColor = Color.FromArgb(17, 24, 34);
             ausleih_button.BackgroundImageLayout = ImageLayout.None;
             ausleih_button.Cursor = Cursors.Hand;
             ausleih_button.FlatAppearance.BorderSize = 0;
@@ -177,7 +178,7 @@
             // 
             // rueckgabe_button
             // 
-            rueckgabe_button.BackColor = Color.FromArgb(0, 57, 141);
+            rueckgabe_button.BackColor = Color.FromArgb(17, 24, 34);
             rueckgabe_button.Cursor = Cursors.Hand;
             rueckgabe_button.FlatAppearance.BorderSize = 0;
             rueckgabe_button.FlatStyle = FlatStyle.Flat;
@@ -235,7 +236,7 @@
             // 
             // book_add_new
             // 
-            book_add_new.BackColor = Color.FromArgb(0, 57, 141);
+            book_add_new.BackColor = Color.FromArgb(17, 24, 34);
             book_add_new.Cursor = Cursors.Hand;
             book_add_new.FlatAppearance.BorderSize = 0;
             book_add_new.FlatStyle = FlatStyle.Flat;
@@ -274,7 +275,7 @@
             // 
             // book_delete
             // 
-            book_delete.BackColor = Color.FromArgb(0, 57, 141);
+            book_delete.BackColor = Color.FromArgb(17, 24, 34);
             book_delete.Cursor = Cursors.Hand;
             book_delete.FlatAppearance.BorderSize = 0;
             book_delete.FlatStyle = FlatStyle.Flat;
@@ -294,7 +295,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(156, 59, 59);
+            panel2.BackColor = Color.Maroon;
             panel2.Location = new Point(0, 158);
             panel2.Name = "panel2";
             panel2.Size = new Size(257, 10);
@@ -302,7 +303,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(156, 59, 59);
+            panel3.BackColor = Color.Maroon;
             panel3.Location = new Point(250, 27);
             panel3.Name = "panel3";
             panel3.Size = new Size(10, 682);
@@ -329,7 +330,7 @@
             // 
             // extend_button
             // 
-            extend_button.BackColor = Color.FromArgb(0, 57, 141);
+            extend_button.BackColor = Color.FromArgb(17, 24, 34);
             extend_button.Cursor = Cursors.Hand;
             extend_button.FlatAppearance.BorderSize = 0;
             extend_button.FlatStyle = FlatStyle.Flat;

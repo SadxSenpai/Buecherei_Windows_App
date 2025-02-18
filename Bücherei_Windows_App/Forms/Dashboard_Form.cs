@@ -9,6 +9,28 @@ namespace Bücherei_Windows_App.Forms
         public Dashboard_Form()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.Resize += Dashboard_Form_Resize;
+        }
+
+        private void Dashboard_Form_Resize(object sender, EventArgs e)
+        {
+            // Example of manually resizing and repositioning controls
+            // Adjust the size and position of controls as needed
+            // For example:
+            // button1.Width = this.ClientSize.Width / 2;
+            // button1.Height = this.ClientSize.Height / 10;
+            // button1.Location = new Point(this.ClientSize.Width / 4, this.ClientSize.Height / 2 - button1.Height / 2);
+
+            // Adjust user controls
+            foreach (Control control in this.Controls)
+            {
+                if (control is UserControl)
+                {
+                    control.Width = this.ClientSize.Width - 20; // Example adjustment
+                    control.Height = this.ClientSize.Height - 20; // Example adjustment
+                }
+            }
         }
 
         // Ereignishandler für das Klicken auf das Exit-Label
@@ -54,7 +76,116 @@ namespace Bücherei_Windows_App.Forms
             // Aktiviert den Blur-Effekt
             this.EnableBlur();
             TransparencyKey = Color.LimeGreen;
+            Close_all_UC();
+        }
 
+        // Ereignishandler für das Anzeigen des Dashboard-Formulars
+        // Event handler for showing the dashboard form
+        void Dashboard_Form_Shown(object sender, EventArgs e)
+        {
+            Enabled = false;
+
+            // Zeigt das Login-Formular an
+            // Shows the login form
+            var logf = new Login_Form(this);
+            logf.BringToFront();
+            logf.Show();
+        }
+
+        // Ereignishandler für das Klicken auf die Bücherliste
+        // Event handler for clicking the books list
+        void Books_list_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            booklist_uc1 = new Itemlist_UC();
+            Controls.Add(booklist_uc1);
+            booklist_uc1.BringToFront();
+        }
+
+        // Ereignishandler für das Klicken auf den Ausleih-Button
+        // Event handler for clicking the borrow button
+        void Ausleih_button_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            book_Out_uc1 = new Item_Out_UC();
+            Controls.Add(book_Out_uc1);
+            book_Out_uc1.BringToFront();
+        }
+
+        // Ereignishandler für das Klicken auf den Rückgabe-Button
+        // Event handler for clicking the return button
+        void Rueckgabe_button_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            book_In_uc1 = new Item_In_UC();
+            Controls.Add(book_In_uc1);
+            book_In_uc1.BringToFront();
+
+        }
+
+        // Ereignishandler für das Klicken auf die Benutzerliste
+        // Event handler for clicking the user list
+        void User_list_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            userlist_uc1 = new Userlist_UC();
+            Controls.Add(userlist_uc1);
+            userlist_uc1.BringToFront();
+        }
+
+        // Ereignishandler für das Klicken auf den Button zum Hinzufügen eines neuen Buches
+        // Event handler for clicking the add new book button
+        void book_add_new_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            book_add_uc1 = new Item_add_UC();
+            Controls.Add(book_add_uc1);
+            book_add_uc1.BringToFront();
+        }
+
+        // Ereignishandler für das Klicken auf den Button zum Hinzufügen eines neuen Benutzers
+        // Event handler for clicking the add new user button
+        void new_user_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            user_Add_uc1 = new User_Add_UC();
+            Controls.Add(user_Add_uc1);
+            user_Add_uc1.BringToFront();
+
+
+        }
+
+        // Ereignishandler für das Klicken auf den Button zum Löschen eines Buches
+        // Event handler for clicking the delete book button
+        void book_delete_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            book_Del_uc1 = new Item_Del_UC();
+            Controls.Add(book_Del_uc1);
+            book_Del_uc1.BringToFront();
+
+        }
+
+        // Ereignishandler für das Klicken auf den Button zur Anzeige der ausgeliehenen Artikel
+        // Event handler for clicking the borrowed items list button
+        private void itemout_list_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            itemout_uc1 = new Itemout_UC();
+            Controls.Add(itemout_uc1);
+            itemout_uc1.BringToFront();
+        }
+
+        public void Close_all_UC()
+        {
             // Entfernt und bereinigt alle UserControls beim Laden
             if (itemout_uc1 != null)
             {
@@ -110,499 +241,6 @@ namespace Bücherei_Windows_App.Forms
                 Controls.Remove(book_Del_uc1);
                 book_Del_uc1.Dispose();
                 book_Del_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Anzeigen des Dashboard-Formulars
-        // Event handler for showing the dashboard form
-        void Dashboard_Form_Shown(object sender, EventArgs e)
-        {
-            Enabled = false;
-
-            // Zeigt das Login-Formular an
-            // Shows the login form
-            var logf = new Login_Form(this);
-            logf.BringToFront();
-            logf.Show();
-        }
-
-        // Ereignishandler für das Klicken auf die Bücherliste
-        // Event handler for clicking the books list
-        void Books_list_Click(object sender, EventArgs e)
-        {
-            booklist_uc1 = new Itemlist_UC();
-            Controls.Add(booklist_uc1);
-            booklist_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (book_Out_uc1 != null)
-            {
-                Controls.Remove(book_Out_uc1);
-                book_Out_uc1.Dispose();
-                book_Out_uc1 = null;
-            }
-
-            if (userlist_uc1 != null)
-            {
-                Controls.Remove(userlist_uc1);
-                userlist_uc1.Dispose();
-                userlist_uc1 = null;
-            }
-
-            if (book_In_uc1 != null)
-            {
-                Controls.Remove(book_In_uc1);
-                book_In_uc1.Dispose();
-                book_In_uc1 = null;
-            }
-
-            if (book_add_uc1 != null)
-            {
-                Controls.Remove(book_add_uc1);
-                book_add_uc1.Dispose();
-                book_add_uc1 = null;
-            }
-
-            if (user_Add_uc1 != null)
-            {
-                Controls.Remove(user_Add_uc1);
-                user_Add_uc1.Dispose();
-                user_Add_uc1 = null;
-            }
-
-            if (book_Del_uc1 != null)
-            {
-                Controls.Remove(book_Del_uc1);
-                book_Del_uc1.Dispose();
-                book_Del_uc1 = null;
-            }
-
-            if (itemout_uc1 != null)
-            {
-                Controls.Remove(itemout_uc1);
-                itemout_uc1.Dispose();
-                itemout_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Klicken auf den Ausleih-Button
-        // Event handler for clicking the borrow button
-        void Ausleih_button_Click(object sender, EventArgs e)
-        {
-            book_Out_uc1 = new Item_Out_UC();
-            Controls.Add(book_Out_uc1);
-            book_Out_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (booklist_uc1 != null)
-            {
-                Controls.Remove(booklist_uc1);
-                booklist_uc1.Dispose();
-                booklist_uc1 = null;
-            }
-
-            if (userlist_uc1 != null)
-            {
-                Controls.Remove(userlist_uc1);
-                userlist_uc1.Dispose();
-                userlist_uc1 = null;
-            }
-
-            if (book_In_uc1 != null)
-            {
-                Controls.Remove(book_In_uc1);
-                book_In_uc1.Dispose();
-                book_In_uc1 = null;
-            }
-
-            if (book_add_uc1 != null)
-            {
-                Controls.Remove(book_add_uc1);
-                book_add_uc1.Dispose();
-                book_add_uc1 = null;
-            }
-
-            if (user_Add_uc1 != null)
-            {
-                Controls.Remove(user_Add_uc1);
-                user_Add_uc1.Dispose();
-                user_Add_uc1 = null;
-            }
-
-            if (book_Del_uc1 != null)
-            {
-                Controls.Remove(book_Del_uc1);
-                book_Del_uc1.Dispose();
-                book_Del_uc1 = null;
-            }
-
-            if (itemout_uc1 != null)
-            {
-                Controls.Remove(itemout_uc1);
-                itemout_uc1.Dispose();
-                itemout_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Klicken auf den Rückgabe-Button
-        // Event handler for clicking the return button
-        void Rueckgabe_button_Click(object sender, EventArgs e)
-        {
-            book_In_uc1 = new Item_In_UC();
-            Controls.Add(book_In_uc1);
-            book_In_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (booklist_uc1 != null)
-            {
-                Controls.Remove(booklist_uc1);
-                booklist_uc1.Dispose();
-                booklist_uc1 = null;
-            }
-
-            if (userlist_uc1 != null)
-            {
-                Controls.Remove(userlist_uc1);
-                userlist_uc1.Dispose();
-                userlist_uc1 = null;
-            }
-
-            if (book_Out_uc1 != null)
-            {
-                Controls.Remove(book_Out_uc1);
-                book_Out_uc1.Dispose();
-                book_Out_uc1 = null;
-            }
-
-            if (book_add_uc1 != null)
-            {
-                Controls.Remove(book_add_uc1);
-                book_add_uc1.Dispose();
-                book_add_uc1 = null;
-            }
-
-            if (user_Add_uc1 != null)
-            {
-                Controls.Remove(user_Add_uc1);
-                user_Add_uc1.Dispose();
-                user_Add_uc1 = null;
-            }
-
-            if (book_Del_uc1 != null)
-            {
-                Controls.Remove(book_Del_uc1);
-                book_Del_uc1.Dispose();
-                book_Del_uc1 = null;
-            }
-
-            if (itemout_uc1 != null)
-            {
-                Controls.Remove(itemout_uc1);
-                itemout_uc1.Dispose();
-                itemout_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Klicken auf die Benutzerliste
-        // Event handler for clicking the user list
-        void User_list_Click(object sender, EventArgs e)
-        {
-            userlist_uc1 = new Userlist_UC();
-            Controls.Add(userlist_uc1);
-            userlist_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (booklist_uc1 != null)
-            {
-                Controls.Remove(booklist_uc1);
-                booklist_uc1.Dispose();
-                booklist_uc1 = null;
-            }
-
-            if (book_Out_uc1 != null)
-            {
-                Controls.Remove(book_Out_uc1);
-                book_Out_uc1.Dispose();
-                book_Out_uc1 = null;
-            }
-
-            if (book_In_uc1 != null)
-            {
-                Controls.Remove(book_In_uc1);
-                book_In_uc1.Dispose();
-                book_In_uc1 = null;
-            }
-
-            if (book_add_uc1 != null)
-            {
-                Controls.Remove(book_add_uc1);
-                book_add_uc1.Dispose();
-                book_add_uc1 = null;
-            }
-
-            if (user_Add_uc1 != null)
-            {
-                Controls.Remove(user_Add_uc1);
-                user_Add_uc1.Dispose();
-                user_Add_uc1 = null;
-            }
-
-            if (book_Del_uc1 != null)
-            {
-                Controls.Remove(book_Del_uc1);
-                book_Del_uc1.Dispose();
-                book_Del_uc1 = null;
-            }
-
-            if (itemout_uc1 != null)
-            {
-                Controls.Remove(itemout_uc1);
-                itemout_uc1.Dispose();
-                itemout_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Klicken auf den Button zum Hinzufügen eines neuen Buches
-        // Event handler for clicking the add new book button
-        void book_add_new_Click(object sender, EventArgs e)
-        {
-            book_add_uc1 = new Item_add_UC();
-            Controls.Add(book_add_uc1);
-            book_add_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (booklist_uc1 != null)
-            {
-                Controls.Remove(booklist_uc1);
-                booklist_uc1.Dispose();
-                booklist_uc1 = null;
-            }
-
-            if (book_Out_uc1 != null)
-            {
-                Controls.Remove(book_Out_uc1);
-                book_Out_uc1.Dispose();
-                book_Out_uc1 = null;
-            }
-
-            if (book_In_uc1 != null)
-            {
-                Controls.Remove(book_In_uc1);
-                book_In_uc1.Dispose();
-                book_In_uc1 = null;
-            }
-
-            if (userlist_uc1 != null)
-            {
-                Controls.Remove(userlist_uc1);
-                userlist_uc1.Dispose();
-                userlist_uc1 = null;
-            }
-
-            if (user_Add_uc1 != null)
-            {
-                Controls.Remove(user_Add_uc1);
-                user_Add_uc1.Dispose();
-                user_Add_uc1 = null;
-            }
-
-            if (book_Del_uc1 != null)
-            {
-                Controls.Remove(book_Del_uc1);
-                book_Del_uc1.Dispose();
-                book_Del_uc1 = null;
-            }
-
-            if (itemout_uc1 != null)
-            {
-                Controls.Remove(itemout_uc1);
-                itemout_uc1.Dispose();
-                itemout_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Klicken auf den Button zum Hinzufügen eines neuen Benutzers
-        // Event handler for clicking the add new user button
-        void new_user_Click(object sender, EventArgs e)
-        {
-            user_Add_uc1 = new User_Add_UC();
-            Controls.Add(user_Add_uc1);
-            user_Add_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (booklist_uc1 != null)
-            {
-                Controls.Remove(booklist_uc1);
-                booklist_uc1.Dispose();
-                booklist_uc1 = null;
-            }
-
-            if (book_Out_uc1 != null)
-            {
-                Controls.Remove(book_Out_uc1);
-                book_Out_uc1.Dispose();
-                book_Out_uc1 = null;
-            }
-
-            if (book_In_uc1 != null)
-            {
-                Controls.Remove(book_In_uc1);
-                book_In_uc1.Dispose();
-                book_In_uc1 = null;
-            }
-
-            if (userlist_uc1 != null)
-            {
-                Controls.Remove(userlist_uc1);
-                userlist_uc1.Dispose();
-                userlist_uc1 = null;
-            }
-
-            if (book_add_uc1 != null)
-            {
-                Controls.Remove(book_add_uc1);
-                book_add_uc1.Dispose();
-                book_add_uc1 = null;
-            }
-
-            if (book_Del_uc1 != null)
-            {
-                Controls.Remove(book_Del_uc1);
-                book_Del_uc1.Dispose();
-                book_Del_uc1 = null;
-            }
-
-            if (itemout_uc1 != null)
-            {
-                Controls.Remove(itemout_uc1);
-                itemout_uc1.Dispose();
-                itemout_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Klicken auf den Button zum Löschen eines Buches
-        // Event handler for clicking the delete book button
-        void book_delete_Click(object sender, EventArgs e)
-        {
-            book_Del_uc1 = new Item_Del_UC();
-            Controls.Add(book_Del_uc1);
-            book_Del_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (booklist_uc1 != null)
-            {
-                Controls.Remove(booklist_uc1);
-                booklist_uc1.Dispose();
-                booklist_uc1 = null;
-            }
-
-            if (book_Out_uc1 != null)
-            {
-                Controls.Remove(book_Out_uc1);
-                book_Out_uc1.Dispose();
-                book_Out_uc1 = null;
-            }
-
-            if (book_In_uc1 != null)
-            {
-                Controls.Remove(book_In_uc1);
-                book_In_uc1.Dispose();
-                book_In_uc1 = null;
-            }
-
-            if (userlist_uc1 != null)
-            {
-                Controls.Remove(userlist_uc1);
-                userlist_uc1.Dispose();
-                userlist_uc1 = null;
-            }
-
-            if (book_add_uc1 != null)
-            {
-                Controls.Remove(book_add_uc1);
-                book_add_uc1.Dispose();
-                book_add_uc1 = null;
-            }
-
-            if (user_Add_uc1 != null)
-            {
-                Controls.Remove(user_Add_uc1);
-                user_Add_uc1.Dispose();
-                user_Add_uc1 = null;
-            }
-
-            if (itemout_uc1 != null)
-            {
-                Controls.Remove(itemout_uc1);
-                itemout_uc1.Dispose();
-                itemout_uc1 = null;
-            }
-        }
-
-        // Ereignishandler für das Klicken auf den Button zur Anzeige der ausgeliehenen Artikel
-        // Event handler for clicking the borrowed items list button
-        private void itemout_list_Click(object sender, EventArgs e)
-        {
-            itemout_uc1 = new Itemout_UC();
-            Controls.Add(itemout_uc1);
-            itemout_uc1.BringToFront();
-
-            // Schließt andere UserControls
-            // Closes other user controls
-            if (booklist_uc1 != null)
-            {
-                Controls.Remove(booklist_uc1);
-                booklist_uc1.Dispose();
-                booklist_uc1 = null;
-            }
-
-            if (book_Del_uc1 != null)
-            {
-                Controls.Remove(book_Del_uc1);
-                book_Del_uc1.Dispose();
-                book_Del_uc1 = null;
-            }
-
-            if (book_Out_uc1 != null)
-            {
-                Controls.Remove(book_Out_uc1);
-                book_Out_uc1.Dispose();
-                book_Out_uc1 = null;
-            }
-
-            if (book_In_uc1 != null)
-            {
-                Controls.Remove(book_In_uc1);
-                book_In_uc1.Dispose();
-                book_In_uc1 = null;
-            }
-
-            if (userlist_uc1 != null)
-            {
-                Controls.Remove(userlist_uc1);
-                userlist_uc1.Dispose();
-                userlist_uc1 = null;
-            }
-
-            if (book_add_uc1 != null)
-            {
-                Controls.Remove(book_add_uc1);
-                book_add_uc1.Dispose();
-                book_add_uc1 = null;
-            }
-
-            if (user_Add_uc1 != null)
-            {
-                Controls.Remove(user_Add_uc1);
-                user_Add_uc1.Dispose();
-                user_Add_uc1 = null;
             }
         }
 

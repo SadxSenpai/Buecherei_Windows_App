@@ -196,5 +196,7 @@ namespace Bücherei_Windows_App.Forms
         {
             cattobox.Image = Properties.Resources.Transparent;
         }
+
+
     }
 }

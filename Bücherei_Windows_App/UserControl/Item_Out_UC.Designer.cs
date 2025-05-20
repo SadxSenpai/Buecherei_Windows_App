@@ -45,7 +45,6 @@
             exit_label = new Label();
             label4 = new Label();
             panel1.SuspendLayout();
-            SuspendLayout();
             // 
             // panel1
             // 
@@ -230,22 +229,6 @@
             label4.Size = new Size(176, 32);
             label4.TabIndex = 6;
             label4.Text = "Buch Ausgabe";
-            // 
-            // Book_Out_UC
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            Controls.Add(label4);
-            Controls.Add(exit_label);
-            Controls.Add(panel1);
-            Name = "Book_Out_UC";
-            Size = new Size(404, 681);
-            Load += Book_Out_UC_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

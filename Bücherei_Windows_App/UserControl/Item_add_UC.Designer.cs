@@ -45,7 +45,6 @@
             label4 = new Label();
             item_name_tb = new TextBox();
             panel1.SuspendLayout();
-            SuspendLayout();
             // 
             // panel1
             // 
@@ -214,22 +213,6 @@
             item_name_tb.Name = "item_name_tb";
             item_name_tb.Size = new Size(207, 33);
             item_name_tb.TabIndex = 33;
-            // 
-            // Book_add_UC
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            Controls.Add(label4);
-            Controls.Add(exit_label);
-            Controls.Add(panel1);
-            Name = "Book_add_UC";
-            Size = new Size(404, 681);
-            Load += Book_add_UC_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

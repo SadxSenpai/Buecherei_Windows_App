@@ -186,10 +186,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Contributing
-
-Pull requests are welcome! If you'd like to suggest major features or changes, please [open an issue](https://github.com/your-username/Buecherei_Windows_App/issues) first to discuss.
-
----
-
 > Made with ❤️ in C# and .NET 7

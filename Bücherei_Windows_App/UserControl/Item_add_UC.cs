@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Item_add_UC : UserControl
+    public partial class Item_add_UC : System.Windows.Forms.UserControl
     {
         public Item_add_UC() => InitializeComponent();
 

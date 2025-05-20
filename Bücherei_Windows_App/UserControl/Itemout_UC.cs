@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Itemout_UC : UserControl
+    public partial class Itemout_UC : System.Windows.Forms.UserControl
     {
         // Initialisierung der Datentabelle für den Inhalt des Datenrasters
         // Initialization of Datatable for Datagrid contents

@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Userlist_UC : UserControl
+    public partial class Userlist_UC : System.Windows.Forms.UserControl
     {
         public Userlist_UC() => InitializeComponent();
 

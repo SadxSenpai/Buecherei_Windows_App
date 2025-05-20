@@ -4,7 +4,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Item_Out_UC : UserControl
+    public partial class Item_Out_UC : System.Windows.Forms.UserControl
     {
         public Item_Out_UC()
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Bücherei_Windows_App
 {
-    public partial class User_Add_UC : UserControl
+    public partial class User_Add_UC : System.Windows.Forms.UserControl
     {
         public User_Add_UC() => InitializeComponent();
 

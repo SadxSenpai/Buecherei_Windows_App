@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Bücherei_Windows_App
 {
-    public partial class Dashboard_UC : UserControl
+    public partial class Dashboard_UC : System.Windows.Forms.UserControl
     {
         public Dashboard_UC()
         {

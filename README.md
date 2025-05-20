@@ -1,3 +1,4 @@
 # Buecherei_Windows_App
 
-![LMS-preview](https://user-images.githubusercontent.com/112491941/226916160-15953103-f7c5-4e9c-aba4-8fe0f10ea7e4.png)
+![Screenshot 2025-05-20 112836](https://github.com/user-attachments/assets/d4575199-d851-49d1-8d0f-0403b70aa273)
+

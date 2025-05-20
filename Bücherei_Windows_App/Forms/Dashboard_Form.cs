@@ -25,7 +25,7 @@ namespace Bücherei_Windows_App.Forms
             // Adjust user controls
             foreach (Control control in this.Controls)
             {
-                if (control is UserControl)
+                if (control is System.Windows.Forms.UserControl)
                 {
                     control.Width = this.ClientSize.Width - 20; // Example adjustment
                     control.Height = this.ClientSize.Height - 20; // Example adjustment
@@ -123,6 +123,16 @@ namespace Bücherei_Windows_App.Forms
             book_In_uc1 = new Item_In_UC();
             Controls.Add(book_In_uc1);
             book_In_uc1.BringToFront();
+
+        }
+
+        private void extend_button_Click(object sender, EventArgs e)
+        {
+            Close_all_UC();
+
+            extend_uc1 = new UserControl.Item_Extend_UC();
+            Controls.Add(extend_uc1);
+            extend_uc1.BringToFront();
 
         }
 

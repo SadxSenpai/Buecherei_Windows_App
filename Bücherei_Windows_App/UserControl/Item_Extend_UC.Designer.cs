@@ -202,7 +202,7 @@
             Controls.Add(panel1);
             Name = "Item_Extend_UC";
             Size = new Size(404, 681);
-            Load += Book_In_UC_Load;
+            Load += Item_Extend_UC_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -1,4 +1,6 @@
-﻿namespace Bücherei_Windows_App.Forms
+﻿using Bücherei_Windows_App.UserControl;
+
+namespace Bücherei_Windows_App.Forms
 {
     partial class Dashboard_Form
     {
@@ -346,6 +348,7 @@
             extend_button.Text = "Verlängern";
             extend_button.TextAlign = ContentAlignment.MiddleLeft;
             extend_button.UseVisualStyleBackColor = false;
+            extend_button.Click += extend_button_Click;
             // 
             // panel1
             // 
@@ -428,5 +431,6 @@
         private Dashboard_UC dashboard_uc1;
         private Panel panel1;
         public Label username_label;
+        public Item_Extend_UC extend_uc1;
     }
 }

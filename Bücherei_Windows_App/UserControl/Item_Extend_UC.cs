@@ -1,13 +1,5 @@
 ﻿using Bücherei_Windows_App.The_Database;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Bücherei_Windows_App.UserControl
 {
@@ -37,7 +29,7 @@ namespace Bücherei_Windows_App.UserControl
 
         // Event-Handler für das Laden des UserControls
         // Event handler for loading the UserControl
-        void Book_In_UC_Load(object sender, EventArgs e)
+        void Item_Extend_UC_Load(object sender, EventArgs e)
         {
             // Setzt die Position des UserControls
             // Sets the position of the UserControl

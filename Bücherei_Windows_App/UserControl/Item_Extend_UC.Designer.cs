@@ -30,11 +30,15 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            item_date_new_in_cb = new ComboBox();
+            label10 = new Label();
+            item_date_today_tb = new Label();
+            label8 = new Label();
             label6 = new Label();
-            item_count_tb = new Label();
+            user_name_tb = new Label();
             item_type_tb = new Label();
-            today_date_label = new Label();
-            item_del_why_tb = new TextBox();
+            item_date_out_tb = new Label();
+            item_note_tb = new TextBox();
             label7 = new Label();
             label5 = new Label();
             label2 = new Label();
@@ -42,17 +46,23 @@
             label1 = new Label();
             exit_label = new Label();
             label4 = new Label();
+            book_extend_finish_btn = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(46, 49, 49);
+            panel1.Controls.Add(book_extend_finish_btn);
+            panel1.Controls.Add(item_date_new_in_cb);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(item_date_today_tb);
+            panel1.Controls.Add(label8);
             panel1.Controls.Add(label6);
-            panel1.Controls.Add(item_count_tb);
+            panel1.Controls.Add(user_name_tb);
             panel1.Controls.Add(item_type_tb);
-            panel1.Controls.Add(today_date_label);
-            panel1.Controls.Add(item_del_why_tb);
+            panel1.Controls.Add(item_date_out_tb);
+            panel1.Controls.Add(item_note_tb);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label2);
@@ -63,6 +73,49 @@
             panel1.Size = new Size(398, 643);
             panel1.TabIndex = 0;
             // 
+            // item_date_new_in_cb
+            // 
+            item_date_new_in_cb.DropDownStyle = ComboBoxStyle.DropDownList;
+            item_date_new_in_cb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            item_date_new_in_cb.FormattingEnabled = true;
+            item_date_new_in_cb.Location = new Point(176, 351);
+            item_date_new_in_cb.Name = "item_date_new_in_cb";
+            item_date_new_in_cb.Size = new Size(207, 33);
+            item_date_new_in_cb.TabIndex = 24;
+            // 
+            // label10
+            // 
+            label10.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(3, 333);
+            label10.Name = "label10";
+            label10.Size = new Size(167, 51);
+            label10.TabIndex = 23;
+            label10.Text = "Neues Abgabedatum";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // item_date_today_tb
+            // 
+            item_date_today_tb.BackColor = Color.White;
+            item_date_today_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            item_date_today_tb.ForeColor = Color.Black;
+            item_date_today_tb.Location = new Point(176, 294);
+            item_date_today_tb.Name = "item_date_today_tb";
+            item_date_today_tb.Size = new Size(207, 23);
+            item_date_today_tb.TabIndex = 22;
+            item_date_today_tb.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(3, 294);
+            label8.Name = "label8";
+            label8.Size = new Size(167, 23);
+            label8.TabIndex = 21;
+            label8.Text = "Verlängert am:";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // label6
             // 
             label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
@@ -71,19 +124,19 @@
             label6.Name = "label6";
             label6.Size = new Size(156, 23);
             label6.TabIndex = 20;
-            label6.Text = "menge";
+            label6.Text = "An:";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // item_count_tb
+            // user_name_tb
             // 
-            item_count_tb.BackColor = Color.White;
-            item_count_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            item_count_tb.ForeColor = Color.Black;
-            item_count_tb.Location = new Point(176, 179);
-            item_count_tb.Name = "item_count_tb";
-            item_count_tb.Size = new Size(207, 23);
-            item_count_tb.TabIndex = 19;
-            item_count_tb.TextAlign = ContentAlignment.MiddleCenter;
+            user_name_tb.BackColor = Color.White;
+            user_name_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            user_name_tb.ForeColor = Color.Black;
+            user_name_tb.Location = new Point(176, 179);
+            user_name_tb.Name = "user_name_tb";
+            user_name_tb.Size = new Size(207, 23);
+            user_name_tb.TabIndex = 19;
+            user_name_tb.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // item_type_tb
             // 
@@ -96,24 +149,24 @@
             item_type_tb.TabIndex = 18;
             item_type_tb.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // today_date_label
+            // item_date_out_tb
             // 
-            today_date_label.BackColor = Color.White;
-            today_date_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            today_date_label.ForeColor = Color.Black;
-            today_date_label.Location = new Point(176, 237);
-            today_date_label.Name = "today_date_label";
-            today_date_label.Size = new Size(207, 23);
-            today_date_label.TabIndex = 15;
-            today_date_label.TextAlign = ContentAlignment.MiddleCenter;
+            item_date_out_tb.BackColor = Color.White;
+            item_date_out_tb.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            item_date_out_tb.ForeColor = Color.Black;
+            item_date_out_tb.Location = new Point(176, 237);
+            item_date_out_tb.Name = "item_date_out_tb";
+            item_date_out_tb.Size = new Size(207, 23);
+            item_date_out_tb.TabIndex = 15;
+            item_date_out_tb.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // item_del_why_tb
+            // item_note_tb
             // 
-            item_del_why_tb.Location = new Point(176, 418);
-            item_del_why_tb.Multiline = true;
-            item_del_why_tb.Name = "item_del_why_tb";
-            item_del_why_tb.Size = new Size(207, 96);
-            item_del_why_tb.TabIndex = 14;
+            item_note_tb.Location = new Point(176, 418);
+            item_note_tb.Multiline = true;
+            item_note_tb.Name = "item_note_tb";
+            item_note_tb.Size = new Size(207, 96);
+            item_note_tb.TabIndex = 14;
             // 
             // label7
             // 
@@ -132,9 +185,9 @@
             label5.ForeColor = Color.White;
             label5.Location = new Point(3, 237);
             label5.Name = "label5";
-            label5.Size = new Size(156, 23);
+            label5.Size = new Size(167, 23);
             label5.TabIndex = 9;
-            label5.Text = "Gelöscht am:";
+            label5.Text = "Ausgeliehen Am:";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -157,6 +210,7 @@
             item_name_cb.Name = "item_name_cb";
             item_name_cb.Size = new Size(207, 33);
             item_name_cb.TabIndex = 1;
+            item_name_cb.SelectedIndexChanged += item_name_cb_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -192,6 +246,16 @@
             label4.TabIndex = 6;
             label4.Text = "Buch Verlängern";
             // 
+            // book_extend_finish_btn
+            // 
+            book_extend_finish_btn.Location = new Point(66, 558);
+            book_extend_finish_btn.Name = "book_extend_finish_btn";
+            book_extend_finish_btn.Size = new Size(250, 42);
+            book_extend_finish_btn.TabIndex = 25;
+            book_extend_finish_btn.Text = "Verlängern";
+            book_extend_finish_btn.UseVisualStyleBackColor = true;
+            book_extend_finish_btn.Click += book_extend_finish_btn_Click;
+            // 
             // Item_Extend_UC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -218,11 +282,16 @@
         private Label label5;
         private Label label2;
         private Label label4;
-        private TextBox item_del_why_tb;
+        private TextBox item_note_tb;
         private Label label7;
-        private Label today_date_label;
+        private Label item_date_out_tb;
         private Label item_type_tb;
         private Label label6;
-        private Label item_count_tb;
+        private Label user_name_tb;
+        private Label item_date_today_tb;
+        private Label label8;
+        private Label label10;
+        private ComboBox item_date_new_in_cb;
+        private Button book_extend_finish_btn;
     }
 }

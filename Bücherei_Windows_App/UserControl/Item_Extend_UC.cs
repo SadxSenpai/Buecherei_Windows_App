@@ -35,17 +35,27 @@ namespace Bücherei_Windows_App.UserControl
             // Sets the position of the UserControl
             Location = new Point(260, 27);
 
-            // Holt das aktuelle Datum und die aktuelle Uhrzeit
-            // Gets the current date and time
+            // Aktuelles Datum und Uhrzeit abrufen
+            // Get the current date and time
             var today = DateTime.Now;
 
-            // Formatiert das Datum als String im gewünschten Format
-            // Formats the date as a string in the desired format
+            // Datum in das gewünschte Format umwandeln
+            // Format the date to the desired format
             var todayString = today.ToString("dd/MM/yyyy");
 
-            // Setzt das heutige Datum in das Label
-            // Sets the current date in the label
-            today_date_label.Text = todayString;
+            item_date_today_tb.Text = todayString;
+
+            // ComboBox mit 7, 14 und 21 Tagen ab dem aktuellen Datum füllen
+            // Populate the ComboBox with 7, 14, and 21 days from the current date
+            var inDays7 = today.AddDays(7);
+            var inDays14 = today.AddDays(14);
+            var inDays21 = today.AddDays(21);
+            var inDays7String = inDays7.ToString("dd/MM/yyyy");
+            var inDays14String = inDays14.ToString("dd/MM/yyyy");
+            var inDays21String = inDays21.ToString("dd/MM/yyyy");
+            item_date_new_in_cb.Items.Add(inDays7String);
+            item_date_new_in_cb.Items.Add(inDays14String);
+            item_date_new_in_cb.Items.Add(inDays21String);
 
             // Verbindet sich mit der Datenbank
             // Connects to the database
@@ -55,7 +65,7 @@ namespace Bücherei_Windows_App.UserControl
 
             // Führt eine SQL-Abfrage aus, um die Namen der Artikel zu holen
             // Executes a SQL query to get the item names
-            var cmd = new MySqlCommand("SELECT item_name FROM main_inventory", con);
+            var cmd = new MySqlCommand("SELECT item_name FROM out_of_house", con);
             var reader = cmd.ExecuteReader();
 
             // Fügt die Namen der Artikel in die ComboBox ein
@@ -64,6 +74,72 @@ namespace Bücherei_Windows_App.UserControl
             {
                 var name = reader.GetString("item_name");
                 item_name_cb.Items.Add(name);
+            }
+        }
+        private void item_name_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (item_name_cb.SelectedItem != null) // Check for null before dereferencing
+            {
+                var connString = DBCon.dbConnection;
+                var conn = new MySqlConnection(connString);
+                conn.Open();
+
+                var selectedValue = item_name_cb.SelectedItem.ToString();
+
+                // MySQL SELECT-Abfrage basierend auf dem ausgewählten Artikel ausführen
+                // Execute a MySQL SELECT query based on the selected item
+                var query = "SELECT item_type, item_note, item_date_out, item_with_who FROM out_of_house WHERE item_name = '" + selectedValue + "'";
+                var cmd = new MySqlCommand(query, conn);
+                var reader = cmd.ExecuteReader();
+
+                // Daten aus der ausgewählten Zeile lesen und anzeigen
+                // Read and display the data from the selected row
+                while (reader.Read())
+                {
+                    item_type_tb.Text = reader["item_type"]?.ToString() ?? string.Empty; // Null check
+                    item_note_tb.Text = reader["item_note"]?.ToString() ?? string.Empty; // Null check
+                    item_date_out_tb.Text = reader["item_date_out"]?.ToString() ?? String.Empty; // Null check
+                    user_name_tb.Text = reader["item_with_who"]?.ToString() ?? string.Empty; // Null check
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte wählen Sie einen gültigen Artikel aus der Liste aus.", "Ungültige Auswahl");
+            }
+        }
+
+        private void book_extend_finish_btn_Click(object sender, EventArgs e)
+        {
+            if (item_name_cb.SelectedItem == null || item_date_new_in_cb.SelectedItem == null)
+            {
+                MessageBox.Show("Bitte wählen Sie einen Artikel und ein neues Rückgabedatum aus.", "Fehlende Auswahl");
+                return;
+            }
+
+            var selectedItem = item_name_cb.SelectedItem.ToString();
+            var newDateIn = item_date_new_in_cb.SelectedItem.ToString();
+
+            var connString = DBCon.dbConnection;
+            using (var conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                // Update-Query für das ausgewählte Element
+                var query = "UPDATE out_of_house SET item_date_in = @dateIn WHERE item_name = @itemName";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@dateIn", newDateIn);
+                    cmd.Parameters.AddWithValue("@itemName", selectedItem);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Das Rückgabedatum wurde erfolgreich verlängert.", "Erfolg");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fehler beim Aktualisieren des Datums.", "Fehler");
+                    }
+                }
             }
         }
     }

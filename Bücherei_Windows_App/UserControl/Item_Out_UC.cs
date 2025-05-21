@@ -80,24 +80,31 @@ namespace Bücherei_Windows_App
         // Method called when an item is selected in the ComboBox
         void item_name_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var connString = DBCon.dbConnection;
-            var conn = new MySqlConnection(connString);
-            conn.Open();
-
-            var selectedValue = item_name_cb.SelectedItem.ToString();
-
-            // MySQL SELECT-Abfrage basierend auf dem ausgewählten Artikel ausführen
-            // Execute a MySQL SELECT query based on the selected item
-            var query = "SELECT item_type, item_note FROM main_inventory WHERE item_name = '" + selectedValue + "'";
-            var cmd = new MySqlCommand(query, conn);
-            var reader = cmd.ExecuteReader();
-
-            // Daten aus der ausgewählten Zeile lesen und anzeigen
-            // Read and display the data from the selected row
-            while (reader.Read())
+            if (item_name_cb.SelectedItem != null) // Check for null before dereferencing
             {
-                item_type_tb.Text = reader["item_type"].ToString();
-                item_note_tb.Text = reader["item_note"].ToString();
+                var connString = DBCon.dbConnection;
+                var conn = new MySqlConnection(connString);
+                conn.Open();
+
+                var selectedValue = item_name_cb.SelectedItem.ToString();
+
+                // MySQL SELECT-Abfrage basierend auf dem ausgewählten Artikel ausführen
+                // Execute a MySQL SELECT query based on the selected item
+                var query = "SELECT item_type, item_note FROM main_inventory WHERE item_name = '" + selectedValue + "'";
+                var cmd = new MySqlCommand(query, conn);
+                var reader = cmd.ExecuteReader();
+
+                // Daten aus der ausgewählten Zeile lesen und anzeigen
+                // Read and display the data from the selected row
+                while (reader.Read())
+                {
+                    item_type_tb.Text = reader["item_type"]?.ToString() ?? string.Empty; // Null check
+                    item_note_tb.Text = reader["item_note"]?.ToString() ?? string.Empty; // Null check
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte wählen Sie einen gültigen Artikel aus der Liste aus.", "Ungültige Auswahl");
             }
         }
 
@@ -107,12 +114,12 @@ namespace Bücherei_Windows_App
         {
             // Überprüfen, ob ein Artikel in der ComboBox ausgewählt ist
             // Checking if an item is selected in the ComboBox
-            if (item_name_cb.SelectedIndex != -1 && item_date_in_cb.SelectedIndex != -1 && item_with_who_tb.Text.Length == 0)
+            if (item_name_cb.SelectedIndex != -1 && item_date_in_cb.SelectedIndex != -1 && !string.IsNullOrEmpty(item_with_who_tb.Text))
             {
                 // Ausgewählten Artikel aus der ComboBox abrufen
                 // Retrieving the selected item from the ComboBox
-                var selected_item = item_name_cb.SelectedItem.ToString();
-                var item_date_back = item_date_in_cb.SelectedItem?.ToString();
+                var selected_item = item_name_cb.SelectedItem?.ToString() ?? string.Empty; // Null check
+                var item_date_back = item_date_in_cb.SelectedItem?.ToString() ?? string.Empty; // Null check
                 var itemuser = item_with_who_tb.Text;
 
                 var itemtype = item_type_tb.Text;

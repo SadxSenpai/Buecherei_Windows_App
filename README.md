@@ -182,7 +182,7 @@ Each module is represented as a `UserControl` for encapsulated logic:
 
 ## License
 
-This project is licensed under the [MIT Liecense](#license)
+This project is licensed under the [MIT License](#license)
 
 Copyright (c) [2023] [Marvin Hauser]
 
